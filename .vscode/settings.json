@@ -1,0 +1,11 @@
+{
+    "prettier.requireConfig": true,
+    "eslint.format.enable": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "css.customData": [
+        ".vscode/tailwind.json"
+    ],
+}

@@ -1,0 +1,13 @@
+node_modules
+.next
+build
+dist
+public
+coverage
+node_modules
+pnpm-lock.yaml
+.vscode
+.next
+.vercel
+.env
+.env.local
