@@ -1,3 +1,4 @@
+import MapBox from "@/components/core/map-box";
 import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/ui/typography";
 
@@ -7,6 +8,7 @@ export default function Home() {
       <div className="flex flex-col justify-center gap-8 rounded-xl bg-gray-300 p-6">
         <Typography variant="h1">Welcome to Neighborhood lens</Typography>
         <Button>Explore</Button>
+        <MapBox />
       </div>
     </main>
   );
