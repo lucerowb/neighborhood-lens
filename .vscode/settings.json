@@ -8,4 +8,9 @@
     "css.customData": [
         ".vscode/tailwind.json"
     ],
+    "cSpell.words": [
+        "mapbox",
+        "supabase",
+        "turbopack"
+    ],
 }
