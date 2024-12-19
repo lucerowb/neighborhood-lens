@@ -27,6 +27,18 @@ class DataRepo {
 
     return data;
   }
+
+  async getPropertyDetails(propertyId: string) {
+    const { data } = await this.client.get(`/api/properties/v2/${propertyId}`);
+
+    return data;
+  }
+
+  async getPropertyRiskFactors(propertyId: string) {
+    const { data } = await this.client.get(`/api/properties/v2/${propertyId}/risk_factors`);
+
+    return data;
+  }
 }
 
 export const dr_hook = new DataRepo();

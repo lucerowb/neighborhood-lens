@@ -1,3 +1,4 @@
+import { apiHandler } from "@/helpers/api-handler";
 import { dr_hook } from "@/helpers/data_repo";
 
 export const PROPERTIES_IDS = [
@@ -13,12 +14,7 @@ export const PROPERTIES_IDS = [
   "15e0156eff5c593d423473b0d661918d",
 ];
 
-export async function GET() {
-  try {
-    const properties = await dr_hook.getPropertiesById(PROPERTIES_IDS);
-    return new Response(JSON.stringify(properties));
-  } catch (e) {
-    console.error(e);
-    return new Response(JSON.stringify({ error: e }));
-  }
-}
+export const GET = apiHandler(async () => {
+  const properties = await dr_hook.getPropertiesById(PROPERTIES_IDS);
+  return Response.json(properties);
+});
