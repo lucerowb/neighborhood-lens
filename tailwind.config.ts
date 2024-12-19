@@ -62,6 +62,15 @@ export default {
       height: {
         screen: "100dvh",
       },
+      keyframes: {
+        scroll: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+      },
+      animation: {
+        scroll: "scroll 10s linear infinite",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
