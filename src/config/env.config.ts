@@ -9,10 +9,15 @@ const supabase = {
   anonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
 };
 
+const db = {
+  url: process.env.DATABASE_URL,
+};
+
 const env = {
   nodeEnvironment: process.env.NEXT_PUBLIC_NODE_ENVIRONMENT,
   mapbox,
   supabase,
+  db,
 };
 
 export const isProd = env.nodeEnvironment === NodeEnvEnum.PROD;
