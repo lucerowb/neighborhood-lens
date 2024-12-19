@@ -1,7 +1,10 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";
+
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import { Geist, Geist_Mono } from "next/font/google";
+
+import { AppContextProvider } from "@/hooks/useApp";
 import { cn } from "@/lib/utils";
 
 const geistSans = Geist({
@@ -14,12 +17,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const TailwindIndicator = dynamic(
-  () => import("@/components/helper/tailwind-indicator"),
-);
-const ThemeProvider = dynamic(
-  () => import("@/components/helper/theme-provider"),
-);
+const TailwindIndicator = dynamic(() => import("@/components/helper/tailwind-indicator"));
+const ThemeProvider = dynamic(() => import("@/components/helper/theme-provider"));
 
 export const metadata: Metadata = {
   title: "Neighborhood lens",
@@ -34,20 +33,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={cn(
-          `${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen w-full`,
-        )}
+        className={cn(`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen w-full`)}
         suppressHydrationWarning
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-          <TailwindIndicator />
-        </ThemeProvider>
+        <AppContextProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            {children}
+            <TailwindIndicator />
+          </ThemeProvider>
+        </AppContextProvider>
       </body>
     </html>
   );
