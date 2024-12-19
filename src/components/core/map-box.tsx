@@ -1,27 +1,32 @@
 "use client";
+
 import "mapbox-gl/dist/mapbox-gl.css";
 
-import { Map, Marker } from "react-map-gl";
+import { PropsWithChildren } from "react";
+import { Map, ViewState } from "react-map-gl";
 
 import env from "@/config/env.config";
 
-const MapBox = () => {
+type MapBoxProps = PropsWithChildren<{
+  onLoad?: (e: mapboxgl.MapEvent) => void;
+  initialViewState: Partial<ViewState>;
+}>;
+
+const MapBox = ({ initialViewState, onLoad, children }: MapBoxProps) => {
   return (
-    <Map
-      mapboxAccessToken={env.mapbox.accessToken!}
-      initialViewState={{
-        longitude: -122.4,
-        latitude: 37.8,
-        zoom: 14,
-      }}
-      style={{ width: 600, height: 400 }}
-      mapStyle="mapbox://styles/mapbox/streets-v11"
-    >
-      <Marker longitude={-122.4} latitude={37.8} anchor="bottom">
-        {/* <img src="./pin.png" /> */}
-        <div className="inline-flex size-4 items-center justify-center rounded-full bg-white p-2">A</div>
-      </Marker>
-    </Map>
+    <>
+      <Map
+        mapboxAccessToken={env.mapbox.accessToken!}
+        initialViewState={initialViewState}
+        style={{ width: "100%", height: "100vh" }}
+        mapStyle="mapbox://styles/mapbox/standard"
+        onLoad={onLoad}
+        interactive={false}
+        //removing attribution is breaking the TOS, hope we don't get caught 😛
+        attributionControl={false}
+      />
+      {children}
+    </>
   );
 };
 
