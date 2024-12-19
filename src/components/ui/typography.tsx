@@ -1,6 +1,6 @@
-import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -11,8 +11,7 @@ const defClassName = "font-sans text-text-primary";
 const typographyVariants = cva(defClassName, {
   variants: {
     variant: {
-      heroTitle:
-        "text-5xl font-extrabold leading-[3.5rem] tracking-[-0.075rem]",
+      heroTitle: "text-5xl font-extrabold leading-[3.5rem] tracking-[-0.075rem]",
       displayText:
         "text-4xl font-bold leading-10 tracking-[-0.036rem] lg:text-[2.5rem] lg:font-bold lg:leading-[3rem] lg:tracking-[-0.05rem]",
       h1: "text-3xl font-bold not-italic leading-9 tracking-[-0.01406rem] md:text-4xl md:font-bold md:leading-10 md:tracking-[-0.036rem]",
@@ -20,14 +19,11 @@ const typographyVariants = cva(defClassName, {
       h3: "text-xl font-semibold not-italic leading-7 tracking-[-0.00625rem] md:text-2xl md:leading-8 md:tracking-[-0.009rem]",
       h4: "text-lg font-semibold not-italic leading-7 tracking-[-0.00345rem] md:text-xl md:leading-7 md:tracking-[-0.00625rem]",
       h5: "text-base font-semibold not-italic leading-6 md:text-lg md:leading-7 md:tracking-[-0.00345rem]",
-      header:
-        "text-xl font-medium not-italic leading-7 md:text-2xl md:leading-8",
+      header: "text-xl font-medium not-italic leading-7 md:text-2xl md:leading-8",
       subheadingRegular: "text-lg font-normal not-italic leading-7 md:text-xl",
       subheadingMedium: "text-lg font-medium not-italic leading-7 md:text-xl",
-      titleRegular:
-        "text-base font-normal not-italic leading-6 md:text-lg md:leading-7",
-      titleMedium:
-        "text-base font-medium not-italic leading-6 md:text-lg md:leading-7",
+      titleRegular: "text-base font-normal not-italic leading-6 md:text-lg md:leading-7",
+      titleMedium: "text-base font-medium not-italic leading-6 md:text-lg md:leading-7",
       p: "text-base font-normal not-italic leading-6",
       pMedium: "text-base font-medium not-italic leading-6",
       pSemibold: "text-base font-semibold not-italic leading-6",
@@ -71,9 +67,7 @@ export interface TypographyProps
   loading?: boolean;
 }
 
-const getComponent = (
-  variant: VariantProps<typeof typographyVariants>["variant"],
-) => {
+const getComponent = (variant: VariantProps<typeof typographyVariants>["variant"]) => {
   switch (variant) {
     case "h1":
       return "h1";
@@ -89,9 +83,7 @@ const getComponent = (
       return "p";
   }
 };
-const getSkeletonSize = (
-  variant: VariantProps<typeof typographyVariants>["variant"],
-) => {
+const getSkeletonSize = (variant: VariantProps<typeof typographyVariants>["variant"]) => {
   switch (variant) {
     case "h1":
       return "h-10";
@@ -110,21 +102,10 @@ const getSkeletonSize = (
 
 const Typography = React.forwardRef<TypographyElement, TypographyProps>(
   ({ className, variant, asChild = false, loading = false, ...props }, ref) => {
-    if (loading)
-      return (
-        <Skeleton
-          className={cn("my-0.5 w-full", getSkeletonSize(variant), className)}
-        />
-      );
+    if (loading) return <Skeleton className={cn("my-0.5 w-full", getSkeletonSize(variant), className)} />;
     const Comp = asChild ? Slot : getComponent(variant);
-    return (
-      <Comp
-        className={cn(typographyVariants({ variant, className }))}
-        ref={ref}
-        {...props}
-      />
-    );
-  },
+    return <Comp className={cn(typographyVariants({ variant, className }))} ref={ref} {...props} />;
+  }
 );
 Typography.displayName = "Typography";
 
