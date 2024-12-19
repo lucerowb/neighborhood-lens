@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { SubmitHandler } from "react-hook-form";
 
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -17,11 +18,13 @@ type UserInfoFormProps = {
 
 const UserInfoForm = ({ className }: UserInfoFormProps) => {
   const { userInfoForm } = useAppContext();
+  const router = useRouter();
 
   const selectedGender = userInfoForm.watch("gender");
 
   const onSubmit: SubmitHandler<UserInfoFormType> = (data) => {
     console.log(data);
+    router.push("/tour");
   };
 
   return (
