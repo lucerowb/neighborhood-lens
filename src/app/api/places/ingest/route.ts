@@ -26,6 +26,7 @@ function createPlace(placeInfo: PlaceInfo, feature: Feature): InsertPlace {
     rating: placeInfo.rating,
     photos: placeInfo.photos,
     address: placeInfo.location.address,
+    features: placeInfo.features,
   };
 }
 
@@ -42,14 +43,13 @@ async function getNearByPlaces(feature: any): Promise<InsertPlace[]> {
         ll: `${lat},${lon}`,
         radius: 100000,
         sort: "distance",
-        fields: "fsq_id,name,categories,location,distance,rating,photos,geocodes",
+        fields: "fsq_id,name,categories,location,distance,rating,photos,geocodes,features",
         categories:
           "13032,18021,11128,12080,13022,10032,13054,18028,13059,17020,17114,10004,13065,13019,18025,16032,13002,10027,16019,13027,13025,16005,10024,13046,16037,10056,12004,13018",
         limit: 50,
       },
     });
     const responseData = response.data.results;
-
     return responseData
       .filter(checkCoordinatesAndCategory)
       .map((responseDataResult: any) => createPlace(responseDataResult, feature));

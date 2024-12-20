@@ -1,0 +1,1 @@
+ALTER TABLE "neighborhood_lens_places" ADD COLUMN "features" jsonb;
