@@ -2,12 +2,13 @@ import { getPropertyDetail } from "@/api/properties.api";
 import PropertyDetail from "@/components/properties/property-detail";
 
 type PropertyDetailPageProps = {
-  params: {
+  params: Promise<{
     propertyId: string;
-  };
+  }>;
 };
 
-const PropertyDetailPage = async ({ params: { propertyId } }: PropertyDetailPageProps) => {
+const PropertyDetailPage = async ({ params }: PropertyDetailPageProps) => {
+  const propertyId = (await params).propertyId;
   const propertyResponse = await getPropertyDetail(propertyId);
   return (
     <main className="flex min-h-screen">

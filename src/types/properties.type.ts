@@ -3,6 +3,17 @@ type PropertyFeatureGeometry = {
   coordinates: [-80.289991, 25.9262811];
 };
 
+type LocalStats = {
+  id: number;
+  property_id: string;
+  minResponseCount: number;
+  stats: {
+    label: string;
+    score: number;
+    identifier: string;
+  }[];
+};
+
 export type PropertyPhoto = {
   MediaURL: string;
   ShortDescription?: string;
@@ -182,6 +193,7 @@ export type PropertyFeatures = {
   type: "Feature";
   geometry: PropertyFeatureGeometry;
   properties: Property;
+  localStats?: LocalStats;
 };
 
 export type PropertiesResponse = {
