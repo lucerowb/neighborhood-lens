@@ -12,8 +12,8 @@ import Cat5 from "@/assets/img/cat/cat-5.png";
 import Cat6 from "@/assets/img/cat/cat-6.png";
 import Cat7 from "@/assets/img/cat/cat-7.png";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 
+import ChatBubbleCard from "./common/chat-bubble-card";
 import { Typography } from "./ui/typography";
 
 const getCatImage = (index: number) => {
@@ -140,10 +140,7 @@ export default function CatChatWidget() {
             exit={{ opacity: 0, y: 10 }}
             className="mb-4"
           >
-            <Card className="relative max-w-[300px] rounded-xl bg-gradient-to-b from-[#E2EBF3] to-[#F8FAFC] p-4 transition-all duration-1000">
-              <div className="absolute bottom-0 right-[40px] translate-y-[100%] transform">
-                <div className="h-4 w-4 -translate-y-2 rotate-45 transform border-b border-r bg-[#F8FAFC]" />
-              </div>
+            <ChatBubbleCard>
               <div className="space-y-4">
                 <AnimatePresence mode="wait">
                   {catReply ? (
@@ -185,7 +182,7 @@ export default function CatChatWidget() {
                   )}
                 </AnimatePresence>
               </div>
-            </Card>
+            </ChatBubbleCard>
           </motion.div>
         )}
       </AnimatePresence>
