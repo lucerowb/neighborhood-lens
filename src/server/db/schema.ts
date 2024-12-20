@@ -1,5 +1,7 @@
 import { decimal, integer, jsonb, pgTable, pgTableCreator, point, varchar } from "drizzle-orm/pg-core";
 
+import { TruliaReviewStats } from "../scripts/trulia-ingest";
+
 export const createTable = pgTableCreator((name) => `neighborhood_lens_${name}`);
 
 export const places = pgTable("neighborhood_lens_places", {
@@ -17,3 +19,12 @@ export const places = pgTable("neighborhood_lens_places", {
 });
 
 export type InsertPlace = typeof places.$inferInsert;
+
+export const localReviews = createTable("local_reviews", {
+  id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  property_id: varchar({ length: 255 }).notNull().unique(),
+  minResponseCount: integer().notNull().default(0),
+  stats: jsonb().array().notNull().$type<TruliaReviewStats[]>(),
+});
+
+export type InsertLocalReview = typeof localReviews.$inferInsert;
