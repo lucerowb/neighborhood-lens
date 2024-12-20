@@ -1,0 +1,1102 @@
+[
+  {
+    "property_id": "052543df0005553a8f25cc503adbd89f",
+    "slug": "16820-nw-54th-ct-opa-locka-fl-33055-44102497",
+    "localUGC": {
+      "title": "What Locals Say about Red Road Manor",
+      "stats": {
+        "attributes": [
+          {
+            "type": "NeedACar",
+            "name": "Car is needed",
+            "score": 83,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WellKeptYards",
+            "name": "Yards are well-kept",
+            "score": 79,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "DogFriendly",
+            "name": "It's dog friendly",
+            "score": 77,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Sidewalks",
+            "name": "There are sidewalks",
+            "score": 76,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "HolidaySpirit",
+            "name": "There's holiday spirit",
+            "score": 74,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "EasyParking",
+            "name": "Parking is easy",
+            "score": 70,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Quiet",
+            "name": "It's quiet",
+            "score": 59,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "FriendlyNeighbors",
+            "name": "Neighbors are friendly",
+            "score": 41,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToGroceries",
+            "name": "It's walkable to grocery stores",
+            "score": 40,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WellLitStreets",
+            "name": "Streets are well-lit",
+            "score": 40,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "LongTermResidents",
+            "name": "They plan to stay for at least 5 years",
+            "score": 38,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "PeopleWouldWalkAloneAtNight",
+            "name": "People would walk alone at night",
+            "score": 37,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToRestaurants",
+            "name": "It's walkable to restaurants",
+            "score": 35,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Wildlife",
+            "name": "There's wildlife",
+            "score": 30,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "KidsPlayOutside",
+            "name": "Kids play outside",
+            "score": 29,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "CommunityEvents",
+            "name": "There are community events",
+            "score": 22,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          }
+        ],
+        "minimumResponseCount": 16,
+        "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttributes"
+      }
+    }
+  },
+  {
+    "property_id": "1095253908",
+    "slug": "1901-n-ocean-blvd-7e-fort-lauderdale-fl-33305-43124762",
+    "localUGC": {
+      "title": "What Locals Say about Central Beach Alliance",
+      "stats": {
+        "attributes": [
+          {
+            "type": "WellKeptYards",
+            "name": "Yards are well-kept",
+            "score": 90,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "NeedACar",
+            "name": "Car is needed",
+            "score": 90,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "DogFriendly",
+            "name": "It's dog friendly",
+            "score": 86,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "EasyParking",
+            "name": "Parking is easy",
+            "score": 82,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "HolidaySpirit",
+            "name": "There's holiday spirit",
+            "score": 70,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToGroceries",
+            "name": "It's walkable to grocery stores",
+            "score": 70,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "PeopleWouldWalkAloneAtNight",
+            "name": "People would walk alone at night",
+            "score": 63,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToRestaurants",
+            "name": "It's walkable to restaurants",
+            "score": 55,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Wildlife",
+            "name": "There's wildlife",
+            "score": 50,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Quiet",
+            "name": "It's quiet",
+            "score": 50,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "LongTermResidents",
+            "name": "They plan to stay for at least 5 years",
+            "score": 50,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "FriendlyNeighbors",
+            "name": "Neighbors are friendly",
+            "score": 42,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Sidewalks",
+            "name": "There are sidewalks",
+            "score": 33,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WellLitStreets",
+            "name": "Streets are well-lit",
+            "score": 33,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "CommunityEvents",
+            "name": "There are community events",
+            "score": 29,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "KidsPlayOutside",
+            "name": "Kids play outside",
+            "score": 17,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          }
+        ],
+        "minimumResponseCount": 6,
+        "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttributes"
+      },
+      "__typename": "SURROUNDINGS_LocalUGC"
+    }
+  },
+  {
+    "property_id": "15e0156eff5c593d423473b0d661918d",
+    "slug": "8351-nw-25th-st-sunrise-fl-33322-43020924",
+    "localUGC": {
+      "title": "What Locals Say about Central Beach Alliance",
+      "stats": {
+        "attributes": [
+          {
+            "type": "WellKeptYards",
+            "name": "Yards are well-kept",
+            "score": 90,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "NeedACar",
+            "name": "Car is needed",
+            "score": 90,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "DogFriendly",
+            "name": "It's dog friendly",
+            "score": 86,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "EasyParking",
+            "name": "Parking is easy",
+            "score": 82,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "HolidaySpirit",
+            "name": "There's holiday spirit",
+            "score": 70,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToGroceries",
+            "name": "It's walkable to grocery stores",
+            "score": 70,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "PeopleWouldWalkAloneAtNight",
+            "name": "People would walk alone at night",
+            "score": 63,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToRestaurants",
+            "name": "It's walkable to restaurants",
+            "score": 55,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Wildlife",
+            "name": "There's wildlife",
+            "score": 50,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Quiet",
+            "name": "It's quiet",
+            "score": 50,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "LongTermResidents",
+            "name": "They plan to stay for at least 5 years",
+            "score": 50,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "FriendlyNeighbors",
+            "name": "Neighbors are friendly",
+            "score": 42,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Sidewalks",
+            "name": "There are sidewalks",
+            "score": 33,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WellLitStreets",
+            "name": "Streets are well-lit",
+            "score": 33,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "CommunityEvents",
+            "name": "There are community events",
+            "score": 29,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "KidsPlayOutside",
+            "name": "Kids play outside",
+            "score": 17,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          }
+        ],
+        "minimumResponseCount": 6,
+        "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttributes"
+      },
+      "__typename": "SURROUNDINGS_LocalUGC"
+    }
+  },
+  {
+    "property_id": "39a05f577077f2f45fffbddfca4318c0",
+    "slug": "7400-Sabal-Dr-Miami-Lakes-Miami-Dade-County-FL-33014",
+    "localUGC": {
+      "title": "What Locals Say about Miami Lakes",
+      "stats": {
+        "attributes": [
+          {
+            "type": "Sidewalks",
+            "name": "There are sidewalks",
+            "score": 91,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "DogFriendly",
+            "name": "It's dog friendly",
+            "score": 89,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "EasyParking",
+            "name": "Parking is easy",
+            "score": 79,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "HolidaySpirit",
+            "name": "There's holiday spirit",
+            "score": 79,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Quiet",
+            "name": "It's quiet",
+            "score": 73,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WellLitStreets",
+            "name": "Streets are well-lit",
+            "score": 73,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "PeopleWouldWalkAloneAtNight",
+            "name": "People would walk alone at night",
+            "score": 72,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "NeedACar",
+            "name": "Car is needed",
+            "score": 71,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToGroceries",
+            "name": "It's walkable to grocery stores",
+            "score": 71,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "LongTermResidents",
+            "name": "They plan to stay for at least 5 years",
+            "score": 69,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToRestaurants",
+            "name": "It's walkable to restaurants",
+            "score": 68,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WellKeptYards",
+            "name": "Yards are well-kept",
+            "score": 67,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "KidsPlayOutside",
+            "name": "Kids play outside",
+            "score": 63,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "FriendlyNeighbors",
+            "name": "Neighbors are friendly",
+            "score": 49,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "CommunityEvents",
+            "name": "There are community events",
+            "score": 41,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Wildlife",
+            "name": "There's wildlife",
+            "score": 36,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          }
+        ],
+        "minimumResponseCount": 382,
+        "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttributes"
+      },
+      "__typename": "SURROUNDINGS_LocalUGC"
+    }
+  },
+  {
+    "property_id": "5faa65b3ae34c6615f5420f2522656e4",
+    "slug": "222-SW-2Nd-St-Florida-City-Miami-Dade-County-FL-33034",
+    "localUGC": {
+      "title": "What Locals Say about Florida City",
+      "stats": {
+        "attributes": [
+          {
+            "type": "NeedACar",
+            "name": "Car is needed",
+            "score": 80,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "EasyParking",
+            "name": "Parking is easy",
+            "score": 72,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Sidewalks",
+            "name": "There are sidewalks",
+            "score": 71,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WellKeptYards",
+            "name": "Yards are well-kept",
+            "score": 68,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "DogFriendly",
+            "name": "It's dog friendly",
+            "score": 67,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "KidsPlayOutside",
+            "name": "Kids play outside",
+            "score": 66,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "HolidaySpirit",
+            "name": "There's holiday spirit",
+            "score": 66,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Quiet",
+            "name": "It's quiet",
+            "score": 55,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WellLitStreets",
+            "name": "Streets are well-lit",
+            "score": 46,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "LongTermResidents",
+            "name": "They plan to stay for at least 5 years",
+            "score": 42,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "FriendlyNeighbors",
+            "name": "Neighbors are friendly",
+            "score": 41,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToRestaurants",
+            "name": "It's walkable to restaurants",
+            "score": 40,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToGroceries",
+            "name": "It's walkable to grocery stores",
+            "score": 40,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Wildlife",
+            "name": "There's wildlife",
+            "score": 39,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "PeopleWouldWalkAloneAtNight",
+            "name": "People would walk alone at night",
+            "score": 35,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "CommunityEvents",
+            "name": "There are community events",
+            "score": 27,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          }
+        ],
+        "minimumResponseCount": 130,
+        "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttributes"
+      },
+      "__typename": "SURROUNDINGS_LocalUGC"
+    }
+  },
+  {
+    "property_id": "7a96fe68738d9408d63582e962fbc062",
+    "slug": "10201-SW-16Th-Pl-Davie-Broward-County-FL-33324",
+    "localUGC": {
+      "title": "What Locals Say about Park City",
+      "stats": {
+        "attributes": [
+          {
+            "type": "DogFriendly",
+            "name": "It's dog friendly",
+            "score": 89,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "HolidaySpirit",
+            "name": "There's holiday spirit",
+            "score": 82,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "EasyParking",
+            "name": "Parking is easy",
+            "score": 81,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "NeedACar",
+            "name": "Car is needed",
+            "score": 77,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToRestaurants",
+            "name": "It's walkable to restaurants",
+            "score": 76,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToGroceries",
+            "name": "It's walkable to grocery stores",
+            "score": 71,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WellLitStreets",
+            "name": "Streets are well-lit",
+            "score": 68,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Sidewalks",
+            "name": "There are sidewalks",
+            "score": 68,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Quiet",
+            "name": "It's quiet",
+            "score": 60,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "PeopleWouldWalkAloneAtNight",
+            "name": "People would walk alone at night",
+            "score": 56,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WellKeptYards",
+            "name": "Yards are well-kept",
+            "score": 50,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "KidsPlayOutside",
+            "name": "Kids play outside",
+            "score": 48,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "FriendlyNeighbors",
+            "name": "Neighbors are friendly",
+            "score": 46,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Wildlife",
+            "name": "There's wildlife",
+            "score": 32,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "LongTermResidents",
+            "name": "They plan to stay for at least 5 years",
+            "score": 26,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "CommunityEvents",
+            "name": "There are community events",
+            "score": 22,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          }
+        ],
+        "minimumResponseCount": 14,
+        "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttributes"
+      },
+      "__typename": "SURROUNDINGS_LocalUGC"
+    }
+  },
+  {
+    "property_id": "7f9487edad7d0f3f1d1b0d6e65f5375e",
+    "slug": "1535-meridian-ave-7-miami-beach-fl-33139-43900368",
+    "localUGC": {
+      "title": "What Locals Say about Flamingo Lummus",
+      "stats": {
+        "attributes": [
+          {
+            "type": "DogFriendly",
+            "name": "It's dog friendly",
+            "score": 83,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToRestaurants",
+            "name": "It's walkable to restaurants",
+            "score": 83,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Sidewalks",
+            "name": "There are sidewalks",
+            "score": 81,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToGroceries",
+            "name": "It's walkable to grocery stores",
+            "score": 80,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "PeopleWouldWalkAloneAtNight",
+            "name": "People would walk alone at night",
+            "score": 75,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WellLitStreets",
+            "name": "Streets are well-lit",
+            "score": 67,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Quiet",
+            "name": "It's quiet",
+            "score": 54,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "LongTermResidents",
+            "name": "They plan to stay for at least 5 years",
+            "score": 51,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "HolidaySpirit",
+            "name": "There's holiday spirit",
+            "score": 49,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WellKeptYards",
+            "name": "Yards are well-kept",
+            "score": 44,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "FriendlyNeighbors",
+            "name": "Neighbors are friendly",
+            "score": 40,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "EasyParking",
+            "name": "Parking is easy",
+            "score": 36,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "NeedACar",
+            "name": "Car is needed",
+            "score": 35,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "KidsPlayOutside",
+            "name": "Kids play outside",
+            "score": 35,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Wildlife",
+            "name": "There's wildlife",
+            "score": 33,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "CommunityEvents",
+            "name": "There are community events",
+            "score": 27,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          }
+        ],
+        "minimumResponseCount": 445,
+        "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttributes"
+      },
+      "__typename": "SURROUNDINGS_LocalUGC"
+    }
+  },
+  {
+    "property_id": "d7b0b45b40ea8746b68dfdf982ed36fa",
+    "slug": "1807-Victoria-Pointe-Cir-Weston-Broward-County-FL-33327",
+    "localUGC": {
+      "title": "What Locals Say about Weston Hills",
+      "stats": {
+        "attributes": [
+          {
+            "type": "Sidewalks",
+            "name": "There are sidewalks",
+            "score": 93,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WellLitStreets",
+            "name": "Streets are well-lit",
+            "score": 91,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "NeedACar",
+            "name": "Car is needed",
+            "score": 89,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "PeopleWouldWalkAloneAtNight",
+            "name": "People would walk alone at night",
+            "score": 88,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "EasyParking",
+            "name": "Parking is easy",
+            "score": 88,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "DogFriendly",
+            "name": "It's dog friendly",
+            "score": 86,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Quiet",
+            "name": "It's quiet",
+            "score": 85,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WellKeptYards",
+            "name": "Yards are well-kept",
+            "score": 76,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "KidsPlayOutside",
+            "name": "Kids play outside",
+            "score": 74,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "HolidaySpirit",
+            "name": "There's holiday spirit",
+            "score": 74,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "LongTermResidents",
+            "name": "They plan to stay for at least 5 years",
+            "score": 64,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "FriendlyNeighbors",
+            "name": "Neighbors are friendly",
+            "score": 63,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Wildlife",
+            "name": "There's wildlife",
+            "score": 50,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "CommunityEvents",
+            "name": "There are community events",
+            "score": 44,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToRestaurants",
+            "name": "It's walkable to restaurants",
+            "score": 33,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToGroceries",
+            "name": "It's walkable to grocery stores",
+            "score": 30,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          }
+        ],
+        "minimumResponseCount": 37,
+        "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttributes"
+      },
+      "__typename": "SURROUNDINGS_LocalUGC"
+    }
+  },
+  {
+    "property_id": "dbc74ffe0223d31fa189df377ab7e58c",
+    "slug": "2527-Fillmore-St-Hollywood-Broward-County-FL-33020",
+    "localUGC": {
+      "title": "What Locals Say about North Central",
+      "stats": {
+        "attributes": [
+          {
+            "type": "NeedACar",
+            "name": "Car is needed",
+            "score": 78,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "DogFriendly",
+            "name": "It's dog friendly",
+            "score": 76,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WellKeptYards",
+            "name": "Yards are well-kept",
+            "score": 75,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "HolidaySpirit",
+            "name": "There's holiday spirit",
+            "score": 71,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "EasyParking",
+            "name": "Parking is easy",
+            "score": 69,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Sidewalks",
+            "name": "There are sidewalks",
+            "score": 68,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToGroceries",
+            "name": "It's walkable to grocery stores",
+            "score": 61,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Quiet",
+            "name": "It's quiet",
+            "score": 51,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WellLitStreets",
+            "name": "Streets are well-lit",
+            "score": 51,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "PeopleWouldWalkAloneAtNight",
+            "name": "People would walk alone at night",
+            "score": 50,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToRestaurants",
+            "name": "It's walkable to restaurants",
+            "score": 47,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "LongTermResidents",
+            "name": "They plan to stay for at least 5 years",
+            "score": 44,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "FriendlyNeighbors",
+            "name": "Neighbors are friendly",
+            "score": 41,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "KidsPlayOutside",
+            "name": "Kids play outside",
+            "score": 37,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Wildlife",
+            "name": "There's wildlife",
+            "score": 34,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "CommunityEvents",
+            "name": "There are community events",
+            "score": 21,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          }
+        ],
+        "minimumResponseCount": 129,
+        "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttributes"
+      },
+
+      "__typename": "SURROUNDINGS_LocalUGC"
+    }
+  },
+  {
+    "property_id": "e5d14b3cd9cc92be11ae6aecc8e1843e",
+    "slug": "631-Hibiscus-Dr-Hallandale-Beach-Broward-County-FL-33009",
+    "localUGC": {
+      "title": "What Locals Say about Hallandale",
+      "stats": {
+        "attributes": [
+          {
+            "type": "DogFriendly",
+            "name": "It's dog friendly",
+            "score": 81,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Sidewalks",
+            "name": "There are sidewalks",
+            "score": 76,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToRestaurants",
+            "name": "It's walkable to restaurants",
+            "score": 73,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "EasyParking",
+            "name": "Parking is easy",
+            "score": 69,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "NeedACar",
+            "name": "Car is needed",
+            "score": 66,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WellLitStreets",
+            "name": "Streets are well-lit",
+            "score": 65,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WalkableToGroceries",
+            "name": "It's walkable to grocery stores",
+            "score": 65,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Quiet",
+            "name": "It's quiet",
+            "score": 62,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "PeopleWouldWalkAloneAtNight",
+            "name": "People would walk alone at night",
+            "score": 62,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "HolidaySpirit",
+            "name": "There's holiday spirit",
+            "score": 58,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "LongTermResidents",
+            "name": "They plan to stay for at least 5 years",
+            "score": 55,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "WellKeptYards",
+            "name": "Yards are well-kept",
+            "score": 52,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "KidsPlayOutside",
+            "name": "Kids play outside",
+            "score": 46,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "FriendlyNeighbors",
+            "name": "Neighbors are friendly",
+            "score": 43,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "Wildlife",
+            "name": "There's wildlife",
+            "score": 32,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          },
+          {
+            "type": "CommunityEvents",
+            "name": "There are community events",
+            "score": 28,
+            "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttribute"
+          }
+        ],
+        "minimumResponseCount": 360,
+        "__typename": "NEIGHBORHOOD_SURVEY_NeighborhoodAttributes"
+      },
+      "__typename": "SURROUNDINGS_LocalUGC"
+    }
+  }
+]
