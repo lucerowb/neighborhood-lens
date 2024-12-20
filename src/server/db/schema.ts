@@ -13,6 +13,7 @@ export const places = pgTable("neighborhood_lens_places", {
   rating: decimal({ precision: 2, scale: 1 }),
   address: varchar({ length: 255 }),
   photos: jsonb().array(),
+  features: jsonb(),
 });
 
 export type InsertPlace = typeof places.$inferInsert;

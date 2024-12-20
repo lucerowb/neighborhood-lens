@@ -15,6 +15,13 @@
       "when": 1734656165338,
       "tag": "0001_outgoing_payback",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1734675426478,
+      "tag": "0002_burly_vertigo",
+      "breakpoints": true
     }
   ]
 }

@@ -14,6 +14,7 @@ export interface PlaceInfo {
   location: { address: string };
   distance: string;
   rating: string;
-  photos: string[];
+  photos: {}[];
   geocodes: { main: { latitude: number; longitude: number } };
+  features: {};
 }
