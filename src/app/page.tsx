@@ -5,6 +5,8 @@ import ChatBubbleCard from "@/components/common/chat-bubble-card";
 import { buttonVariants } from "@/components/ui/button";
 import { Typography } from "@/components/ui/typography";
 
+export const dynamic = "force-dynamic";
+
 import PropertyCard from "../components/properties/property-card";
 
 export default async function Home() {

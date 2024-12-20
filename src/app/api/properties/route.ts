@@ -1,7 +1,7 @@
 import { apiHandler } from "@/helpers/api-handler";
 import { dr_hook } from "@/helpers/data_repo";
 
-export const PROPERTIES_IDS = [
+const PROPERTIES_IDS = [
   "7f9487edad7d0f3f1d1b0d6e65f5375e",
   "e5d14b3cd9cc92be11ae6aecc8e1843e",
   "dbc74ffe0223d31fa189df377ab7e58c",

@@ -1,6 +1,8 @@
 import { getPropertyDetail } from "@/api/properties.api";
 import PropertyDetail from "@/components/properties/property-detail";
 
+export const dynamic = "force-dynamic";
+
 type PropertyDetailPageProps = {
   params: Promise<{
     propertyId: string;
