@@ -2,7 +2,7 @@
 
 import "mapbox-gl/dist/mapbox-gl.css";
 
-import { PropsWithChildren } from "react";
+import { CSSProperties, PropsWithChildren } from "react";
 import { Map, ViewState } from "react-map-gl";
 
 import env from "@/config/env.config";
@@ -10,15 +10,16 @@ import env from "@/config/env.config";
 type MapBoxProps = PropsWithChildren<{
   onLoad?: (e: mapboxgl.MapEvent) => void;
   initialViewState: Partial<ViewState>;
+  style?: CSSProperties;
 }>;
 
-const MapBox = ({ initialViewState, onLoad, children }: MapBoxProps) => {
+const MapBox = ({ initialViewState, onLoad, style = { width: "100%", height: "100vh" }, children }: MapBoxProps) => {
   return (
     <>
       <Map
         mapboxAccessToken={env.mapbox.accessToken!}
         initialViewState={initialViewState}
-        style={{ width: "100%", height: "100vh" }}
+        style={style}
         mapStyle="mapbox://styles/mapbox/standard"
         onLoad={onLoad}
         interactive={false}

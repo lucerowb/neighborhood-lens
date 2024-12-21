@@ -1,3 +1,5 @@
+import CatChatWidget from "@/components/cat-widget";
+
 import TourMap from "../components/tour-map";
 
 export default async function Explore() {
@@ -5,8 +7,9 @@ export default async function Explore() {
   await new Promise((resolve) => setTimeout(resolve, 5000));
 
   return (
-    <div className="size-full">
+    <main className="relative size-full">
       <TourMap />
-    </div>
+      <CatChatWidget />
+    </main>
   );
 }

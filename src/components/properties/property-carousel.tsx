@@ -25,15 +25,23 @@ const PropertyCarousel = ({ photos, primary_photo, address, disableNavBtns, clas
   const [canScrollNext, setCanScrollNext] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const handlePrevious = useCallback(() => {
-    if (!canScrollPrev) return;
-    mainCarouselApi?.scrollPrev();
-  }, [mainCarouselApi, canScrollPrev]);
+  const handlePrevious = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault();
+      if (!canScrollPrev) return;
+      mainCarouselApi?.scrollPrev();
+    },
+    [mainCarouselApi, canScrollPrev]
+  );
 
-  const handleNext = useCallback(() => {
-    if (!canScrollNext && !mainCarouselApi) return;
-    mainCarouselApi?.scrollNext();
-  }, [mainCarouselApi, canScrollNext]);
+  const handleNext = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault();
+      if (!canScrollNext && !mainCarouselApi) return;
+      mainCarouselApi?.scrollNext();
+    },
+    [mainCarouselApi, canScrollNext]
+  );
 
   const highQualityPhotos = useMemo(
     () => photos?.map((arg) => (typeof arg === "string" ? arg : arg.MediaURL)) ?? [primary_photo],
@@ -68,10 +76,11 @@ const PropertyCarousel = ({ photos, primary_photo, address, disableNavBtns, clas
               <Image
                 className="size-full object-cover"
                 src={photo}
+                quality={100}
                 loading={index === 0 ? "eager" : "lazy"}
                 priority={index === 0 ? true : undefined}
-                width={384.5}
-                height={250.5}
+                width={1080}
+                height={720}
                 onLoad={(e) => e.currentTarget.classList.remove("blur-md")}
                 onLoadStartCapture={(e) => e.currentTarget.classList.add("blur-md")}
                 alt={`Picture of ${address}`}
@@ -98,6 +107,18 @@ const PropertyCarousel = ({ photos, primary_photo, address, disableNavBtns, clas
       {/* carousel controller */}
       {!disableNavBtns && highQualityPhotos.length > 1 && (
         <>
+          <div
+            className="absolute left-0 top-0 h-full w-1/6 bg-gradient-to-r from-[#0000005c] to-[#00000000] opacity-0 transition-opacity group-hover/property-card:opacity-100"
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+          />
+          <div
+            className="absolute right-0 top-0 h-full w-1/6 bg-gradient-to-l from-[#0000005c] to-[#00000000] opacity-0 transition-opacity group-hover/property-card:opacity-100"
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+          />
           <NavigationButton aria-label="Previous" className="left-1" disabled={!canScrollPrev} onClick={handlePrevious}>
             <ChevronLeft className="size-5" />
           </NavigationButton>

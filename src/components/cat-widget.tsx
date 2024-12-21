@@ -58,6 +58,7 @@ interface Answer {
   value: string;
 }
 
+// TODO: need to ask these question from outside and send it as props to this component.
 const questions: Question[] = [
   {
     id: "gender",
