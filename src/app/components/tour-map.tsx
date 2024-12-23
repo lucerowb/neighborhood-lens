@@ -58,9 +58,5 @@ export default function TourMap() {
     transitionToNextLocation();
   };
 
-  return (
-    <MapBox initialViewState={initialViewState} onLoad={handleMapLoad}>
-      <div className="absolute bottom-10 right-10 rounded-xl bg-lime-100 p-10 text-lg shadow-xl">Cat goes here 🐱</div>
-    </MapBox>
-  );
+  return <MapBox initialViewState={initialViewState} onLoad={handleMapLoad} />;
 }

@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Neighborhood Lens 🏘️
 
-## Getting Started
+Neighborhood Lens is a modern web application that helps users explore and understand neighborhoods through data-driven insights and community engagement.
 
-First, run the development server:
+## Features 🌟
+
+- Interactive neighborhood maps
+- Community insights and statistics
+- Real-time data visualization
+- User-generated content integration
+
+## Prerequisites 📋
+
+Before you begin, ensure you have installed:
+
+- Node.js (v18.0.0 or higher)
+- npm or yarn package manager
+- Git
+
+## Environment Setup 🔧
+
+1. Clone the repository:
 
 ```bash
+git clone https://github.com/your-username/neighborhood-lens.git
+cd neighborhood-lens
+```
+
+2. Create a `.env.local` file in the root directory:
+
+```env
+NEXT_PUBLIC_API_URL=your_api_url_here
+# Add other environment variables as needed
+```
+
+## Installation 💻
+
+```bash
+# Install dependencies
+npm install
+# or
+yarn install
+
+# Start development server
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure 📁
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+neighborhood-lens/
+├── app/            # Next.js app directory
+├── components/     # Reusable UI components
+├── lib/           # Utility functions and helpers
+├── public/        # Static assets
+└── styles/        # Global styles and CSS modules
+```
 
-## Learn More
+## Development Guidelines 🛠️
 
-To learn more about Next.js, take a look at the following resources:
+- Follow the [Next.js Style Guide](https://nextjs.org/docs/basic-features/pages)
+- Use TypeScript for type safety
+- Implement responsive design principles
+- Write unit tests for new features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing 🤝
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Fork the repository
+2. Create your feature branch: `git checkout -b feature/amazing-feature`
+3. Commit your changes: `git commit -m 'Add amazing feature'`
+4. Push to the branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
 
-## Deploy on Vercel
+## License 📄
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Support 💬
+
+For support, please open an issue in the GitHub repository or contact the maintainers.
+
+---
+
+Built with ❤️ using [Next.js](https://nextjs.org)
