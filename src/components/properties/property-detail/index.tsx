@@ -6,18 +6,17 @@ import { Fragment } from "react";
 
 import ChatBubbleCard from "@/components/common/chat-bubble-card";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { Typography } from "@/components/ui/typography";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Typography, typographyVariants } from "@/components/ui/typography";
 import { Property } from "@/types/properties.type";
 import { formatToUSD, pluralize } from "@/utils/string.util";
 
-import PropertyCard from "../property-card";
 import PropertyCarousel from "../property-carousel";
 
 type PropertyDetailProps = {
   propertyDetail: Property;
-  similarProperties?: Property[];
 };
-const PropertyDetail = ({ propertyDetail, similarProperties }: PropertyDetailProps) => {
+const PropertyDetail = ({ propertyDetail }: PropertyDetailProps) => {
   const router = useRouter();
   const {
     id,
@@ -51,7 +50,7 @@ const PropertyDetail = ({ propertyDetail, similarProperties }: PropertyDetailPro
   ];
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="relative flex flex-col gap-4">
       <div className="group/property-card relative">
         <PropertyCarousel
           photos={photos}
@@ -66,7 +65,7 @@ const PropertyDetail = ({ propertyDetail, similarProperties }: PropertyDetailPro
         </div>
       </div>
       <div className="flex flex-col gap-4 p-4 lg:flex-row lg:gap-8">
-        <div className="flex flex-[3] flex-col gap-4">
+        <div className="flex flex-col gap-4 lg:flex-[3]">
           <ChatBubbleCard className="max-w-full" hideAnchor>
             <div className="flex flex-col gap-3">
               <Typography variant="h3" className="text-text-primary" asChild>
@@ -96,24 +95,27 @@ const PropertyDetail = ({ propertyDetail, similarProperties }: PropertyDetailPro
               </div>
             </div>
           </ChatBubbleCard>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 pb-12 lg:pb-0">
             <Typography variant="h3">About the property</Typography>
             <Typography>{description || "no description found "}</Typography>
           </div>
-          <Link href={`/${id}/tour`} className={buttonVariants({ size: "xl", className: "mt-2" })}>
-            Explore Neighborhood
-          </Link>
         </div>
-        {similarProperties && similarProperties?.length > 0 && (
-          <div className="flex flex-[1] flex-col gap-4">
-            <Typography variant="lead">Similar Properties</Typography>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-1">
-              {similarProperties.map((property) => (
-                <PropertyCard key={property.id} propertyDetail={property} />
-              ))}
-            </div>
-          </div>
-        )}
+        <Card className="hidden h-fit flex-col gap-4 bg-slate-50 p-3 lg:flex lg:flex-[1]">
+          <CardHeader className="p-0">
+            <CardTitle className={typographyVariants({ variant: "h4" })}>Life In this neighborhood</CardTitle>
+            <CardDescription>Visualize what it’s like in the neighborhood from the cafes to the park.</CardDescription>
+          </CardHeader>
+          <CardContent className="p-0">
+            <Link href={`/${id}/tour`} className={buttonVariants({ size: "xl", className: "w-full rounded-2xl" })}>
+              Explore Neighborhood
+            </Link>
+          </CardContent>
+        </Card>
+      </div>
+      <div className="fixed bottom-2 w-full px-4 lg:hidden">
+        <Link href={`/${id}/tour`} className={buttonVariants({ size: "xl", className: "w-full rounded-2xl" })}>
+          Explore Neighborhood
+        </Link>
       </div>
     </div>
   );
