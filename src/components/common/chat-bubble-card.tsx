@@ -106,7 +106,7 @@ const ChatBubbleCard = ({
   return (
     <Card
       className={cn(
-        "relative max-w-[317px] shadow-xl rounded-xl bg-gradient-to-b from-[#E2EBF3] to-[#F8FAFC] p-3 transition-all",
+        "relative max-w-[500px] shadow-xl rounded-xl bg-gradient-to-b from-[#E2EBF3] to-[#F8FAFC] p-3 transition-all",
         className
       )}
     >

@@ -37,7 +37,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <AppContextProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
             {children}
             <TailwindIndicator />
           </ThemeProvider>
