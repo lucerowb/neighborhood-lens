@@ -64,7 +64,7 @@ const PropertyDetail = ({ propertyDetail }: PropertyDetailProps) => {
           </Button>
         </div>
       </div>
-      <div className="flex flex-col gap-4 p-4 lg:flex-row lg:gap-8">
+      <div className="mx-auto flex max-w-screen-xl flex-col gap-4 p-4 lg:flex-row lg:gap-8">
         <div className="flex flex-col gap-4 lg:flex-[3]">
           <ChatBubbleCard className="max-w-full" hideAnchor>
             <div className="flex flex-col gap-3">
