@@ -11,9 +11,16 @@ type MapBoxProps = PropsWithChildren<{
   onLoad?: (e: mapboxgl.MapEvent) => void;
   initialViewState: Partial<ViewState>;
   style?: CSSProperties;
+  interactive?: boolean;
 }>;
 
-const MapBox = ({ initialViewState, onLoad, style = { width: "100%", height: "100vh" }, children }: MapBoxProps) => {
+const MapBox = ({
+  initialViewState,
+  onLoad,
+  style = { width: "100%", height: "100vh" },
+  children,
+  interactive = false,
+}: MapBoxProps) => {
   return (
     <>
       <Map
@@ -22,7 +29,7 @@ const MapBox = ({ initialViewState, onLoad, style = { width: "100%", height: "10
         style={style}
         mapStyle="mapbox://styles/mapbox/standard"
         onLoad={onLoad}
-        // interactive={false}
+        interactive={interactive}
         //removing attribution is breaking the TOS, hope we don't get caught 😛
         attributionControl={false}
       >

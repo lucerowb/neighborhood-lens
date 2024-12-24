@@ -32,6 +32,7 @@ async function MapPage() {
 
   return (
     <MapBox
+      interactive
       initialViewState={{
         ...initialViewState,
         longitude: latLong?.[0]?.longitude,
