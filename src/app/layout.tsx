@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import { AppContextProvider } from "@/hooks/useApp";
 import { cn } from "@/lib/utils";
 
 const geistSans = Geist({
@@ -36,12 +35,10 @@ export default function RootLayout({
         className={cn(`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen w-full`)}
         suppressHydrationWarning
       >
-        <AppContextProvider>
-          <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
-            {children}
-            <TailwindIndicator />
-          </ThemeProvider>
-        </AppContextProvider>
+        <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
+          {children}
+          <TailwindIndicator />
+        </ThemeProvider>
       </body>
     </html>
   );

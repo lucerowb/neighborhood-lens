@@ -10,7 +10,7 @@ type AnchorVerticalPosition = "top" | "bottom" | "center";
 type AnchorPositionWithCenter =
   | `${AnchorVerticalPosition}-${AnchorHorizontalPosition}`
   | `${AnchorHorizontalPosition}-${AnchorVerticalPosition}`;
-type AnchorPosition = Exclude<
+export type AnchorPosition = Exclude<
   AnchorPositionWithCenter,
   "center-center" | "center-left" | "center-right" | "center-top" | "center-bottom"
 >;
