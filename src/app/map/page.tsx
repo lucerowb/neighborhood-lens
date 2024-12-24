@@ -4,6 +4,8 @@ import MapBox from "@/components/core/map-box";
 
 import MarkertComponent from "./MarkertComponent";
 
+export const dynamic = "force-dynamic";
+
 const coordinates = [
   { lng: -82.4572, lat: 27.9506 },
   { lng: -82.4698, lat: 27.9378 },
