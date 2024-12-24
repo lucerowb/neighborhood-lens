@@ -1,9 +1,9 @@
 export enum AgeRangeEnum {
-  EIGHTEEN_TO_THIRTY = "18-30",
-  THIRTY_ONE_TO_FORTY = "31-40",
-  FORTY_ONE_TO_FIFTY = "41-50",
-  FIFTY_ONE_TO_SIXTY = "51-60",
-  SIXTY_PLUS = "60+",
+  EIGHTEEN_TO_THIRTY = "18-30 yo",
+  THIRTY_ONE_TO_FORTY = "31-40 yo",
+  FORTY_ONE_TO_FIFTY = "41-50 yo",
+  FIFTY_ONE_TO_SIXTY = "51-60 yo",
+  SIXTY_PLUS = "60+ yo",
 }
 
 export enum GenderEnum {

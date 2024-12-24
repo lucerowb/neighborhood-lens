@@ -31,7 +31,7 @@ const PropertyTour = async ({ params }: PropertyTourProps) => {
         <Home />
       </Link>
       <BgMap propertyFeatures={propertyResponse} />
-      <CatChatWidget />
+      <CatChatWidget propertyFeatures={propertyResponse} />
     </main>
   );
 };

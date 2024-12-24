@@ -17,12 +17,17 @@ const foursquare = {
   apiKey: process.env.NEXT_PUBLIC_FOURSQUARE_API_KEY,
 };
 
+const elevenLabs = {
+  apiKey: process.env.NEXT_PUBLIC_ELEVENLABS_API_KEY,
+};
+
 const env = {
   nodeEnvironment: process.env.NEXT_PUBLIC_NODE_ENVIRONMENT,
   mapbox,
   supabase,
   db,
   foursquare,
+  elevenLabs,
   appUrl: process.env.NEXT_PUBLIC_BASE_URL,
 };
 

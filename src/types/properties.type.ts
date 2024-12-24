@@ -3,7 +3,7 @@ type PropertyFeatureGeometry = {
   coordinates: [-80.289991, 25.9262811];
 };
 
-type LocalStats = {
+export type LocalStats = {
   id: number;
   property_id: string;
   minResponseCount: number;

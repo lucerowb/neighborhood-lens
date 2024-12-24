@@ -4,192 +4,121 @@ import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
 
-import Cat1 from "@/assets/img/cat/cat-1.png";
-import Cat2 from "@/assets/img/cat/cat-2.png";
-import Cat3 from "@/assets/img/cat/cat-3.png";
-import Cat4 from "@/assets/img/cat/cat-4.png";
-import Cat5 from "@/assets/img/cat/cat-5.png";
-import Cat6 from "@/assets/img/cat/cat-6.png";
-import Cat7 from "@/assets/img/cat/cat-7.png";
 import { Button } from "@/components/ui/button";
+import useCatMessages, { Message, Option } from "@/hooks/useCatMessages";
+import { PropertyFeatures } from "@/types/properties.type";
+import { getCatImage } from "@/utils/cat.util";
 
 import ChatBubbleCard from "./common/chat-bubble-card";
 import { Typography } from "./ui/typography";
 
-const getCatImage = (index: number) => {
-  switch (index) {
-    case 1:
-      return Cat1;
-    case 2:
-      return Cat2;
-    case 3:
-      return Cat3;
-    case 4:
-      return Cat4;
-    case 5:
-      return Cat5;
-    case 6:
-      return Cat6;
-    case 7:
-      return Cat7;
-    default:
-      return Cat1;
-  }
+type CatChatWidgetProps = {
+  propertyFeatures: PropertyFeatures;
 };
 
-interface Question {
-  id: string;
-  text: string;
-  options: {
-    text: string;
-    value: string;
-  }[];
-  catImageNumber: number;
-  replies: {
-    [key: string]: {
-      reply: string;
-      catImageNumber: number;
-    };
-  };
-}
+export default function CatChatWidget({ propertyFeatures }: CatChatWidgetProps) {
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+  const [catReply, setCatReply] = useState<NonNullable<Message["replies"]>[string] | null>(null);
+  const { messages } = useCatMessages(propertyFeatures);
 
-interface Answer {
-  questionId: string;
-  value: string;
-}
+  const currentMessage = messages[currentMessageIndex];
 
-// TODO: need to ask these question from outside and send it as props to this component.
-const questions: Question[] = [
-  {
-    id: "gender",
-    text: "Before we get started, could you mention your gender?",
-    options: [
-      { text: "Male", value: "male" },
-      { text: "Female", value: "female" },
-    ],
-    catImageNumber: 1,
-    replies: {
-      male: { reply: "Meow! Nice to meet you, sir!", catImageNumber: 7 },
-      female: { reply: "Purr! Lovely to meet you, madam!", catImageNumber: 7 },
-    },
-  },
-  {
-    id: "coffee_preference",
-    text: "Do you prefer your coffee with milk or black?",
-    options: [
-      { text: "With Milk", value: "milk" },
-      { text: "Black", value: "black" },
-    ],
-    catImageNumber: 2,
-    replies: {
-      milk: { reply: "Mrow! I love a good latte too!", catImageNumber: 7 },
-      black: { reply: "Meow! You like it strong, just like me!", catImageNumber: 7 },
-    },
-  },
-  {
-    id: "atmosphere",
-    text: "What kind of atmosphere do you prefer?",
-    options: [
-      { text: "Quiet & Cozy", value: "cozy" },
-      { text: "Lively & Social", value: "social" },
-    ],
-    catImageNumber: 3,
-    replies: {
-      cozy: { reply: "Purr... I love a cozy nap spot too!", catImageNumber: 7 },
-      social: { reply: "Meow! Let's mingle and have fun!", catImageNumber: 7 },
-    },
-  },
-];
+  const { catImageNumber, text, id, content, options, replies } = currentMessage;
 
-export default function CatChatWidget() {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [isOpen, setIsOpen] = useState(true);
-  const [answers, setAnswers] = useState<Answer[]>([]);
-  const [catReply, setCatReply] = useState<Question["replies"][string] | null>(null);
-
-  const currentQuestion = questions[currentQuestionIndex];
-
-  const handleAnswer = (value: string) => {
-    const newAnswers = [...answers, { questionId: currentQuestion.id, value }];
-    setAnswers(newAnswers);
-    setCatReply(currentQuestion.replies[value]);
+  const handleAnswer = (option: Option) => {
+    const { action, text } = option;
+    action();
+    setCatReply(replies ? replies[text] : null);
 
     setTimeout(() => {
       setCatReply(null);
-      if (currentQuestionIndex < questions.length - 1) {
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
+      if (currentMessageIndex < messages.length - 1) {
+        setCurrentMessageIndex(currentMessageIndex + 1);
       } else {
         resetChat();
       }
-    }, 3000); // Show reply for 3 seconds
+    }, 2000);
   };
 
   const resetChat = () => {
-    setCurrentQuestionIndex(0);
-    setAnswers([]);
+    setCurrentMessageIndex(0);
     setCatReply(null);
-    setIsOpen(true);
   };
 
   return (
     <div className="fixed bottom-4 right-4 flex flex-col items-end">
       <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            className="mb-4"
-          >
-            <ChatBubbleCard>
-              <div className="space-y-4">
-                <AnimatePresence mode="wait">
-                  {catReply ? (
-                    <motion.div
-                      key="cat-reply"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Typography variant="pUiMedium">{catReply?.reply}</Typography>
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key={currentQuestion.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Typography variant="pUiMedium">{currentQuestion.text}</Typography>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-                <AnimatePresence>
-                  {!catReply && (
-                    <motion.div
-                      key={currentQuestion.id}
-                      className="grid grid-cols-2 gap-2"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      // exit={{ opacity: 0, y: -20 }}
-                      transition={{ delay: 0.2, duration: 0.3 }}
-                    >
-                      {currentQuestion.options.map((option) => (
-                        <Button key={option.value} variant="outline" onClick={() => handleAnswer(option.value)}>
-                          {option.text}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          className="mb-4"
+        >
+          <ChatBubbleCard>
+            <div className="space-y-4">
+              <AnimatePresence mode="wait">
+                {catReply ? (
+                  <motion.div
+                    key="cat-reply"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Typography variant="pUiMedium">{catReply?.reply}</Typography>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key={id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Typography variant="pUiMedium">{text}</Typography>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              <AnimatePresence>
+                {!catReply && (
+                  <motion.div
+                    key={id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.3 }}
+                  >
+                    {options ? (
+                      <div className="grid grid-cols-2 gap-2">
+                        {options?.map(({ text, action }) => (
+                          <Button key={text} variant="outline" onClick={() => handleAnswer({ text, action })}>
+                            {text}
+                          </Button>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="space-y-2">
+                        {content}
+                        <Button
+                          onClick={() => {
+                            if (currentMessageIndex < messages.length - 1) {
+                              setCurrentMessageIndex(currentMessageIndex + 1);
+                            } else {
+                              resetChat();
+                            }
+                          }}
+                        >
+                          Continue
                         </Button>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            </ChatBubbleCard>
-          </motion.div>
-        )}
+                      </div>
+                    )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </ChatBubbleCard>
+        </motion.div>
       </AnimatePresence>
       <AnimatePresence mode="wait">
         <motion.div
-          id={catReply ? String(catReply?.catImageNumber) : String(currentQuestion.catImageNumber)}
+          id={catReply ? String(catReply?.catImageNumber) : String(catImageNumber)}
           animate={{
             y: [0, -10, 0],
           }}
@@ -199,10 +128,9 @@ export default function CatChatWidget() {
             ease: "easeInOut",
           }}
           className="relative z-10"
-          onClick={() => (!isOpen ? setIsOpen(true) : resetChat())}
         >
           <Image
-            src={getCatImage((catReply ? catReply?.catImageNumber : currentQuestion.catImageNumber) || 1)}
+            src={getCatImage((catReply ? catReply?.catImageNumber : catImageNumber) || 1)}
             alt="Cat"
             width={100}
             height={100}
