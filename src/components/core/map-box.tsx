@@ -22,20 +22,18 @@ const MapBox = ({
   interactive = false,
 }: MapBoxProps) => {
   return (
-    <>
-      <Map
-        mapboxAccessToken={env.mapbox.accessToken!}
-        initialViewState={initialViewState}
-        style={style}
-        mapStyle="mapbox://styles/mapbox/standard"
-        onLoad={onLoad}
-        interactive={interactive}
-        //removing attribution is breaking the TOS, hope we don't get caught 😛
-        attributionControl={false}
-      >
-        {children}
-      </Map>
-    </>
+    <Map
+      mapboxAccessToken={env.mapbox.accessToken!}
+      initialViewState={initialViewState}
+      style={style}
+      mapStyle="mapbox://styles/mapbox/standard"
+      onLoad={onLoad}
+      interactive={interactive}
+      //removing attribution is breaking the TOS, hope we don't get caught 😛
+      attributionControl={false}
+    >
+      {children}
+    </Map>
   );
 };
 

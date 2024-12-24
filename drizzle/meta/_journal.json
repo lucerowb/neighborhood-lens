@@ -43,6 +43,13 @@
       "when": 1735027664831,
       "tag": "0005_salty_bloodstrike",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1735037167044,
+      "tag": "0006_groovy_talon",
+      "breakpoints": true
     }
   ]
 }
