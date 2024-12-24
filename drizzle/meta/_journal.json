@@ -29,6 +29,27 @@
       "when": 1734684878136,
       "tag": "0003_ambiguous_microchip",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1735026327967,
+      "tag": "0004_sour_darwin",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1735027664831,
+      "tag": "0005_salty_bloodstrike",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1735037167044,
+      "tag": "0006_groovy_talon",
+      "breakpoints": true
     }
   ]
 }

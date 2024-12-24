@@ -1,0 +1,1 @@
+ALTER TABLE "neighborhood_lens_places" ADD COLUMN "category_icon" jsonb;

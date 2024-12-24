@@ -9,13 +9,23 @@ export const places = pgTable("neighborhood_lens_places", {
   fsq_id: varchar({ length: 255 }).notNull().unique(),
   name: varchar({ length: 255 }).notNull(),
   property_ids: varchar("property_list", { length: 255 }).array().notNull(),
+  category_id: integer().notNull().default(1000),
   category_name: varchar({ length: 255 }).notNull(),
+  category_icon: jsonb(),
   coordinates: point("location", { mode: "xy" }).notNull(),
   distance: decimal(),
   rating: decimal({ precision: 2, scale: 1 }),
   address: varchar({ length: 255 }),
   photos: jsonb().array(),
   features: jsonb(),
+});
+
+export type Place = typeof places.$inferSelect;
+
+export const fsqCategories = createTable("fsq_categories", {
+  id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  category_id: integer().notNull().unique(),
+  category_name: varchar({ length: 255 }).notNull(),
 });
 
 export type InsertPlace = typeof places.$inferInsert;
