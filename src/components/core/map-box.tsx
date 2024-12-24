@@ -22,11 +22,12 @@ const MapBox = ({ initialViewState, onLoad, style = { width: "100%", height: "10
         style={style}
         mapStyle="mapbox://styles/mapbox/standard"
         onLoad={onLoad}
-        interactive={false}
+        // interactive={false}
         //removing attribution is breaking the TOS, hope we don't get caught 😛
         attributionControl={false}
-      />
-      {children}
+      >
+        {children}
+      </Map>
     </>
   );
 };

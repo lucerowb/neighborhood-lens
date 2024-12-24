@@ -10,7 +10,7 @@ export interface Feature {
 export interface PlaceInfo {
   fsq_id: string;
   name: string;
-  categories: { name: string }[];
+  categories: { name: string; id: number }[];
   location: { address: string };
   distance: string;
   rating: string;
