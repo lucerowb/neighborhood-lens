@@ -1,10 +1,30 @@
 import axios from "axios";
 
-import { Feature, PlaceInfo } from "@/app/api/places/ingest/interfaces";
 import env from "@/config/env.config";
 import { InsertPlace, places } from "@/server/db/schema";
 
 import { db } from "../db";
+
+export interface Feature {
+  geometry: {
+    coordinates: [number, number];
+  };
+  properties: {
+    id: string;
+  };
+}
+
+export interface PlaceInfo {
+  fsq_id: string;
+  name: string;
+  categories: { name: string; id: number }[];
+  location: { address: string };
+  distance: string;
+  rating: string;
+  photos: {}[];
+  geocodes: { main: { latitude: number; longitude: number } };
+  features: {};
+}
 
 const FOURSQUARE_BASE_URL: string = "https://api.foursquare.com/v3/places/search";
 
