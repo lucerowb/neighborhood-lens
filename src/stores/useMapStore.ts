@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-import { Maybe } from "@/utils/typescript.util";
+import { Maybe } from "@/types/common.type";
 
 interface MapState {
   mapInstance: Maybe<mapboxgl.Map>;

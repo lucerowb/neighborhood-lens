@@ -6,6 +6,7 @@ import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import useCatMessages, { Message, Option } from "@/hooks/useCatMessages";
+import { cn } from "@/lib/utils";
 import { PropertyFeatures } from "@/types/properties.type";
 import { getCatImage } from "@/utils/cat.util";
 
@@ -14,20 +15,21 @@ import { Typography } from "./ui/typography";
 
 type CatChatWidgetProps = {
   propertyFeatures: PropertyFeatures;
+  className?: string;
 };
 
-export default function CatChatWidget({ propertyFeatures }: CatChatWidgetProps) {
+export default function CatChatWidget({ propertyFeatures, className }: CatChatWidgetProps) {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [catReply, setCatReply] = useState<NonNullable<Message["replies"]>[string] | null>(null);
   const { messages } = useCatMessages(propertyFeatures);
 
   const currentMessage = messages[currentMessageIndex];
 
-  const { catImageNumber, text, id, content, options, replies } = currentMessage;
+  const { catImageNumber, text, id, content, options, replies, catClassName, anchorPosition } = currentMessage;
 
   const handleAnswer = (option: Option) => {
     const { action, text } = option;
-    action();
+    action?.();
     setCatReply(replies ? replies[text] : null);
 
     setTimeout(() => {
@@ -46,7 +48,7 @@ export default function CatChatWidget({ propertyFeatures }: CatChatWidgetProps) 
   };
 
   return (
-    <div className="fixed bottom-4 right-4 flex flex-col items-end">
+    <div className={cn("fixed bottom-4 right-4 flex flex-col items-end", className, catClassName)}>
       <AnimatePresence>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -54,7 +56,7 @@ export default function CatChatWidget({ propertyFeatures }: CatChatWidgetProps) 
           exit={{ opacity: 0, y: 10 }}
           className="mb-4"
         >
-          <ChatBubbleCard>
+          <ChatBubbleCard anchorPosition={anchorPosition}>
             <div className="space-y-4">
               <AnimatePresence mode="wait">
                 {catReply ? (
