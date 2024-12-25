@@ -40,9 +40,9 @@ export type Place = {
   id: number;
   fsq_id: string;
   name: string;
-  property_ids: string[];
+  property_id: string;
   category_id: number;
-  category_name: string;
+  sub_category_id: number;
   category_icon: PlaceCategoryIcon;
   coordinates: {
     x: number;
