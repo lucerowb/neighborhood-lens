@@ -1,3 +1,4 @@
+"use client";
 import { ElevenLabsClient, play } from "elevenlabs";
 
 import env from "@/config/env.config";

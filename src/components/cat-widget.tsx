@@ -12,6 +12,7 @@ import { PropertyFeatures } from "@/types/properties.type";
 import { getCatImage } from "@/utils/cat.util";
 
 import ChatBubbleCard from "./common/chat-bubble-card";
+import StreamTextAudio from "./StreamTextAudio";
 import { Typography } from "./ui/typography";
 
 type CatChatWidgetProps = {
@@ -91,7 +92,8 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Typography variant="pUiMedium">{text}</Typography>
+                      <StreamTextAudio text={text} />
+                      {/* <Typography variant="pUiMedium">{text}</Typography> */}
                     </motion.div>
                   )}
                 </AnimatePresence>
