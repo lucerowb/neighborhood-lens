@@ -13,6 +13,7 @@ const StreamTextAudio = ({ text }: { text: string }) => {
   const audioRef = useRef(new Audio());
   const timeoutsRef = useRef<NodeJS.Timeout[]>([]);
   const startTimeRef = useRef(0);
+  const isPlaybackActive = useRef(false);
 
   const clearTimeouts = () => {
     timeoutsRef.current.forEach((timeout) => clearTimeout(timeout));
@@ -20,11 +21,14 @@ const StreamTextAudio = ({ text }: { text: string }) => {
   };
 
   const startPlayback = useCallback(async () => {
+    if (isPlaybackActive.current) {
+      return;
+    }
     try {
       console.info("Starting playback");
       clearTimeouts();
-      audioRef?.current?.pause();
-      audioRef.current = new Audio();
+
+      isPlaybackActive.current = true;
 
       const response = await client.textToSpeech.convertWithTimestamps("pbufn2IIcaA9SVLS6d0k", {
         output_format: "mp3_44100_128",
@@ -48,6 +52,7 @@ const StreamTextAudio = ({ text }: { text: string }) => {
 
           const audio = new Audio(audioUrl);
           audioRef.current = audio;
+          audioRef.current.muted = true;
           audioRef.current.currentTime = 0;
         }
 
@@ -70,12 +75,16 @@ const StreamTextAudio = ({ text }: { text: string }) => {
             .catch((error) => {
               console.error("Error starting playback:", error);
             });
+
+          audioRef.current.muted = false;
         }
       };
 
       await processItem(response);
     } catch (error) {
       console.error("Error starting playback:", error);
+    } finally {
+      isPlaybackActive.current = false;
     }
   }, [text]);
 
@@ -92,7 +101,7 @@ const StreamTextAudio = ({ text }: { text: string }) => {
     };
   }, [startPlayback]);
 
-  return renderText;
+  return <>{renderText}</>;
 };
 
 export default StreamTextAudio;
