@@ -7,6 +7,8 @@ import { Typography } from "@/components/ui/typography";
 
 export const dynamic = "force-dynamic";
 
+import Logo from "@/components/icons/logo";
+
 import PropertyCard from "../components/properties/property-card";
 
 export default async function Home() {
@@ -14,7 +16,7 @@ export default async function Home() {
   return (
     <main className="min-h-screen w-full">
       <div className="flex flex-col items-center gap-10 py-10">
-        <Typography variant="h1">Neighborhood Lens</Typography>
+        <Logo />
         <ChatBubbleCard anchorPosition="bottom-center" className="md:max-w-2xl">
           <Typography variant="pUiMedium" className="text-center">
             Ready to picture your dream life? Here are some amazing properties to explore. Let&apos;s see how they fit
