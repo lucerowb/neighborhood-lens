@@ -2,6 +2,7 @@ import { useMemo } from "react";
 
 import LocalFeedback from "@/app/[propertyId]/tour/components/local-feedback";
 import { AnchorPosition } from "@/components/common/chat-bubble-card";
+import { ButtonProps } from "@/components/ui/button";
 import { AgeRangeEnum, GenderEnum, StageOfLifeEnum } from "@/enums/app.enum";
 import { useTourStore } from "@/stores/useTourStore";
 import { PropertyFeatures } from "@/types/properties.type";
@@ -23,6 +24,9 @@ export type Message = {
   options?: Option[];
   replies?: Replies;
   content?: React.ReactNode;
+  continueButtonText?: string;
+  continueButtonVariant?: ButtonProps["variant"];
+  tapToContinue?: boolean;
 };
 
 const { setGender, setStageOfLife, setAgeRange } = useTourStore.getState();
@@ -38,6 +42,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
           catImageNumber: 1,
           catClassName: "bottom-4 left-1/2 -translate-x-1/2 items-center",
           anchorPosition: "bottom-center",
+          tapToContinue: true,
         },
         {
           id: "features",
@@ -49,6 +54,8 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
           id: "get-started",
           text: "Alright, with that out of the way, let's get to know the local areas.",
           catImageNumber: 2,
+          continueButtonText: "Get started",
+          continueButtonVariant: "outline",
         },
         {
           id: "gender",
@@ -120,6 +127,48 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
               catImageNumber: 7,
             },
           },
+        },
+        {
+          id: "small-talk-1",
+          text: "I know how important it is to have a good neighborhood and good neighbors at that.",
+          catImageNumber: 1,
+          catClassName: "bottom-4 left-1/2 -translate-x-1/2 items-center",
+          anchorPosition: "bottom-center",
+          tapToContinue: true,
+        },
+        {
+          id: "visualize",
+          text: "Lets visualize how your life could look like here....",
+          catImageNumber: 1,
+          continueButtonText: "Start Simulation",
+          continueButtonVariant: "outline",
+        },
+        {
+          id: "cat-morning",
+          text: "My typical morning begins with a walk in the park and looking at the beautiful scenery there",
+          catImageNumber: 1,
+          catClassName: "bottom-4 left-1/2 -translate-x-1/2 items-center",
+          anchorPosition: "bottom-center",
+          tapToContinue: true,
+        },
+        {
+          id: "morning-routine",
+          text: "What is your morning like... Start with a bang or a coffee at peace?",
+          catImageNumber: 1,
+          options: [
+            {
+              text: "Gym experience",
+              action: () => {
+                // TODO: get gym near location and show gym experience
+              },
+            },
+            {
+              text: "Coffee at peace",
+              action: () => {
+                // TODO: get coffee near location and show coffee at peace
+              },
+            },
+          ],
         },
       ] as Message[],
     [localStats]
