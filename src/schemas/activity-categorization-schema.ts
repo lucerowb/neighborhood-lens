@@ -1,277 +1,394 @@
-import { AgeRangeEnum, StageOfLifeEnum } from "@/enums/app.enum";
+import { AgeRangeEnum, GenderEnum, StageOfLifeEnum, TimeSlots } from "@/enums/app.enum";
+
+export enum CategoryEnum {
+  AMUSEMENT_PARK = 1,
+  ART_GALLERY = 2,
+  MOVIE_THEATER = 3,
+  MUSEUM = 4,
+  WATER_PARK = 5,
+  ZOO = 6,
+  HEALTH_AND_BEAUTY_SERVICE_MALE = 7,
+  HEALTH_AND_BEAUTY_SERVICE_FEMALE = 8,
+  BAKERY = 9,
+  CAFE = 10,
+  RESTAURANTS = 11,
+  PARK = 12,
+  SCHOOL_COLLEGES = 13,
+  GROCERY_STORE = 14,
+  GYM_STUDIO = 15,
+  SHOPPING_MALL = 16,
+  YOGA = 17,
+  HIKING_TRAIL = 18,
+  CLUBS = 19,
+  BREAKFAST_SPOT = 21,
+  NIGHT_MARKET = 22,
+  LANDMARK_AND_OUTDOORS = 23,
+  BAR = 24,
+}
 
 const activityCategorizationSchema = {
-  [AgeRangeEnum.EIGHTEEN_TO_THIRTY]: {
-    lifeStages: [StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS, StageOfLifeEnum.MARRIED_OR_PARTNERED],
-    timeSlots: {
-      morning: {
-        activities: [
-          {
-            category: "Gym and Studio",
-            categoryId: "18021",
-            subcategories: [
-              { name: "Dance Studio", id: "18025" },
-              { name: "Yoga Studio", id: "18028" },
-            ],
-          },
-          {
-            category: "Cafe, Coffee, and Tea House",
-            categoryId: "13032",
-            subcategories: [
-              { name: "Coffee Shop", id: "13035" },
-              { name: "Café", id: "13034" },
-            ],
-          },
-          { category: "Hiking Trail", categoryId: "16019" },
-          { category: "Park", categoryId: "16032" },
-        ],
-        genderPreferences: "all",
-      },
-      lateMorning: {
-        activities: [
-          { category: "Museum", categoryId: "10027" },
-          { category: "Art Gallery", categoryId: "10004" },
-          { category: "Botanical Garden", categoryId: "16005" },
-          { category: "Shopping Mall", categoryId: "17114" },
-          { category: "Boutique", categoryId: "17020" },
-        ],
-        genderPreferences: "all",
-      },
-      noon: {
-        activities: [
-          {
-            category: "Restaurant",
-            categoryId: "13065",
-            subcategories: [
-              { name: "Bistro", id: "13027" },
-              { name: "Pizzeria", id: "13064" },
-            ],
-          },
-          { category: "Food Court", categoryId: "13052" },
-          { category: "Food Truck", categoryId: "13054" },
-          { category: "Cafe, Coffee, and Tea House", categoryId: "13032" },
-        ],
-        genderPreferences: "all",
-      },
-      afternoon: {
-        activities: [
-          { category: "Movie Theater", categoryId: "10024" },
-          { category: "Amusement Park", categoryId: "10001" },
-          { category: "Zoo", categoryId: "10056" },
-          { category: "Aquarium", categoryId: "10002" },
-          { category: "Park", categoryId: "16032", subcategories: [{ name: "Playground", id: "16037" }] },
-        ],
-        genderPreferences: "all",
-      },
-      night: {
-        activities: [
-          {
-            category: "Bar",
-            categoryId: "13003",
-            subcategories: [
-              { name: "Sports Bar", id: "13022" },
-              { name: "Pub", id: "13018" },
-              { name: "Rooftop Bar", id: "13019" },
-              { name: "Wine Bar", id: "13025" },
-            ],
-          },
-          { category: "Night Club", categoryId: "10032" },
-          { category: "Restaurant", categoryId: "13065" },
-          { category: "Movie Theater", categoryId: "10024" },
-        ],
-        genderPreferences: "all",
-      },
+  [TimeSlots.MORNING]: [
+    {
+      label: "Gym and Studio",
+      id: CategoryEnum.GYM_STUDIO,
+      ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY, AgeRangeEnum.FORTY_ONE_TO_FIFTY],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
     },
-  },
-
-  [AgeRangeEnum.THIRTY_ONE_TO_FORTY]: {
-    lifeStages: [StageOfLifeEnum.MARRIED_OR_PARTNERED, StageOfLifeEnum.MARRIED_WITH_KIDS],
-    timeSlots: {
-      morning: {
-        activities: [
-          { category: "Gym and Studio", categoryId: "18021", subcategories: [{ name: "Yoga Studio", id: "18028" }] },
-          { category: "Park", categoryId: "16032" },
-          { category: "Cafe, Coffee, and Tea House", categoryId: "13032" },
-        ],
-        genderPreferences: "all",
-      },
-      lateMorning: {
-        activities: [
-          { category: "Museum", categoryId: "10027" },
-          { category: "Community Center", categoryId: "12004" },
-          { category: "Shopping Mall", categoryId: "17114" },
-        ],
-        genderPreferences: "all",
-      },
-      noon: {
-        activities: [
-          { category: "Restaurant", categoryId: "13065" },
-          { category: "Cafe, Coffee, and Tea House", categoryId: "13032" },
-          { category: "Food Court", categoryId: "13052" },
-        ],
-        genderPreferences: "all",
-      },
-      afternoon: {
-        activities: [
-          { category: "Park", categoryId: "16032", subcategories: [{ name: "Playground", id: "16037" }] },
-          { category: "Zoo", categoryId: "10056" },
-          { category: "Aquarium", categoryId: "10002" },
-          { category: "Library", categoryId: "12080" },
-        ],
-        genderPreferences: "all",
-      },
-      night: {
-        activities: [
-          { category: "Restaurant", categoryId: "13065" },
-          {
-            category: "Bar",
-            categoryId: "13003",
-            subcategories: [
-              { name: "Wine Bar", id: "13025" },
-              { name: "Pub", id: "13018" },
-            ],
-          },
-          { category: "Movie Theater", categoryId: "10024" },
-        ],
-        genderPreferences: "all",
-      },
+    {
+      label: "Go for a hike",
+      id: CategoryEnum.HIKING_TRAIL,
+      ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
     },
-  },
-
-  [AgeRangeEnum.FORTY_ONE_TO_FIFTY]: {
-    lifeStages: [StageOfLifeEnum.MARRIED_WITH_KIDS, StageOfLifeEnum.MARRIED_OR_PARTNERED],
-    timeSlots: {
-      morning: {
-        activities: [
-          { category: "Gym and Studio", categoryId: "18021", subcategories: [{ name: "Yoga Studio", id: "18028" }] },
-          { category: "Park", categoryId: "16032" },
-          { category: "Cafe, Coffee, and Tea House", categoryId: "13032" },
-        ],
-        genderPreferences: "all",
-      },
-      lateMorning: {
-        activities: [
-          { category: "Art Gallery", categoryId: "10004" },
-          { category: "Museum", categoryId: "10027" },
-          { category: "Botanical Garden", categoryId: "16005" },
-        ],
-        genderPreferences: "all",
-      },
-      noon: {
-        activities: [
-          { category: "Restaurant", categoryId: "13065", subcategories: [{ name: "Bistro", id: "13027" }] },
-          { category: "Cafe, Coffee, and Tea House", categoryId: "13032" },
-        ],
-        genderPreferences: "all",
-      },
-      afternoon: {
-        activities: [
-          { category: "Library", categoryId: "12080" },
-          { category: "Shopping Mall", categoryId: "17114" },
-          { category: "Park", categoryId: "16032" },
-        ],
-        genderPreferences: "all",
-      },
-      night: {
-        activities: [
-          { category: "Restaurant", categoryId: "13065" },
-          { category: "Bar", categoryId: "13003", subcategories: [{ name: "Wine Bar", id: "13025" }] },
-          { category: "Movie Theater", categoryId: "10024" },
-        ],
-        genderPreferences: "all",
-      },
+    {
+      label: "Yoga",
+      id: CategoryEnum.YOGA,
+      ageGroup: [
+        AgeRangeEnum.EIGHTEEN_TO_THIRTY,
+        AgeRangeEnum.THIRTY_ONE_TO_FORTY,
+        AgeRangeEnum.FORTY_ONE_TO_FIFTY,
+        AgeRangeEnum.FIFTY_ONE_TO_SIXTY,
+      ],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+        StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
     },
-  },
-
-  [AgeRangeEnum.FIFTY_ONE_TO_SIXTY]: {
-    lifeStages: [StageOfLifeEnum.MARRIED_WITH_KIDS, StageOfLifeEnum.MARRIED_OR_PARTNERED],
-    timeSlots: {
-      morning: {
-        activities: [
-          { category: "Park", categoryId: "16032" },
-          { category: "Hiking Trail", categoryId: "16019" },
-          { category: "Cafe, Coffee, and Tea House", categoryId: "13032" },
-        ],
-        genderPreferences: "all",
-      },
-      lateMorning: {
-        activities: [
-          { category: "Museum", categoryId: "10027" },
-          { category: "Art Gallery", categoryId: "10004" },
-          { category: "Community Center", categoryId: "12004" },
-        ],
-        genderPreferences: "all",
-      },
-      noon: {
-        activities: [
-          { category: "Restaurant", categoryId: "13065" },
-          { category: "Cafe, Coffee, and Tea House", categoryId: "13032" },
-        ],
-        genderPreferences: "all",
-      },
-      afternoon: {
-        activities: [
-          { category: "Library", categoryId: "12080" },
-          { category: "Park", categoryId: "16032" },
-          { category: "Botanical Garden", categoryId: "16005" },
-        ],
-        genderPreferences: "all",
-      },
-      night: {
-        activities: [
-          { category: "Restaurant", categoryId: "13065" },
-          { category: "Movie Theater", categoryId: "10024" },
-          { category: "Bar", categoryId: "13003", subcategories: [{ name: "Wine Bar", id: "13025" }] },
-        ],
-        genderPreferences: "all",
-      },
+  ],
+  [TimeSlots.LATE_MORNING]: [
+    {
+      label: "Go get some coffee",
+      id: CategoryEnum.CAFE,
+      ageGroup: [
+        AgeRangeEnum.EIGHTEEN_TO_THIRTY,
+        AgeRangeEnum.THIRTY_ONE_TO_FORTY,
+        AgeRangeEnum.FORTY_ONE_TO_FIFTY,
+        AgeRangeEnum.FIFTY_ONE_TO_SIXTY,
+        AgeRangeEnum.SIXTY_PLUS,
+      ],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+        StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
     },
-  },
-
-  [AgeRangeEnum.SIXTY_PLUS]: {
-    lifeStages: [StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE],
-    timeSlots: {
-      morning: {
-        activities: [
-          { category: "Park", categoryId: "16032" },
-          { category: "Cafe, Coffee, and Tea House", categoryId: "13032" },
-          { category: "Community Center", categoryId: "12004" },
-        ],
-        genderPreferences: "all",
-      },
-      lateMorning: {
-        activities: [
-          { category: "Museum", categoryId: "10027" },
-          { category: "Library", categoryId: "12080" },
-          { category: "Community Center", categoryId: "12004" },
-        ],
-        genderPreferences: "all",
-      },
-      noon: {
-        activities: [
-          { category: "Restaurant", categoryId: "13065" },
-          { category: "Cafe, Coffee, and Tea House", categoryId: "13032" },
-        ],
-        genderPreferences: "all",
-      },
-      afternoon: {
-        activities: [
-          { category: "Park", categoryId: "16032" },
-          { category: "Library", categoryId: "12080" },
-          { category: "Botanical Garden", categoryId: "16005" },
-        ],
-        genderPreferences: "all",
-      },
-      night: {
-        activities: [
-          { category: "Restaurant", categoryId: "13065" },
-          { category: "Movie Theater", categoryId: "10024" },
-          { category: "Community Center", categoryId: "12004" },
-        ],
-        genderPreferences: "all",
-      },
+    {
+      label: "Get some breakfast",
+      id: CategoryEnum.BREAKFAST_SPOT,
+      ageGroup: [
+        AgeRangeEnum.EIGHTEEN_TO_THIRTY,
+        AgeRangeEnum.THIRTY_ONE_TO_FORTY,
+        AgeRangeEnum.FORTY_ONE_TO_FIFTY,
+        AgeRangeEnum.FIFTY_ONE_TO_SIXTY,
+        AgeRangeEnum.SIXTY_PLUS,
+      ],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+        StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
     },
-  },
+    {
+      label: "Explore a nearby park",
+      id: CategoryEnum.PARK,
+      ageGroup: [
+        AgeRangeEnum.EIGHTEEN_TO_THIRTY,
+        AgeRangeEnum.THIRTY_ONE_TO_FORTY,
+        AgeRangeEnum.FORTY_ONE_TO_FIFTY,
+        AgeRangeEnum.FIFTY_ONE_TO_SIXTY,
+        AgeRangeEnum.SIXTY_PLUS,
+      ],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+    },
+    {
+      label: "Explore nearby meuseum",
+      id: CategoryEnum.MUSEUM,
+      ageGroup: [
+        AgeRangeEnum.EIGHTEEN_TO_THIRTY,
+        AgeRangeEnum.THIRTY_ONE_TO_FORTY,
+        AgeRangeEnum.FORTY_ONE_TO_FIFTY,
+        AgeRangeEnum.FIFTY_ONE_TO_SIXTY,
+        AgeRangeEnum.SIXTY_PLUS,
+      ],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+    },
+  ],
+  [TimeSlots.AFTERNOON]: [
+    {
+      label: "Visit an Art Gallery",
+      id: CategoryEnum.ART_GALLERY,
+      ageGroup: [
+        AgeRangeEnum.EIGHTEEN_TO_THIRTY,
+        AgeRangeEnum.THIRTY_ONE_TO_FORTY,
+        AgeRangeEnum.FORTY_ONE_TO_FIFTY,
+        AgeRangeEnum.FIFTY_ONE_TO_SIXTY,
+        AgeRangeEnum.SIXTY_PLUS,
+      ],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+        StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+    },
+    {
+      label: "Visit a Zoo",
+      id: CategoryEnum.ZOO,
+      ageGroup: [
+        AgeRangeEnum.EIGHTEEN_TO_THIRTY,
+        AgeRangeEnum.THIRTY_ONE_TO_FORTY,
+        AgeRangeEnum.FORTY_ONE_TO_FIFTY,
+        AgeRangeEnum.FIFTY_ONE_TO_SIXTY,
+        AgeRangeEnum.SIXTY_PLUS,
+      ],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+        StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+    },
+    {
+      label: "Have some fun at a amusement park",
+      id: CategoryEnum.AMUSEMENT_PARK,
+      ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY, AgeRangeEnum.FORTY_ONE_TO_FIFTY],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+    },
+    {
+      label: "Go to water park",
+      id: CategoryEnum.WATER_PARK,
+      ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY, AgeRangeEnum.FORTY_ONE_TO_FIFTY],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+    },
+    {
+      label: "Visit Shopping Mall",
+      id: CategoryEnum.SHOPPING_MALL,
+      ageGroup: [
+        AgeRangeEnum.EIGHTEEN_TO_THIRTY,
+        AgeRangeEnum.THIRTY_ONE_TO_FORTY,
+        AgeRangeEnum.FORTY_ONE_TO_FIFTY,
+        AgeRangeEnum.FIFTY_ONE_TO_SIXTY,
+        AgeRangeEnum.SIXTY_PLUS,
+      ],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+        StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+    },
+    {
+      label: "Restaurant",
+      id: CategoryEnum.RESTAURANTS,
+      ageGroup: [
+        AgeRangeEnum.EIGHTEEN_TO_THIRTY,
+        AgeRangeEnum.THIRTY_ONE_TO_FORTY,
+        AgeRangeEnum.FORTY_ONE_TO_FIFTY,
+        AgeRangeEnum.FIFTY_ONE_TO_SIXTY,
+        AgeRangeEnum.SIXTY_PLUS,
+      ],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+        StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+    },
+    {
+      label: "School and Colleges",
+      id: CategoryEnum.SCHOOL_COLLEGES,
+      ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY],
+      stageOfLife: [StageOfLifeEnum.MARRIED_WITH_KIDS],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+    },
+    {
+      label: "Go to a Saloon",
+      id: CategoryEnum.HEALTH_AND_BEAUTY_SERVICE_FEMALE,
+      ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY],
+      stageOfLife: [
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.OTHER],
+    },
+    {
+      label: "Go to a Saloon",
+      id: CategoryEnum.HEALTH_AND_BEAUTY_SERVICE_MALE,
+      ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY],
+      stageOfLife: [
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+      ],
+      genderPreferences: [GenderEnum.MALE],
+    },
+    {
+      label: "Go get some groceries",
+      id: CategoryEnum.GROCERY_STORE,
+      ageGroup: [
+        AgeRangeEnum.EIGHTEEN_TO_THIRTY,
+        AgeRangeEnum.THIRTY_ONE_TO_FORTY,
+        AgeRangeEnum.FORTY_ONE_TO_FIFTY,
+        AgeRangeEnum.FIFTY_ONE_TO_SIXTY,
+        AgeRangeEnum.SIXTY_PLUS,
+      ],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+        StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+    },
+    {
+      label: "Visit nearby landmarks",
+      id: CategoryEnum.LANDMARK_AND_OUTDOORS,
+      ageGroup: [
+        AgeRangeEnum.EIGHTEEN_TO_THIRTY,
+        AgeRangeEnum.THIRTY_ONE_TO_FORTY,
+        AgeRangeEnum.FORTY_ONE_TO_FIFTY,
+        AgeRangeEnum.FIFTY_ONE_TO_SIXTY,
+        AgeRangeEnum.SIXTY_PLUS,
+      ],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+        StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+    },
+  ],
+  [TimeSlots.EVENING]: [
+    {
+      label: "Restaurant",
+      id: CategoryEnum.RESTAURANTS,
+      ageGroup: [
+        AgeRangeEnum.EIGHTEEN_TO_THIRTY,
+        AgeRangeEnum.THIRTY_ONE_TO_FORTY,
+        AgeRangeEnum.FORTY_ONE_TO_FIFTY,
+        AgeRangeEnum.FIFTY_ONE_TO_SIXTY,
+        AgeRangeEnum.SIXTY_PLUS,
+      ],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+        StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+    },
+    {
+      label: "Night Market",
+      id: CategoryEnum.NIGHT_MARKET,
+      ageGroup: [
+        AgeRangeEnum.EIGHTEEN_TO_THIRTY,
+        AgeRangeEnum.THIRTY_ONE_TO_FORTY,
+        AgeRangeEnum.FORTY_ONE_TO_FIFTY,
+        AgeRangeEnum.FIFTY_ONE_TO_SIXTY,
+        AgeRangeEnum.SIXTY_PLUS,
+      ],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+        StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+    },
+    {
+      label: "Bar",
+      id: CategoryEnum.BAR,
+      ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY, AgeRangeEnum.FORTY_ONE_TO_FIFTY],
+      stageOfLife: [StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS, StageOfLifeEnum.MARRIED_OR_PARTNERED],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+    },
+    {
+      label: "Night Club",
+      id: CategoryEnum.CLUBS,
+      ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY, AgeRangeEnum.FORTY_ONE_TO_FIFTY],
+      stageOfLife: [StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS, StageOfLifeEnum.MARRIED_OR_PARTNERED],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+    },
+    {
+      label: "Movie Theater",
+      id: CategoryEnum.MOVIE_THEATER,
+      ageGroup: [
+        AgeRangeEnum.EIGHTEEN_TO_THIRTY,
+        AgeRangeEnum.THIRTY_ONE_TO_FORTY,
+        AgeRangeEnum.FORTY_ONE_TO_FIFTY,
+        AgeRangeEnum.FIFTY_ONE_TO_SIXTY,
+        AgeRangeEnum.SIXTY_PLUS,
+      ],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+        StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+    },
+    {
+      label: "Go for a evening walks",
+      id: CategoryEnum.PARK,
+      ageGroup: [
+        AgeRangeEnum.EIGHTEEN_TO_THIRTY,
+        AgeRangeEnum.THIRTY_ONE_TO_FORTY,
+        AgeRangeEnum.FORTY_ONE_TO_FIFTY,
+        AgeRangeEnum.FIFTY_ONE_TO_SIXTY,
+        AgeRangeEnum.SIXTY_PLUS,
+      ],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+        StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+    },
+  ],
 };
 
 export default activityCategorizationSchema;
