@@ -50,6 +50,34 @@
       "when": 1735037167044,
       "tag": "0006_groovy_talon",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1735117059508,
+      "tag": "0007_public_skrulls",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1735117298841,
+      "tag": "0008_fair_albert_cleary",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1735118713615,
+      "tag": "0009_cheerful_warbound",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1735120020551,
+      "tag": "0010_amused_sunset_bain",
+      "breakpoints": true
     }
   ]
 }

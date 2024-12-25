@@ -1,10 +1,10 @@
 import { fetcher } from "@/lib/fetcher.lib";
-import { Place } from "@/types/place.type";
+import { NearbyAttraction } from "@/server/db/schema";
 
 export const getPlaces = async () => {
-  return await fetcher<Place[]>(`/api/places`);
+  return await fetcher<NearbyAttraction[]>(`/api/places`);
 };
 
 export const getPlacesByPropertyId = async (propertyId: string) => {
-  return await fetcher<Place[]>(`/api/places/${propertyId}`);
+  return await fetcher<NearbyAttraction[]>(`/api/places/${propertyId}`);
 };

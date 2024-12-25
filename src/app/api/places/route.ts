@@ -1,8 +1,8 @@
 import { apiHandler } from "@/helpers/api-handler";
 import { db } from "@/server/db";
-import { places } from "@/server/db/schema";
+import { nearbyAttractions } from "@/server/db/schema";
 
 export const GET = apiHandler(async () => {
-  const contains = await db.select().from(places);
+  const contains = await db.select().from(nearbyAttractions);
   return Response.json(contains);
 });
