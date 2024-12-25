@@ -24,6 +24,7 @@ const StreamTextAudio = ({ text }: { text: string }) => {
       console.info("Starting playback");
       clearTimeouts();
       audioRef?.current?.pause();
+      audioRef.current = new Audio();
 
       const response = await client.textToSpeech.convertWithTimestamps("pbufn2IIcaA9SVLS6d0k", {
         output_format: "mp3_44100_128",
