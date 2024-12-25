@@ -32,7 +32,7 @@ const StreamTextAudio = ({ text }: { text: string }) => {
         model_id: "eleven_multilingual_v2",
       });
 
-      const processItem = async (item) => {
+      const processItem = async (item: any) => {
         if (item.audio_base64) {
           // Convert base64 to audio blob
           const audioData = atob(item.audio_base64);
