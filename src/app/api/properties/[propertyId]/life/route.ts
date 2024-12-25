@@ -62,7 +62,8 @@ export const GET = apiHandler(async (request: NextRequest, { params }: { params:
   const nearbyAttractionsData = await db
     .select()
     .from(nearbyAttractions)
-    .where(and(inArray(nearbyAttractions.category_id, categoryIds), eq(nearbyAttractions.property_id, propertyId)));
+    .where(and(inArray(nearbyAttractions.category_id, categoryIds), eq(nearbyAttractions.property_id, propertyId)))
+    .orderBy(nearbyAttractions.distance);
 
   const groupedNearbyAttractions = groupBy(nearbyAttractionsData, "category_id");
   const selectedAttractionSet = new Set();
