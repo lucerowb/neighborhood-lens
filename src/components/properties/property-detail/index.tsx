@@ -1,11 +1,9 @@
-"use client";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { Fragment } from "react";
 
 import ChatBubbleCard from "@/components/common/chat-bubble-card";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Typography, typographyVariants } from "@/components/ui/typography";
 import { Property } from "@/types/properties.type";
@@ -17,7 +15,6 @@ type PropertyDetailProps = {
   propertyDetail: Property;
 };
 const PropertyDetail = ({ propertyDetail }: PropertyDetailProps) => {
-  const router = useRouter();
   const {
     id,
     photos,
@@ -59,9 +56,16 @@ const PropertyDetail = ({ propertyDetail }: PropertyDetailProps) => {
           className="h-72 md:h-[50vh] md:max-h-[50vh]"
         />
         <div className="absolute left-4 top-4">
-          <Button variant="secondary" size="icon" className="rounded-xl" onClick={() => router.back()}>
+          <Link
+            href="/"
+            className={buttonVariants({
+              variant: "secondary",
+              size: "icon",
+              className: "rounded-xl",
+            })}
+          >
             <ChevronLeft />
-          </Button>
+          </Link>
         </div>
       </div>
       <div className="mx-auto flex max-w-screen-xl flex-col gap-4 p-4 lg:flex-row lg:gap-8">

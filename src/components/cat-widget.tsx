@@ -48,7 +48,7 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
   };
 
   return (
-    <div className={cn("fixed bottom-4 right-4 flex flex-col items-end", className, catClassName)}>
+    <div className={cn("absolute bottom-4 right-4 flex flex-col items-end", className, catClassName)}>
       <AnimatePresence>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -119,18 +119,7 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
         </motion.div>
       </AnimatePresence>
       <AnimatePresence mode="wait">
-        <motion.div
-          id={catReply ? String(catReply?.catImageNumber) : String(catImageNumber)}
-          animate={{
-            y: [0, -10, 0],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="relative z-10"
-        >
+        <motion.div id={catReply ? String(catReply?.catImageNumber) : String(catImageNumber)} className="relative z-10">
           <Image
             src={getCatImage((catReply ? catReply?.catImageNumber : catImageNumber) || 1)}
             alt="Cat"

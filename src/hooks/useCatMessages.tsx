@@ -36,7 +36,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
           id: "intro",
           text: "Hi, I'm rePurrrr, your friendly neighborhood guide! I'll show you what this area has to offer—from morning coffee spots to parks for evening strolls. Let's dive in and explore your potential new neighborhood!",
           catImageNumber: 1,
-          catClassName: "bottom-4 right-1/2 translate-x-1/2 items-center",
+          catClassName: "bottom-4 left-1/2 -translate-x-1/2 items-center",
           anchorPosition: "bottom-center",
         },
         {
