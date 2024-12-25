@@ -1,0 +1,1 @@
+ALTER TABLE "neighborhood_lens_nearby_attractions" ADD CONSTRAINT "neighborhood_lens_nearby_attractions_property_id_fsq_id_unique" UNIQUE("property_id","fsq_id");

@@ -18,3 +18,10 @@ export enum StageOfLifeEnum {
   MARRIED_WITH_KIDS = "married_with_kids",
   RETIRED_AND_ENJOYING_LIFE = "retired_and_enjoying_life",
 }
+
+export enum TimeSlots {
+  MORNING = "morning",
+  LATE_MORNING = "late_morning",
+  AFTERNOON = "afternoon",
+  EVENING = "evening",
+}

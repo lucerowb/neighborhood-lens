@@ -1,0 +1,422 @@
+Main Category,FSQ Category ID,Category Label
+Amusement Park,10058,Arts and Entertainment > Amusement Park > Attraction
+Amusement Park,10001,Arts and Entertainment > Amusement Park
+Art Gallery,10004,Arts and Entertainment > Art Gallery
+Movie Theater,10024,Arts and Entertainment > Movie Theater
+Movie Theater,10025,Arts and Entertainment > Movie Theater > Drive-in Theater
+Movie Theater,10026,Arts and Entertainment > Movie Theater > Indie Movie Theater
+Museum,10028,Arts and Entertainment > Museum > Art Museum
+Museum,10029,Arts and Entertainment > Museum > Erotic Museum
+Museum,10030,Arts and Entertainment > Museum > History Museum
+Museum,10031,Arts and Entertainment > Museum > Science Museum
+Water Park,10055,Arts and Entertainment > Water Park
+Zoo,10056,Arts and Entertainment > Zoo
+Zoo,10068,Arts and Entertainment > Zoo > Zoo Exhibit
+Health and Beauty Service (Male),11070,Business and Professional Services > Health and Beauty Service > Massage Clinic
+Health and Beauty Service (Male),11062,Business and Professional Services > Health and Beauty Service > Barbershop
+Health and Beauty Service (Female),11071,Business and Professional Services > Health and Beauty Service > Nail Salon
+Health and Beauty Service (Female),11072,Business and Professional Services > Health and Beauty Service > Skin Care Clinic
+Health and Beauty Service (Female),11073,Business and Professional Services > Health and Beauty Service > Spa
+Health and Beauty Service (Female),11074,Business and Professional Services > Health and Beauty Service > Tanning Salon
+Health and Beauty Service (Female),11067,Business and Professional Services > Health and Beauty Service > Hair Removal Service
+Health and Beauty Service (Female),11064,Business and Professional Services > Health and Beauty Service > Hair Salon
+Health and Beauty Service (Female),11070,Business and Professional Services > Health and Beauty Service > Massage Clinic
+Bakery,13002,Dining and Drinking > Bakery
+Cafe,13032,"Dining and Drinking > Cafe, Coffee, and Tea House"
+Cafe,13033,"Dining and Drinking > Cafe, Coffee, and Tea House > Bubble Tea Shop"
+Cafe,13034,"Dining and Drinking > Cafe, Coffee, and Tea House > Café"
+Cafe,13035,"Dining and Drinking > Cafe, Coffee, and Tea House > Coffee Shop"
+Cafe,13036,"Dining and Drinking > Cafe, Coffee, and Tea House > Tea Room"
+Cafe,13037,Dining and Drinking > Cafeteria
+Restaurants,13066,Dining and Drinking > Restaurant > Afghan Restaurant
+Restaurants,13067,Dining and Drinking > Restaurant > African Restaurant
+Restaurants,13143,Dining and Drinking > Restaurant > African Restaurant > Ethiopian Restaurant
+Restaurants,13301,Dining and Drinking > Restaurant > African Restaurant > Mauritian Restaurant
+Restaurants,13068,Dining and Drinking > Restaurant > American Restaurant
+Restaurants,13314,Dining and Drinking > Restaurant > American Restaurant > New American Restaurant
+Restaurants,13071,Dining and Drinking > Restaurant > Armenian Restaurant
+Restaurants,13072,Dining and Drinking > Restaurant > Asian Restaurant
+Restaurants,13094,Dining and Drinking > Restaurant > Asian Restaurant > Burmese Restaurant
+Restaurants,13096,Dining and Drinking > Restaurant > Asian Restaurant > Cambodian Restaurant
+Restaurants,13099,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant
+Restaurants,13100,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Anhui Restaurant
+Restaurants,13101,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Beijing Restaurant
+Restaurants,13102,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Cantonese Restaurant
+Restaurants,13103,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Cha Chaan Teng
+Restaurants,13104,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Chinese Aristocrat Restaurant
+Restaurants,13105,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Chinese Breakfast Restaurant
+Restaurants,13106,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Dim Sum Restaurant
+Restaurants,13107,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Dongbei Restaurant
+Restaurants,13108,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Fujian Restaurant
+Restaurants,13109,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Guizhou Restaurant
+Restaurants,13110,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Hainan Restaurant
+Restaurants,13111,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Hakka Restaurant
+Restaurants,13112,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Henan Restaurant
+Restaurants,13113,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Hong Kong Restaurant
+Restaurants,13114,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Huaiyang Restaurant
+Restaurants,13115,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Hubei Restaurant
+Restaurants,13116,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Hunan Restaurant
+Restaurants,13117,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Imperial Restaurant
+Restaurants,13118,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Jiangsu Restaurant
+Restaurants,13119,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Jiangxi Restaurant
+Restaurants,13120,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Macanese Restaurant
+Restaurants,13121,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Manchu Restaurant
+Restaurants,13122,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Peking Duck Restaurant
+Restaurants,13123,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Shaanxi Restaurant
+Restaurants,13124,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Shandong Restaurant
+Restaurants,13125,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Shanghai Restaurant
+Restaurants,13126,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Shanxi Restaurant
+Restaurants,13127,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Szechuan Restaurant
+Restaurants,13128,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Taiwanese Restaurant
+Restaurants,13129,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Tianjin Restaurant
+Restaurants,13130,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Xinjiang Restaurant
+Restaurants,13131,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Yunnan Restaurant
+Restaurants,13132,Dining and Drinking > Restaurant > Asian Restaurant > Chinese Restaurant > Zhejiang Restaurant
+Restaurants,13146,Dining and Drinking > Restaurant > Asian Restaurant > Filipino Restaurant
+Restaurants,13194,Dining and Drinking > Restaurant > Asian Restaurant > Himalayan Restaurant
+Restaurants,13196,Dining and Drinking > Restaurant > Asian Restaurant > Hotpot Restaurant
+Restaurants,13225,Dining and Drinking > Restaurant > Asian Restaurant > Indonesian Restaurant
+Restaurants,13226,Dining and Drinking > Restaurant > Asian Restaurant > Indonesian Restaurant > Acehnese Restaurant
+Restaurants,13227,Dining and Drinking > Restaurant > Asian Restaurant > Indonesian Restaurant > Balinese Restaurant
+Restaurants,13228,Dining and Drinking > Restaurant > Asian Restaurant > Indonesian Restaurant > Betawinese Restaurant
+Restaurants,13229,Dining and Drinking > Restaurant > Asian Restaurant > Indonesian Restaurant > Indonesian Meatball Restaurant
+Restaurants,13230,Dining and Drinking > Restaurant > Asian Restaurant > Indonesian Restaurant > Javanese Restaurant
+Restaurants,13231,Dining and Drinking > Restaurant > Asian Restaurant > Indonesian Restaurant > Manadonese Restaurant
+Restaurants,13232,Dining and Drinking > Restaurant > Asian Restaurant > Indonesian Restaurant > Padangnese Restaurant
+Restaurants,13233,Dining and Drinking > Restaurant > Asian Restaurant > Indonesian Restaurant > Sundanese Restaurant
+Restaurants,13263,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant
+Restaurants,13264,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Donburi Restaurant
+Restaurants,13265,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Japanese Curry Restaurant
+Restaurants,13266,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Japanese Family Restaurant
+Restaurants,13267,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Kaiseki Restaurant
+Restaurants,13268,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Kushikatsu Restaurant
+Restaurants,13269,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Monjayaki Restaurant
+Restaurants,13270,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Nabe Restaurant
+Restaurants,13271,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Okonomiyaki Restaurant
+Restaurants,13272,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Ramen Restaurant
+Restaurants,13273,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Shabu-Shabu Restaurant
+Restaurants,13274,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Soba Restaurant
+Restaurants,13275,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Sukiyaki Restaurant
+Restaurants,13276,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Sushi Restaurant
+Restaurants,13277,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Takoyaki Place
+Restaurants,13278,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Teishoku Restaurant
+Restaurants,13279,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Tempura Restaurant
+Restaurants,13280,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Tonkatsu Restaurant
+Restaurants,13281,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Udon Restaurant
+Restaurants,13282,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Unagi Restaurant
+Restaurants,13283,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Wagashi Place
+Restaurants,13284,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Yakitori Restaurant
+Restaurants,13285,Dining and Drinking > Restaurant > Asian Restaurant > Japanese Restaurant > Yoshoku Restaurant
+Restaurants,13289,Dining and Drinking > Restaurant > Asian Restaurant > Korean Restaurant
+Restaurants,13290,Dining and Drinking > Restaurant > Asian Restaurant > Korean Restaurant > Bossam/Jokbal Restaurant
+Restaurants,13291,Dining and Drinking > Restaurant > Asian Restaurant > Korean Restaurant > Bunsik Restaurant
+Restaurants,13292,Dining and Drinking > Restaurant > Asian Restaurant > Korean Restaurant > Gukbap Restaurant
+Restaurants,13293,Dining and Drinking > Restaurant > Asian Restaurant > Korean Restaurant > Janguh Restaurant
+Restaurants,13294,Dining and Drinking > Restaurant > Asian Restaurant > Korean Restaurant > Korean BBQ Restaurant
+Restaurants,13295,Dining and Drinking > Restaurant > Asian Restaurant > Korean Restaurant > Samgyetang Restaurant
+Restaurants,13299,Dining and Drinking > Restaurant > Asian Restaurant > Malay Restaurant
+Restaurants,13300,Dining and Drinking > Restaurant > Asian Restaurant > Malay Restaurant > Mamak Restaurant
+Restaurants,13312,Dining and Drinking > Restaurant > Asian Restaurant > Mongolian Restaurant
+Restaurants,13315,Dining and Drinking > Restaurant > Asian Restaurant > Noodle Restaurant
+Restaurants,13335,Dining and Drinking > Restaurant > Asian Restaurant > Satay Restaurant
+Restaurants,13340,Dining and Drinking > Restaurant > Asian Restaurant > Singaporean Restaurant
+Restaurants,13352,Dining and Drinking > Restaurant > Asian Restaurant > Thai Restaurant
+Restaurants,13353,Dining and Drinking > Restaurant > Asian Restaurant > Thai Restaurant > Som Tum Restaurant
+Restaurants,13355,Dining and Drinking > Restaurant > Asian Restaurant > Tibetan Restaurant
+Restaurants,13379,Dining and Drinking > Restaurant > Asian Restaurant > Vietnamese Restaurant
+Restaurants,13073,Dining and Drinking > Restaurant > Australian Restaurant
+Restaurants,13074,Dining and Drinking > Restaurant > Austrian Restaurant
+Restaurants,13075,Dining and Drinking > Restaurant > Bangladeshi Restaurant
+Restaurants,13026,Dining and Drinking > Restaurant > BBQ Joint
+Restaurants,13077,Dining and Drinking > Restaurant > Belgian Restaurant
+Restaurants,13027,Dining and Drinking > Restaurant > Bistro
+Restaurants,13030,Dining and Drinking > Restaurant > Buffet
+Restaurants,13031,Dining and Drinking > Restaurant > Burger Joint
+Restaurants,13095,Dining and Drinking > Restaurant > Cajun and Creole Restaurant
+Restaurants,13097,Dining and Drinking > Restaurant > Caribbean Restaurant
+Restaurants,13135,Dining and Drinking > Restaurant > Caribbean Restaurant > Cuban Restaurant
+Restaurants,13327,Dining and Drinking > Restaurant > Caribbean Restaurant > Puerto Rican Restaurant
+Restaurants,13098,Dining and Drinking > Restaurant > Caucasian Restaurant
+Restaurants,13134,Dining and Drinking > Restaurant > Comfort Food Restaurant
+Restaurants,13136,Dining and Drinking > Restaurant > Czech Restaurant
+Restaurants,13039,Dining and Drinking > Restaurant > Deli
+Restaurants,13049,Dining and Drinking > Restaurant > Diner
+Restaurants,13137,Dining and Drinking > Restaurant > Dumpling Restaurant
+Restaurants,13138,Dining and Drinking > Restaurant > Dutch Restaurant
+Restaurants,13139,Dining and Drinking > Restaurant > Eastern European Restaurant
+Restaurants,13076,Dining and Drinking > Restaurant > Eastern European Restaurant > Belarusian Restaurant
+Restaurants,13078,Dining and Drinking > Restaurant > Eastern European Restaurant > Bosnian Restaurant
+Restaurants,13093,Dining and Drinking > Restaurant > Eastern European Restaurant > Bulgarian Restaurant
+Restaurants,13328,Dining and Drinking > Restaurant > Eastern European Restaurant > Romanian Restaurant
+Restaurants,13351,Dining and Drinking > Restaurant > Eastern European Restaurant > Tatar Restaurant
+Restaurants,13142,Dining and Drinking > Restaurant > English Restaurant
+Restaurants,13144,Dining and Drinking > Restaurant > Falafel Restaurant
+Restaurants,13145,Dining and Drinking > Restaurant > Fast Food Restaurant
+Restaurants,13051,Dining and Drinking > Restaurant > Fish and Chips Shop
+Restaurants,13147,Dining and Drinking > Restaurant > Fondue Restaurant
+Restaurants,13148,Dining and Drinking > Restaurant > French Restaurant
+Restaurants,13149,Dining and Drinking > Restaurant > French Restaurant > Alsatian Restaurant
+Restaurants,13150,Dining and Drinking > Restaurant > French Restaurant > Auvergne Restaurant
+Restaurants,13151,Dining and Drinking > Restaurant > French Restaurant > Basque Restaurant
+Restaurants,13152,Dining and Drinking > Restaurant > French Restaurant > Brasserie
+Restaurants,13153,Dining and Drinking > Restaurant > French Restaurant > Breton Restaurant
+Restaurants,13154,Dining and Drinking > Restaurant > French Restaurant > Burgundian Restaurant
+Restaurants,13155,Dining and Drinking > Restaurant > French Restaurant > Catalan Restaurant
+Restaurants,13156,Dining and Drinking > Restaurant > French Restaurant > Ch'ti Restaurant
+Restaurants,13157,Dining and Drinking > Restaurant > French Restaurant > Corsican Restaurant
+Restaurants,13158,Dining and Drinking > Restaurant > French Restaurant > Estaminet
+Restaurants,13159,Dining and Drinking > Restaurant > French Restaurant > Labour Canteen
+Restaurants,13160,Dining and Drinking > Restaurant > French Restaurant > Lyonese Bouchon
+Restaurants,13161,Dining and Drinking > Restaurant > French Restaurant > Norman Restaurant
+Restaurants,13162,Dining and Drinking > Restaurant > French Restaurant > Provençal Restaurant
+Restaurants,13163,Dining and Drinking > Restaurant > French Restaurant > Savoyard Restaurant
+Restaurants,13164,Dining and Drinking > Restaurant > French Restaurant > Southwestern French Restaurant
+Restaurants,13055,Dining and Drinking > Restaurant > Fried Chicken Joint
+Restaurants,13056,Dining and Drinking > Restaurant > Friterie
+Restaurants,13057,Dining and Drinking > Restaurant > Gastropub
+Restaurants,13165,Dining and Drinking > Restaurant > German Restaurant
+Restaurants,13166,Dining and Drinking > Restaurant > German Restaurant > Apple Wine Pub
+Restaurants,13167,Dining and Drinking > Restaurant > German Restaurant > Bavarian Restaurant
+Restaurants,13168,Dining and Drinking > Restaurant > German Restaurant > Bratwurst Joint
+Restaurants,13169,Dining and Drinking > Restaurant > German Restaurant > Currywurst Joint
+Restaurants,13170,Dining and Drinking > Restaurant > German Restaurant > Franconian Restaurant
+Restaurants,13171,Dining and Drinking > Restaurant > German Restaurant > German Pop-Up Restaurant
+Restaurants,13172,Dining and Drinking > Restaurant > German Restaurant > Palatine Restaurant
+Restaurants,13173,Dining and Drinking > Restaurant > German Restaurant > Rhenisch Restaurant
+Restaurants,13174,Dining and Drinking > Restaurant > German Restaurant > Schnitzel Restaurant
+Restaurants,13175,Dining and Drinking > Restaurant > German Restaurant > Silesian Restaurant
+Restaurants,13176,Dining and Drinking > Restaurant > German Restaurant > Swabian Restaurant
+Restaurants,13390,Dining and Drinking > Restaurant > Gluten-Free Restaurant
+Restaurants,13177,Dining and Drinking > Restaurant > Greek Restaurant
+Restaurants,13178,Dining and Drinking > Restaurant > Greek Restaurant > Bougatsa Shop
+Restaurants,13179,Dining and Drinking > Restaurant > Greek Restaurant > Cretan Restaurant
+Restaurants,13180,Dining and Drinking > Restaurant > Greek Restaurant > Fish Taverna
+Restaurants,13181,Dining and Drinking > Restaurant > Greek Restaurant > Grilled Meat Restaurant
+Restaurants,13182,Dining and Drinking > Restaurant > Greek Restaurant > Kafenio
+Restaurants,13183,Dining and Drinking > Restaurant > Greek Restaurant > Magirio
+Restaurants,13184,Dining and Drinking > Restaurant > Greek Restaurant > Meze Restaurant
+Restaurants,13185,Dining and Drinking > Restaurant > Greek Restaurant > Modern Greek Restaurant
+Restaurants,13186,Dining and Drinking > Restaurant > Greek Restaurant > Ouzeri
+Restaurants,13187,Dining and Drinking > Restaurant > Greek Restaurant > Patsa Restaurant
+Restaurants,13188,Dining and Drinking > Restaurant > Greek Restaurant > Souvlaki Shop
+Restaurants,13189,Dining and Drinking > Restaurant > Greek Restaurant > Taverna
+Restaurants,13190,Dining and Drinking > Restaurant > Greek Restaurant > Tsipouro Restaurant
+Restaurants,13191,Dining and Drinking > Restaurant > Halal Restaurant
+Restaurants,13192,Dining and Drinking > Restaurant > Hawaiian Restaurant
+Restaurants,13193,Dining and Drinking > Restaurant > Hawaiian Restaurant > Poke Restaurant
+Restaurants,13058,Dining and Drinking > Restaurant > Hot Dog Joint
+Restaurants,13197,Dining and Drinking > Restaurant > Hungarian Restaurant
+Restaurants,13198,Dining and Drinking > Restaurant > Indian Chinese Restaurant
+Restaurants,13199,Dining and Drinking > Restaurant > Indian Restaurant
+Restaurants,13200,Dining and Drinking > Restaurant > Indian Restaurant > Andhra Restaurant
+Restaurants,13201,Dining and Drinking > Restaurant > Indian Restaurant > Awadhi Restaurant
+Restaurants,13202,Dining and Drinking > Restaurant > Indian Restaurant > Bengali Restaurant
+Restaurants,13203,Dining and Drinking > Restaurant > Indian Restaurant > Chaat Place
+Restaurants,13204,Dining and Drinking > Restaurant > Indian Restaurant > Chettinad Restaurant
+Restaurants,13205,Dining and Drinking > Restaurant > Indian Restaurant > Dhaba
+Restaurants,13206,Dining and Drinking > Restaurant > Indian Restaurant > Dosa Place
+Restaurants,13207,Dining and Drinking > Restaurant > Indian Restaurant > Goan Restaurant
+Restaurants,13208,Dining and Drinking > Restaurant > Indian Restaurant > Gujarati Restaurant
+Restaurants,13209,Dining and Drinking > Restaurant > Indian Restaurant > Hyderabadi Restaurant
+Restaurants,13210,Dining and Drinking > Restaurant > Indian Restaurant > Indian Sweet Shop
+Restaurants,13211,Dining and Drinking > Restaurant > Indian Restaurant > Irani Cafe
+Restaurants,13212,Dining and Drinking > Restaurant > Indian Restaurant > Jain Restaurant
+Restaurants,13213,Dining and Drinking > Restaurant > Indian Restaurant > Karnataka Restaurant
+Restaurants,13214,Dining and Drinking > Restaurant > Indian Restaurant > Kerala Restaurant
+Restaurants,13215,Dining and Drinking > Restaurant > Indian Restaurant > Maharashtrian Restaurant
+Restaurants,13216,Dining and Drinking > Restaurant > Indian Restaurant > Mughlai Restaurant
+Restaurants,13217,Dining and Drinking > Restaurant > Indian Restaurant > Multicuisine Indian Restaurant
+Restaurants,13218,Dining and Drinking > Restaurant > Indian Restaurant > North Indian Restaurant
+Restaurants,13219,Dining and Drinking > Restaurant > Indian Restaurant > Northeast Indian Restaurant
+Restaurants,13220,Dining and Drinking > Restaurant > Indian Restaurant > Parsi Restaurant
+Restaurants,13221,Dining and Drinking > Restaurant > Indian Restaurant > Punjabi Restaurant
+Restaurants,13222,Dining and Drinking > Restaurant > Indian Restaurant > Rajasthani Restaurant
+Restaurants,13223,Dining and Drinking > Restaurant > Indian Restaurant > South Indian Restaurant
+Restaurants,13224,Dining and Drinking > Restaurant > Indian Restaurant > Udupi Restaurant
+Restaurants,13236,Dining and Drinking > Restaurant > Italian Restaurant
+Restaurants,13237,Dining and Drinking > Restaurant > Italian Restaurant > Abruzzo Restaurant
+Restaurants,13238,Dining and Drinking > Restaurant > Italian Restaurant > Agriturismo
+Restaurants,13239,Dining and Drinking > Restaurant > Italian Restaurant > Aosta Restaurant
+Restaurants,13240,Dining and Drinking > Restaurant > Italian Restaurant > Basilicata Restaurant
+Restaurants,13241,Dining and Drinking > Restaurant > Italian Restaurant > Calabria Restaurant
+Restaurants,13242,Dining and Drinking > Restaurant > Italian Restaurant > Campanian Restaurant
+Restaurants,13243,Dining and Drinking > Restaurant > Italian Restaurant > Emilia Restaurant
+Restaurants,13244,Dining and Drinking > Restaurant > Italian Restaurant > Friuli Restaurant
+Restaurants,13245,Dining and Drinking > Restaurant > Italian Restaurant > Ligurian Restaurant
+Restaurants,13246,Dining and Drinking > Restaurant > Italian Restaurant > Lombard Restaurant
+Restaurants,13247,Dining and Drinking > Restaurant > Italian Restaurant > Malga
+Restaurants,13248,Dining and Drinking > Restaurant > Italian Restaurant > Marche Restaurant
+Restaurants,13249,Dining and Drinking > Restaurant > Italian Restaurant > Molise Restaurant
+Restaurants,13250,Dining and Drinking > Restaurant > Italian Restaurant > Piadineria
+Restaurants,13251,Dining and Drinking > Restaurant > Italian Restaurant > Piedmontese Restaurant
+Restaurants,13252,Dining and Drinking > Restaurant > Italian Restaurant > Puglia Restaurant
+Restaurants,13253,Dining and Drinking > Restaurant > Italian Restaurant > Romagna Restaurant
+Restaurants,13254,Dining and Drinking > Restaurant > Italian Restaurant > Roman Restaurant
+Restaurants,13255,Dining and Drinking > Restaurant > Italian Restaurant > Sardinian Restaurant
+Restaurants,13256,Dining and Drinking > Restaurant > Italian Restaurant > Sicilian Restaurant
+Restaurants,13257,Dining and Drinking > Restaurant > Italian Restaurant > South Tyrolean Restaurant
+Restaurants,13258,Dining and Drinking > Restaurant > Italian Restaurant > Trattoria
+Restaurants,13259,Dining and Drinking > Restaurant > Italian Restaurant > Trentino Restaurant
+Restaurants,13260,Dining and Drinking > Restaurant > Italian Restaurant > Tuscan Restaurant
+Restaurants,13261,Dining and Drinking > Restaurant > Italian Restaurant > Umbrian Restaurant
+Restaurants,13262,Dining and Drinking > Restaurant > Italian Restaurant > Veneto Restaurant
+Restaurants,13286,Dining and Drinking > Restaurant > Jewish Restaurant
+Restaurants,13287,Dining and Drinking > Restaurant > Jewish Restaurant > Kosher Restaurant
+Restaurants,13288,Dining and Drinking > Restaurant > Kebab Restaurant
+Restaurants,13297,Dining and Drinking > Restaurant > Latin American Restaurant
+Restaurants,13069,Dining and Drinking > Restaurant > Latin American Restaurant > Arepa Restaurant
+Restaurants,13141,Dining and Drinking > Restaurant > Latin American Restaurant > Empanada Restaurant
+Restaurants,13195,Dining and Drinking > Restaurant > Latin American Restaurant > Honduran Restaurant
+Restaurants,13333,Dining and Drinking > Restaurant > Latin American Restaurant > Salvadoran Restaurant
+Restaurants,13343,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant
+Restaurants,13070,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant > Argentinian Restaurant 
+Restaurants,13079,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant > Brazilian Restaurant
+Restaurants,13080,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant > Brazilian Restaurant > Acai House
+Restaurants,13081,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant > Brazilian Restaurant > Baiano Restaurant
+Restaurants,13082,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant > Brazilian Restaurant > Central Brazilian Restaurant 
+Restaurants,13083,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant > Brazilian Restaurant > Churrascaria
+Restaurants,13084,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant > Brazilian Restaurant > Empada House
+Restaurants,13085,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant > Brazilian Restaurant > Goiano Restaurant
+Restaurants,13086,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant > Brazilian Restaurant > Mineiro Restaurant
+Restaurants,13087,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant > Brazilian Restaurant > Northeastern Brazilian Restaurant
+Restaurants,13088,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant > Brazilian Restaurant > Northern Brazilian Restaurant
+Restaurants,13089,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant > Brazilian Restaurant > Pastelaria
+Restaurants,13090,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant > Brazilian Restaurant > Southeastern Brazilian Restaurant
+Restaurants,13091,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant > Brazilian Restaurant > Southern Brazilian Restaurant
+Restaurants,13092,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant > Brazilian Restaurant > Tapiocaria
+Restaurants,13133,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant > Colombian Restaurant
+Restaurants,13322,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant > Peruvian Restaurant
+Restaurants,13323,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant > Peruvian Restaurant > Peruvian Roast Chicken Joint
+Restaurants,13378,Dining and Drinking > Restaurant > Latin American Restaurant > South American Restaurant > Venezuelan Restaurant
+Restaurants,13060,Dining and Drinking > Restaurant > Mac and Cheese Joint
+Restaurants,13302,Dining and Drinking > Restaurant > Mediterranean Restaurant
+Restaurants,13303,Dining and Drinking > Restaurant > Mexican Restaurant
+Restaurants,13304,Dining and Drinking > Restaurant > Mexican Restaurant > Botanero
+Restaurants,13305,Dining and Drinking > Restaurant > Mexican Restaurant > Burrito Restaurant
+Restaurants,13306,Dining and Drinking > Restaurant > Mexican Restaurant > Taco Restaurant
+Restaurants,13307,Dining and Drinking > Restaurant > Mexican Restaurant > Tex-Mex Restaurant
+Restaurants,13308,Dining and Drinking > Restaurant > Mexican Restaurant > Yucatecan Restaurant
+Restaurants,13309,Dining and Drinking > Restaurant > Middle Eastern Restaurant
+Restaurants,13140,Dining and Drinking > Restaurant > Middle Eastern Restaurant > Egyptian Restaurant
+Restaurants,13234,Dining and Drinking > Restaurant > Middle Eastern Restaurant > Iraqi Restaurant
+Restaurants,13235,Dining and Drinking > Restaurant > Middle Eastern Restaurant > Israeli Restaurant
+Restaurants,13296,Dining and Drinking > Restaurant > Middle Eastern Restaurant > Kurdish Restaurant
+Restaurants,13298,Dining and Drinking > Restaurant > Middle Eastern Restaurant > Lebanese Restaurant
+Restaurants,13317,Dining and Drinking > Restaurant > Middle Eastern Restaurant > Persian Restaurant
+Restaurants,13318,Dining and Drinking > Restaurant > Middle Eastern Restaurant > Persian Restaurant > Ash and Haleem Place
+Restaurants,13319,Dining and Drinking > Restaurant > Middle Eastern Restaurant > Persian Restaurant > Dizi Place
+Restaurants,13320,Dining and Drinking > Restaurant > Middle Eastern Restaurant > Persian Restaurant > Gilaki Restaurant
+Restaurants,13321,Dining and Drinking > Restaurant > Middle Eastern Restaurant > Persian Restaurant > Jegaraki
+Restaurants,13384,Dining and Drinking > Restaurant > Middle Eastern Restaurant > Persian Restaurant > Tabbakhi
+Restaurants,13339,Dining and Drinking > Restaurant > Middle Eastern Restaurant > Shawarma Restaurant
+Restaurants,13350,Dining and Drinking > Restaurant > Middle Eastern Restaurant > Syrian Restaurant
+Restaurants,13380,Dining and Drinking > Restaurant > Middle Eastern Restaurant > Yemeni Restaurant
+Restaurants,13310,Dining and Drinking > Restaurant > Modern European Restaurant
+Restaurants,13311,Dining and Drinking > Restaurant > Molecular Gastronomy Restaurant
+Restaurants,13313,Dining and Drinking > Restaurant > Moroccan Restaurant
+Restaurants,13316,Dining and Drinking > Restaurant > Pakistani Restaurant
+Restaurants,13064,Dining and Drinking > Restaurant > Pizzeria
+Restaurants,13324,Dining and Drinking > Restaurant > Polish Restaurant
+Restaurants,13325,Dining and Drinking > Restaurant > Portuguese Restaurant
+Restaurants,13326,Dining and Drinking > Restaurant > Poutine Restaurant
+Restaurants,13329,Dining and Drinking > Restaurant > Russian Restaurant
+Restaurants,13330,Dining and Drinking > Restaurant > Russian Restaurant > Blini House
+Restaurants,13331,Dining and Drinking > Restaurant > Russian Restaurant > Pelmeni House
+Restaurants,13332,Dining and Drinking > Restaurant > Salad Restaurant
+Restaurants,13334,Dining and Drinking > Restaurant > Sandwich Spot
+Restaurants,13336,Dining and Drinking > Restaurant > Scandinavian Restaurant
+Restaurants,13337,Dining and Drinking > Restaurant > Scottish Restaurant
+Restaurants,13338,Dining and Drinking > Restaurant > Seafood Restaurant
+Restaurants,13341,Dining and Drinking > Restaurant > Slovak Restaurant
+Restaurants,13342,Dining and Drinking > Restaurant > Soup Spot
+Restaurants,13344,Dining and Drinking > Restaurant > Southern Food Restaurant
+Restaurants,13345,Dining and Drinking > Restaurant > Spanish Restaurant
+Restaurants,13346,Dining and Drinking > Restaurant > Spanish Restaurant > Paella Restaurant
+Restaurants,13347,Dining and Drinking > Restaurant > Spanish Restaurant > Tapas Restaurant
+Restaurants,13348,Dining and Drinking > Restaurant > Sri Lankan Restaurant
+Restaurants,13383,Dining and Drinking > Restaurant > Steakhouse
+Restaurants,13349,Dining and Drinking > Restaurant > Swiss Restaurant
+Restaurants,13354,Dining and Drinking > Restaurant > Theme Restaurant
+Restaurants,13356,Dining and Drinking > Restaurant > Turkish Restaurant
+Restaurants,13357,Dining and Drinking > Restaurant > Turkish Restaurant > Borek Place
+Restaurants,13358,Dining and Drinking > Restaurant > Turkish Restaurant > Cigkofte Place
+Restaurants,13359,Dining and Drinking > Restaurant > Turkish Restaurant > Çöp Şiş Place
+Restaurants,13360,Dining and Drinking > Restaurant > Turkish Restaurant > Doner Restaurant
+Restaurants,13361,Dining and Drinking > Restaurant > Turkish Restaurant > Gozleme Place
+Restaurants,13362,Dining and Drinking > Restaurant > Turkish Restaurant > Kofte Place
+Restaurants,13363,Dining and Drinking > Restaurant > Turkish Restaurant > Kokoreç Restaurant
+Restaurants,13364,Dining and Drinking > Restaurant > Turkish Restaurant > Kumpir Restaurant
+Restaurants,13365,Dining and Drinking > Restaurant > Turkish Restaurant > Kumru Restaurant
+Restaurants,13366,Dining and Drinking > Restaurant > Turkish Restaurant > Manti Place
+Restaurants,13367,Dining and Drinking > Restaurant > Turkish Restaurant > Meyhane
+Restaurants,13368,Dining and Drinking > Restaurant > Turkish Restaurant > Pide Place
+Restaurants,13369,Dining and Drinking > Restaurant > Turkish Restaurant > Pilavcı
+Restaurants,13370,Dining and Drinking > Restaurant > Turkish Restaurant > Söğüş Place
+Restaurants,13371,Dining and Drinking > Restaurant > Turkish Restaurant > Tantuni Restaurant
+Restaurants,13372,Dining and Drinking > Restaurant > Turkish Restaurant > Turkish Coffeehouse
+Restaurants,13373,Dining and Drinking > Restaurant > Turkish Restaurant > Turkish Home Cooking Restaurant
+Restaurants,13374,Dining and Drinking > Restaurant > Ukrainian Restaurant
+Restaurants,13375,Dining and Drinking > Restaurant > Ukrainian Restaurant > Varenyky Restaurant
+Restaurants,13376,Dining and Drinking > Restaurant > Ukrainian Restaurant > West-Ukrainian Restaurant
+Restaurants,13377,Dining and Drinking > Restaurant > Vegan and Vegetarian Restaurant
+Restaurants,13388,Dining and Drinking > Restaurant > Wings Joint
+Park,16033,Landmarks and Outdoors > Park > Dog Park
+Park,16034,Landmarks and Outdoors > Park > National Park
+Park,16035,Landmarks and Outdoors > Park > Natural Park
+Park,16036,Landmarks and Outdoors > Park > Picnic Area
+Park,16037,Landmarks and Outdoors > Park > Playground
+Park,16038,Landmarks and Outdoors > Park > State or Provincial Park
+Park,16039,Landmarks and Outdoors > Park > Urban Park
+Schools & Colleges,12009,Community and Government > Education
+Schools & Colleges,12125,Community and Government > Education > College and University > University
+Schools & Colleges,12057,Community and Government > Education > Primary and Secondary School
+Schools & Colleges,12058,Community and Government > Education > Primary and Secondary School > Elementary School
+Schools & Colleges,12059,Community and Government > Education > Primary and Secondary School > High School
+Schools & Colleges,12060,Community and Government > Education > Primary and Secondary School > Middle School
+Schools & Colleges,12061,Community and Government > Education > Private School
+Grocery Store,17065,Retail > Food and Beverage Retail > Farmers Market
+Grocery Store,17067,Retail > Food and Beverage Retail > Fruit and Vegetable Store
+Grocery Store,17068,Retail > Food and Beverage Retail > Gourmet Store
+Grocery Store,17069,Retail > Food and Beverage Retail > Grocery Store
+Grocery Store,17070,Retail > Food and Beverage Retail > Grocery Store > Organic Grocery
+Gym & Studio,18022,Sports and Recreation > Gym and Studio > Boxing Gym
+Gym & Studio,18023,Sports and Recreation > Gym and Studio > Climbing Gym
+Gym & Studio,18024,Sports and Recreation > Gym and Studio > Cycle Studio
+Gym & Studio,18025,Sports and Recreation > Gym and Studio > Dance Studio
+Gym & Studio,18077,Sports and Recreation > Gym and Studio > Gym
+Gym & Studio,18078,Sports and Recreation > Gym and Studio > Gym Pool
+Gym & Studio,18026,Sports and Recreation > Gym and Studio > Outdoor Gym
+Yoga,18028,Sports and Recreation > Gym and Studio > Yoga Studio
+Hiking Trail,16019,Landmarks and Outdoors > Hiking Trail
+Shopping Mall,17114,Retail > Shopping Mall
+Shopping Mall,17115,Retail > Shopping Plaza
+Shopping Mall,17104,Retail > Outlet Mall
+Shopping Mall,17105,Retail > Outlet Store
+Clubs,10032,Arts and Entertainment > Night Club
+Breakfast Spot,13028,Dining and Drinking > Breakfast Spot
+Night Market,13062,Dining and Drinking > Night Market
+LandMark and Outdoors,16012,Landmarks and Outdoors > Cave
+LandMark and Outdoors,16058,Landmarks and Outdoors > Hill
+LandMark and Outdoors,16023,Landmarks and Outdoors > Lake
+LandMark and Outdoors,16007,Landmarks and Outdoors > Structure
+LandMark and Outdoors,16052,Landmarks and Outdoors > Waterfall
+Bar,13005,Dining and Drinking > Bar > Beach Bar
+Bar,13006,Dining and Drinking > Bar > Beer Bar
+Bar,13007,Dining and Drinking > Bar > Beer Garden
+Bar,13008,Dining and Drinking > Bar > Champagne Bar
+Bar,13009,Dining and Drinking > Bar > Cocktail Bar
+Bar,13010,Dining and Drinking > Bar > Dive Bar
+Bar,13012,Dining and Drinking > Bar > Hookah Bar
+Bar,13013,Dining and Drinking > Bar > Hotel Bar
+Bar,13014,Dining and Drinking > Bar > Ice Bar
+Bar,13389,Dining and Drinking > Bar > Irish Pub
+Bar,13016,Dining and Drinking > Bar > Lounge
+Bar,13017,Dining and Drinking > Bar > Piano Bar
+Bar,13018,Dining and Drinking > Bar > Pub
+Bar,13019,Dining and Drinking > Bar > Rooftop Bar
+Bar,13020,Dining and Drinking > Bar > Sake Bar
+Bar,13021,Dining and Drinking > Bar > Speakeasy
+Bar,13022,Dining and Drinking > Bar > Sports Bar
+Bar,13023,Dining and Drinking > Bar > Tiki Bar
+Bar,13024,Dining and Drinking > Bar > Whisky Bar
+Bar,13025,Dining and Drinking > Bar > Wine Bar

@@ -2,25 +2,28 @@ import { eq } from "drizzle-orm";
 
 import categoriesData from "../data/fq_categories.json";
 import { db } from "../db";
-import { places } from "../db/schema";
+import { nearbyAttractions } from "../db/schema";
 
 async function addCategoryIcons() {
   const categoriesIconMap = new Map(categoriesData?.map((category) => [category.categoryCode, category.icon]));
-  const placesData = await db.select().from(places);
+  const nearbyAttractionData = await db.select().from(nearbyAttractions);
 
-  const updates = placesData
+  const updates = nearbyAttractionData
     .filter((place) => !place.category_icon)
     .map((place) => {
       return {
         id: place.id,
-        category_icon: categoriesIconMap.get(place.category_id) || null,
+        category_icon: categoriesIconMap.get(place.sub_category_id) || categoriesIconMap.get(place.category_id) || null,
       };
     })
     .filter((update) => update.category_icon !== null);
 
   await Promise.all(
     updates.map((update) =>
-      db.update(places).set({ category_icon: update.category_icon }).where(eq(places.id, update.id))
+      db
+        .update(nearbyAttractions)
+        .set({ category_icon: update.category_icon })
+        .where(eq(nearbyAttractions.id, update.id))
     )
   );
 
