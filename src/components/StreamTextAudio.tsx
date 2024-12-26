@@ -8,7 +8,13 @@ const client = new ElevenLabsClient({
   apiKey: env.elevenLabs.apiKey,
 });
 
-const StreamTextAudio = ({ text }: { text: string }) => {
+export interface TextAudioProps {
+  text: string;
+  onAudioStart?: () => void;
+  onAudioEnd?: () => void;
+}
+
+const StreamTextAudio = ({ text, onAudioEnd, onAudioStart }: TextAudioProps) => {
   const [renderText, setRenderText] = useState("");
   const audioRef = useRef(new Audio());
   const timeoutsRef = useRef<NodeJS.Timeout[]>([]);
@@ -25,7 +31,8 @@ const StreamTextAudio = ({ text }: { text: string }) => {
       return;
     }
     try {
-      console.info("Starting playback");
+      onAudioStart?.();
+
       clearTimeouts();
 
       isPlaybackActive.current = true;
@@ -48,9 +55,11 @@ const StreamTextAudio = ({ text }: { text: string }) => {
           const blob = new Blob([uint8Array], { type: "audio/mp3" });
           const audioUrl = URL.createObjectURL(blob);
 
-          console.info("Audio URL:", audioUrl);
-
           const audio = new Audio(audioUrl);
+
+          audio.onended = () => {
+            onAudioEnd?.();
+          };
           audioRef.current = audio;
           audioRef.current.muted = true;
           audioRef.current.currentTime = 0;
@@ -71,7 +80,9 @@ const StreamTextAudio = ({ text }: { text: string }) => {
 
           await audioRef.current
             .play()
-            .then(() => {})
+            .then(() => {
+              console.info("Playback started");
+            })
             .catch((error) => {
               console.error("Error starting playback:", error);
             });
@@ -86,7 +97,7 @@ const StreamTextAudio = ({ text }: { text: string }) => {
     } finally {
       isPlaybackActive.current = false;
     }
-  }, [text]);
+  }, [text, onAudioEnd, onAudioStart]);
 
   React.useEffect(() => {
     startPlayback();
@@ -104,4 +115,4 @@ const StreamTextAudio = ({ text }: { text: string }) => {
   return <>{renderText}</>;
 };
 
-export default StreamTextAudio;
+export default React.memo(StreamTextAudio);
