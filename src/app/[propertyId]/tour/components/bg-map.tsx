@@ -69,11 +69,15 @@ const BgMap = ({ propertyFeatures, places }: BgMapProps) => {
             latitude={place.coordinates?.x}
             longitude={place.coordinates?.y}
             icon={
-              <img
-                src={place.category_icon?.mapPrefix + place.category_icon?.suffix}
-                alt={place.name}
-                className="h-6 w-6 rounded-full"
-              />
+              place.category_icon ? (
+                <img
+                  src={place.category_icon?.mapPrefix + place.category_icon?.suffix}
+                  alt={place.name}
+                  className="h-6 w-6 rounded-full"
+                />
+              ) : (
+                "📍"
+              )
             }
             popupContent={<Typography variant="detail">{place?.name}</Typography>}
           />

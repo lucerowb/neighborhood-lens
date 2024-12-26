@@ -11,7 +11,7 @@ export const ageRangeLabelMap = {
 export const genderLabelMap = {
   [GenderEnum.MALE]: "Male",
   [GenderEnum.FEMALE]: "Female",
-  [GenderEnum.OTHER]: "Other(specify)",
+  [GenderEnum.OTHER]: "Other",
 };
 
 export const stageOfLifeLabelMap = {
