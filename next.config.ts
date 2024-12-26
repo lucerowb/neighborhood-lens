@@ -41,6 +41,11 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "claire-images-staging.realpha.com", pathname: "/**" },
       { protocol: "https", hostname: "claire-images.realpha.com", pathname: "/**" },
       { protocol: "https", hostname: "static-staging.realpha.com", pathname: "/**" },
+      {
+        protocol: "https",
+        hostname: "fastly.4sqi.net",
+        pathname: "/**",
+      },
     ],
   },
 };

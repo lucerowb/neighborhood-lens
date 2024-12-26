@@ -1,25 +1,8 @@
+import { TruliaStatIdentifier } from "@/enums/app.enum";
+
 import truliaLocalReviewsData from "../data/trulia.json";
 import { db } from "../db";
 import { InsertLocalReview, localReviews } from "../db/schema";
-
-export enum TruliaStatIdentifier {
-  NeedACar = "NeedACar",
-  WellKeptYards = "WellKeptYards",
-  DogFriendly = "DogFriendly",
-  Sidewalks = "Sidewalks",
-  HolidaySpirit = "HolidaySpirit",
-  EasyParking = "EasyParking",
-  Quiet = "Quiet",
-  FriendlyNeighbors = "FriendlyNeighbors",
-  WalkableToGroceries = "WalkableToGroceries",
-  WellLitStreets = "WellLitStreets",
-  LongTermResidents = "LongTermResidents",
-  PeopleWouldWalkAloneAtNight = "PeopleWouldWalkAloneAtNight",
-  WalkableToRestaurants = "WalkableToRestaurants",
-  Wildlife = "Wildlife",
-  KidsPlayOutside = "KidsPlayOutside",
-  CommunityEvents = "CommunityEvents",
-}
 
 export interface TruliaReviewStats {
   identifier: TruliaStatIdentifier;

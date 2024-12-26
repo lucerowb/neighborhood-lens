@@ -16,27 +16,9 @@ import WellLitStreets from "@/assets/icons/well-lit-streets.svg";
 import WildlifeIcon from "@/assets/icons/wildlife.svg";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Typography } from "@/components/ui/typography";
+import { TruliaStatIdentifier } from "@/enums/app.enum";
 import { cn } from "@/lib/utils";
 import { LocalStats } from "@/types/properties.type";
-
-enum TruliaStatIdentifier {
-  NeedACar = "NeedACar",
-  WellKeptYards = "WellKeptYards",
-  DogFriendly = "DogFriendly",
-  Sidewalks = "Sidewalks",
-  HolidaySpirit = "HolidaySpirit",
-  EasyParking = "EasyParking",
-  Quiet = "Quiet",
-  FriendlyNeighbors = "FriendlyNeighbors",
-  WalkableToGroceries = "WalkableToGroceries",
-  WellLitStreets = "WellLitStreets",
-  LongTermResidents = "LongTermResidents",
-  PeopleWouldWalkAloneAtNight = "PeopleWouldWalkAloneAtNight",
-  WalkableToRestaurants = "WalkableToRestaurants",
-  Wildlife = "Wildlife",
-  KidsPlayOutside = "KidsPlayOutside",
-  CommunityEvents = "CommunityEvents",
-}
 
 const localFeedbackMap = {
   [TruliaStatIdentifier.DogFriendly]: {

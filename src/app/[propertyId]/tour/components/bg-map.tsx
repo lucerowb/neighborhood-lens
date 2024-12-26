@@ -12,6 +12,8 @@ import useMapStore from "@/stores/useMapStore";
 import { Place } from "@/types/place.type";
 import { PropertyFeatures } from "@/types/properties.type";
 
+import LocationOverlay from "./location-overlay";
+
 type BgMapProps = {
   propertyFeatures: PropertyFeatures;
   places?: Place[];
@@ -21,11 +23,13 @@ const setMapInstance = useMapStore.getState().setMapInstance;
 
 const BgMap = ({ propertyFeatures, places }: BgMapProps) => {
   const { properties, geometry } = propertyFeatures;
+  const currentLocationData = useMapStore((state) => state.currentLocationData);
+  const { coordinates } = currentLocationData ?? {};
 
   const initialViewState = {
     longitude: properties?.longitude,
     latitude: properties?.latitude,
-    zoom: 20,
+    zoom: 19,
     pitch: 45,
     bearing: 0,
   };
@@ -43,6 +47,21 @@ const BgMap = ({ propertyFeatures, places }: BgMapProps) => {
         icon={<MapPin className="text-lime-900" />}
         popupContent={<Typography variant="detail">{properties?.address}</Typography>}
       />
+
+      {currentLocationData && coordinates ? (
+        <Popup
+          latitude={coordinates[1]}
+          longitude={coordinates[0]}
+          closeOnClick={false}
+          anchor="right"
+          className="location-overlay"
+          offset={20}
+          closeButton={false}
+        >
+          <LocationOverlay />
+        </Popup>
+      ) : null}
+
       {places?.map((place) => {
         return (
           <MarkerWithPopup
