@@ -2,9 +2,8 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
-import { Button } from "@/components/ui/button";
 import useCatMessages, { Message, Option } from "@/hooks/useCatMessages";
 import { useOnClickOutside } from "@/hooks/useOnClickOutside";
 import { cn } from "@/lib/utils";
@@ -12,6 +11,8 @@ import { PropertyFeatures } from "@/types/properties.type";
 import { getCatImage } from "@/utils/cat.util";
 
 import ChatBubbleCard from "./common/chat-bubble-card";
+import StreamTextAudio from "./StreamTextAudio";
+import { Button } from "./ui/button";
 import { Typography } from "./ui/typography";
 
 type CatChatWidgetProps = {
@@ -21,6 +22,7 @@ type CatChatWidgetProps = {
 
 export default function CatChatWidget({ propertyFeatures, className }: CatChatWidgetProps) {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+  const [isCatSpeaking, setIsCatSpeaking] = useState(true);
   const [catReply, setCatReply] = useState<NonNullable<Message["replies"]>[string] | null>(null);
   const { messages } = useCatMessages(propertyFeatures);
 
@@ -50,12 +52,15 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
     const { action, value } = option;
     setCatReply(replies && value ? replies[value] : null);
     action?.();
-
-    setTimeout(() => {
-      setCatReply(null);
-      incrementCurrentMessageIndex();
-    }, 2000);
   };
+
+  const handleAudioEnd = useCallback(() => {
+    setIsCatSpeaking(false);
+  }, []);
+
+  const handleAudioStart = useCallback(() => {
+    setIsCatSpeaking(true);
+  }, []);
 
   // const resetChat = () => {
   //   setCurrentMessageIndex(0);
@@ -82,7 +87,17 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Typography variant="pUiMedium">{catReply?.reply}</Typography>
+                      <Typography variant="pUiMedium">
+                        <StreamTextAudio
+                          text={catReply?.reply}
+                          onAudioEnd={() => {
+                            setCatReply(null);
+                            incrementCurrentMessageIndex();
+                            handleAudioEnd();
+                          }}
+                          onAudioStart={handleAudioStart}
+                        />
+                      </Typography>
                     </motion.div>
                   ) : (
                     <motion.div
@@ -91,12 +106,14 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Typography variant="pUiMedium">{text}</Typography>
+                      <Typography variant="pUiMedium">
+                        <StreamTextAudio text={text} onAudioEnd={handleAudioEnd} onAudioStart={handleAudioStart} />
+                      </Typography>
                     </motion.div>
                   )}
                 </AnimatePresence>
                 <AnimatePresence>
-                  {!catReply && (
+                  {!isCatSpeaking && !catReply && (
                     <motion.div
                       key={id}
                       initial={{ opacity: 0, y: 20 }}
@@ -106,9 +123,27 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
                       {options ? (
                         <div className="grid grid-cols-2 gap-2">
                           {options?.map((option) => (
-                            <Button key={option.text} variant="outline" onClick={() => handleAnswer(option)}>
-                              {option.text}
-                            </Button>
+                            <motion.div
+                              className="w-full"
+                              key={option.text}
+                              initial="hidden"
+                              animate="visible"
+                              variants={{
+                                hidden: { opacity: 0, y: 20 },
+                                visible: (index) => ({
+                                  opacity: 1,
+                                  y: 0,
+                                  transition: {
+                                    delay: index * 0.2,
+                                    duration: 0.5,
+                                  },
+                                }),
+                              }}
+                            >
+                              <Button className="w-full" variant="outline" onClick={() => handleAnswer(option)}>
+                                {option.text}
+                              </Button>
+                            </motion.div>
                           ))}
                         </div>
                       ) : (

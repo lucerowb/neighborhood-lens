@@ -32,6 +32,7 @@ const PropertyTour = async ({ params }: PropertyTourProps) => {
     <main className="relative h-screen w-full">
       <Link
         href={`/${propertyId}`}
+        data-ignore-outside-click
         className={cn("absolute left-4 top-4 z-10", buttonVariants({ variant: "secondary", size: "icon" }))}
       >
         <Home />

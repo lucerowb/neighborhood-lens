@@ -86,7 +86,11 @@ export function useOnClickOutside<T extends HTMLElement = HTMLElement>(
     const target = event.target as Node;
 
     // Do nothing if the target is not connected element with document
-    if (!target || !target.isConnected) {
+    if (
+      !target ||
+      !target.isConnected ||
+      (target instanceof HTMLElement && target.hasAttribute("data-ignore-outside-click"))
+    ) {
       return;
     }
 
