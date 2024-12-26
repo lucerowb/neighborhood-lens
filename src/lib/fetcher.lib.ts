@@ -3,7 +3,8 @@ import qs from "qs";
 import env from "@/config/env.config";
 
 function getServerURL(path = "") {
-  return `${env.appUrl}${path}`;
+  const baseUrl = new URL(env.appUrl!)?.origin;
+  return `${baseUrl}${path}`;
 }
 
 export async function fetcher<ResponseType>(path: string, urlParamsObject = {}, options: RequestInit = {}) {
