@@ -52,11 +52,6 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
     const { action, value } = option;
     setCatReply(replies && value ? replies[value] : null);
     action?.();
-
-    setTimeout(() => {
-      setCatReply(null);
-      incrementCurrentMessageIndex();
-    }, 2000);
   };
 
   const handleAudioEnd = useCallback(() => {
@@ -95,7 +90,11 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
                       <Typography variant="pUiMedium">
                         <StreamTextAudio
                           text={catReply?.reply}
-                          onAudioEnd={handleAudioEnd}
+                          onAudioEnd={() => {
+                            setCatReply(null);
+                            incrementCurrentMessageIndex();
+                            handleAudioEnd();
+                          }}
                           onAudioStart={handleAudioStart}
                         />
                       </Typography>
