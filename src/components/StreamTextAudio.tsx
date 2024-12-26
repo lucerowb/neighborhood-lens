@@ -19,6 +19,7 @@ const StreamTextAudio = ({ text, onAudioEnd, onAudioStart }: TextAudioProps) => 
   const audioRef = useRef(new Audio());
   const timeoutsRef = useRef<NodeJS.Timeout[]>([]);
   const startTimeRef = useRef(0);
+  const [isFailed, setIsFailed] = useState(false);
   const isPlaybackActive = useRef(false);
 
   const clearTimeouts = () => {
@@ -94,6 +95,8 @@ const StreamTextAudio = ({ text, onAudioEnd, onAudioStart }: TextAudioProps) => 
       await processItem(response);
     } catch (error) {
       console.error("Error starting playback:", error);
+      setIsFailed(true);
+      onAudioEnd?.();
     } finally {
       isPlaybackActive.current = false;
     }
@@ -110,7 +113,7 @@ const StreamTextAudio = ({ text, onAudioEnd, onAudioStart }: TextAudioProps) => 
     };
   }, [startPlayback]);
 
-  return <>{renderText}</>;
+  return <>{isFailed ? text : renderText}</>;
 };
 
 export default React.memo(StreamTextAudio);
