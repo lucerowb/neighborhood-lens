@@ -72,8 +72,6 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
   //   setCatReply(null);
   // };
 
-  console.info("rendering cat chat widget", isCatSpeaking);
-
   return (
     <>
       <div className={cn("absolute bottom-4 right-4 flex flex-col items-end", className, catClassName)}>
@@ -125,10 +123,10 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
                     >
                       {options ? (
                         <div className="grid grid-cols-2 gap-2">
-                          {options?.map(({ text, action }) => (
+                          {options?.map((option) => (
                             <motion.div
                               className="w-full"
-                              key={text}
+                              key={option.text}
                               initial="hidden"
                               animate="visible"
                               variants={{
@@ -143,12 +141,8 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
                                 }),
                               }}
                             >
-                              <Button
-                                className="w-full"
-                                variant="outline"
-                                onClick={() => handleAnswer({ text, action })}
-                              >
-                                {text}
+                              <Button className="w-full" variant="outline" onClick={() => handleAnswer(option)}>
+                                {option.text}
                               </Button>
                             </motion.div>
                           ))}
