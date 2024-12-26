@@ -15,7 +15,7 @@ import { ageRangeLabelMap, genderLabelMap, stageOfLifeLabelMap } from "@/utils/t
 export type Option = {
   text: string;
   value?: string;
-  action?: () => void;
+  action?: () => void | Promise<void>;
 };
 
 export type Replies = Record<string, { reply: string; catImageNumber: number }>;

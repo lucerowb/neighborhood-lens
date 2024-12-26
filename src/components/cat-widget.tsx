@@ -48,10 +48,14 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
     }
   };
 
-  const handleAnswer = (option: Option) => {
+  const handleAnswer = async (option: Option) => {
     const { action, value } = option;
-    setCatReply(replies && value ? replies[value] : null);
-    action?.();
+    if (replies && value && replies[value]) {
+      setCatReply(replies[value]);
+    } else {
+      incrementCurrentMessageIndex();
+    }
+    await action?.();
   };
 
   const handleAudioEnd = useCallback(() => {
