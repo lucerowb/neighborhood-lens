@@ -1,7 +1,8 @@
 import axios from "axios";
+import { groupBy } from "lodash";
 
 import env from "@/config/env.config";
-import { InsertNearbyAttraction, nearbyAttractions, placesSubCategory } from "@/server/db/schema";
+import { InsertNearbyAttraction, nearbyAttractions, placesSubCategory, PlaceSubCategory } from "@/server/db/schema";
 
 import { db } from "../db";
 import { Feature, PlaceInfo } from "./fsq_ingestion";
@@ -45,6 +46,7 @@ function createPlace(
 
 async function getNearbyAttractions(
   feature: any,
+  categories: PlaceSubCategory[],
   currentPage = 1,
   accumulatedData: InsertNearbyAttraction[] = [],
   nextUrl?: string
@@ -52,10 +54,12 @@ async function getNearbyAttractions(
   const lat = feature.geometry.coordinates[1];
   const lon = feature.geometry.coordinates[0];
 
-  const subCategories = await db.select().from(placesSubCategory);
-  const categories = subCategories.map((subCategory) => subCategory.fsq_category_id).join(",");
+  console.info(
+    `Fetching nearby attractions for property ID: ${feature.properties.id} ${lat},${lon} - Page: ${currentPage}`
+  );
+  const category_string = categories.map((subCategory) => subCategory.fsq_category_id).join(",");
   const subCategoryMap = new Map(
-    subCategories.map((subCategory) => [subCategory.fsq_category_id, subCategory.mainCategory])
+    categories.map((subCategory) => [subCategory.fsq_category_id, subCategory.mainCategory])
   );
 
   try {
@@ -71,10 +75,10 @@ async function getNearbyAttractions(
           },
           params: {
             ll: `${lat},${lon}`,
-            radius: 5000,
+            // radius: 2000, default give more results
             sort: "distance",
             fields: "fsq_id,name,categories,location,distance,rating,photos,geocodes,features",
-            categories,
+            categories: category_string,
             limit: 50,
           },
         });
@@ -94,7 +98,7 @@ async function getNearbyAttractions(
     const nextRequestURL = linkHeader ? linkHeader.match(/<([^>]+)>;\s*rel="next"/)?.[1] : null;
 
     if (nextRequestURL) {
-      return getNearbyAttractions(feature, currentPage + 1, finalData, nextRequestURL);
+      return getNearbyAttractions(feature, categories, currentPage + 1, finalData, nextRequestURL);
     }
 
     return finalData;
@@ -111,17 +115,31 @@ const ingestPlaces = async () => {
   const result = await propertyResponse.json();
   const features = result.features;
 
-  const requests = features.map((feature: any) => getNearbyAttractions(feature));
+  const mainCategories = await db.select().from(placesSubCategory);
+  const groupedCategories = groupBy(mainCategories, (category) => category.mainCategory);
+
+  const requests = features.flatMap((feature: any) =>
+    Object.entries(groupedCategories).map(([_, subCategories]) => getNearbyAttractions(feature, subCategories))
+  );
   const allPlaces: InsertNearbyAttraction[] = (await Promise.all(requests)).flat();
+  console.info(`Total requests: ${requests.length}`);
 
-  const response = await db
-    .insert(nearbyAttractions)
-    .values(allPlaces)
-    .onConflictDoNothing({ target: [nearbyAttractions.fsq_id, nearbyAttractions.property_id] })
-    .returning({ id: nearbyAttractions.id });
-  console.log(`Successfully inserted ${response.length} places into the database.`);
+  const batchSize = 1000;
 
-  return allPlaces;
+  let insertedCount = 0;
+
+  for (let i = 0; i < allPlaces.length; i += batchSize) {
+    const batch = allPlaces.slice(i, i + batchSize);
+    const dbResponse = await db
+      .insert(nearbyAttractions)
+      .values(batch)
+      .onConflictDoNothing({ target: [nearbyAttractions.fsq_id, nearbyAttractions.property_id] })
+      .returning({ id: nearbyAttractions.id });
+
+    insertedCount += dbResponse.length;
+  }
+
+  console.log(`Successfully inserted ${insertedCount} places into the database.`);
 };
 
 (async () => {

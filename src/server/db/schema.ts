@@ -70,6 +70,7 @@ export const placesSubCategory = createTable("places_sub_category", {
 export type InsertPlaceMainCategory = typeof placesMainCategory.$inferInsert;
 
 export type InsertPlaceSubCategory = typeof placesSubCategory.$inferInsert;
+export type PlaceSubCategory = typeof placesSubCategory.$inferSelect;
 
 export const placesSubCategoryRelations = relations(placesSubCategory, ({ one }) => ({
   profileInfo: one(placesMainCategory, {
