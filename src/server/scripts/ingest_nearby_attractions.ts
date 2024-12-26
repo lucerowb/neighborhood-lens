@@ -75,7 +75,7 @@ async function getNearbyAttractions(
           },
           params: {
             ll: `${lat},${lon}`,
-            radius: 10000,
+            // radius: 2000, default give more results
             sort: "distance",
             fields: "fsq_id,name,categories,location,distance,rating,photos,geocodes,features",
             categories: category_string,
