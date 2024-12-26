@@ -61,7 +61,11 @@ const querySchema = z.object({
     .pipe(z.nativeEnum(CategoryEnum)),
 });
 
-export const generateBackgroundFeatures = async (place: CategoryEnum): Promise<string> => {
+export const generateBackgroundFeaturesAndCharacterAppearance = async (
+  place: CategoryEnum,
+  ageGroup: AgeRangeEnum,
+  gender: GenderEnum
+): Promise<string> => {
   const response = await client.chat.completions.create({
     model: "gpt-4",
     messages: [
@@ -72,7 +76,7 @@ export const generateBackgroundFeatures = async (place: CategoryEnum): Promise<s
       },
       {
         role: "user",
-        content: `Provide a concise list of background features typical for a ${CategoryEnum[place]}. Include key elements that distinctly represent this place without unrelated details. Start with "The background includes" and write in a sentence`,
+        content: `Provide a concise list of background features typical for a ${CategoryEnum[place]} and the appearance of ${gender} in ${ageGroup} age. Include key elements that distinctly represent this place and his/her appearance without unrelated details. Write 2 sentences in form "He (or She) is wearing ... . The background includes ..."`,
       },
     ],
     temperature: 0.7,
@@ -99,7 +103,11 @@ export const GET = apiHandler(async (request: NextRequest) => {
 
     const { age_range, gender, stage_of_life, place_category } = validatedParams;
 
-    const backgroundFeatures = await generateBackgroundFeatures(place_category);
+    const backgroundFeatures = await generateBackgroundFeaturesAndCharacterAppearance(
+      place_category,
+      age_range,
+      gender
+    );
 
     const prompt = `A full-body illustration of a  ${age_range} ${gender} who is ${stage_of_life} with a cheerful smile, wearing a casual T-shirt, denim shorts, and sneakers, holding a balloon at an amusement park. ${backgroundFeatures}. The vibrant cartoon mascot style emphasizes bold outlines, smooth shading, and a lively morning atmosphere.`;
 
