@@ -10,6 +10,7 @@ import { ageRangeLabelMap, genderLabelMap, stageOfLifeLabelMap } from "@/utils/t
 
 export type Option = {
   text: string;
+  value?: string;
   action?: () => void;
 };
 
@@ -62,6 +63,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
           text: "Before we get started, could you mention your gender?",
           options: Object.values(GenderEnum).map((gender) => ({
             text: genderLabelMap[gender],
+            value: gender,
             action: () => setGender(gender),
           })),
           catImageNumber: 1,
@@ -76,6 +78,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
           text: "Are you older than me?",
           options: Object.values(AgeRangeEnum).map((age) => ({
             text: ageRangeLabelMap[age],
+            value: age,
             action: () => setAgeRange(age),
           })),
           replies: {
@@ -107,6 +110,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
           text: "Ok got it! I also need to know what stage you are at in life?",
           options: Object.values(StageOfLifeEnum).map((stage) => ({
             text: stageOfLifeLabelMap[stage],
+            value: stage,
             action: () => setStageOfLife(stage),
           })),
           replies: {

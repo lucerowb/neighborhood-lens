@@ -47,9 +47,9 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
   };
 
   const handleAnswer = (option: Option) => {
-    const { action, text } = option;
+    const { action, value } = option;
+    setCatReply(replies && value ? replies[value] : null);
     action?.();
-    setCatReply(replies ? replies[text] : null);
 
     setTimeout(() => {
       setCatReply(null);
@@ -105,9 +105,9 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
                     >
                       {options ? (
                         <div className="grid grid-cols-2 gap-2">
-                          {options?.map(({ text, action }) => (
-                            <Button key={text} variant="outline" onClick={() => handleAnswer({ text, action })}>
-                              {text}
+                          {options?.map((option) => (
+                            <Button key={option.text} variant="outline" onClick={() => handleAnswer(option)}>
+                              {option.text}
                             </Button>
                           ))}
                         </div>
