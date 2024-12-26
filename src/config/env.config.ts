@@ -21,6 +21,14 @@ const elevenLabs = {
   apiKey: process.env.NEXT_PUBLIC_ELEVENLABS_API_KEY,
 };
 
+const freepik = {
+  apiKey: process.env.NEXT_PUBLIC_FREEPIK_API_KEY,
+};
+
+const openai = {
+  apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
+};
+
 const env = {
   nodeEnvironment: process.env.NEXT_PUBLIC_NODE_ENVIRONMENT,
   mapbox,
@@ -29,6 +37,8 @@ const env = {
   foursquare,
   elevenLabs,
   appUrl: process.env.NEXT_PUBLIC_BASE_URL,
+  freepik,
+  openai,
 };
 
 export const isProd = env.nodeEnvironment === NodeEnvEnum.PROD;
