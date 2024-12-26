@@ -23,7 +23,7 @@ const querySchema = z.object({
   time_slot: z.nativeEnum(TimeSlots),
 });
 
-export const generateBackgroundFeaturesAndCharacterAppearance = async (
+const generateBackgroundFeaturesAndCharacterAppearance = async (
   place: CategoryEnum,
   ageGroup: AgeRangeEnum,
   gender: GenderEnum,
