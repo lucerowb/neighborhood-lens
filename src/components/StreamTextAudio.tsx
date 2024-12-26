@@ -106,8 +106,6 @@ const StreamTextAudio = ({ text, onAudioEnd, onAudioStart }: TextAudioProps) => 
       clearTimeouts();
       if (audioRef.current) {
         audioRef.current.pause();
-        audioRef.current.currentTime = 0;
-        audioRef.current.src = "";
       }
     };
   }, [startPlayback]);
