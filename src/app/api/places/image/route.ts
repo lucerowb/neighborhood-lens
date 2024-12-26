@@ -1,11 +1,16 @@
 import axios, { AxiosError } from "axios";
 import { NextRequest } from "next/server";
+import { OpenAI } from "openai";
 import { z } from "zod";
 
 import env from "@/config/env.config";
 import { AgeRangeEnum, GenderEnum, StageOfLifeEnum } from "@/enums/app.enum";
 import { apiHandler } from "@/helpers/api-handler";
 import { CategoryEnum } from "@/schemas/activity-categorization-schema";
+
+const client = new OpenAI({
+  apiKey: env.openai.apiKey,
+});
 
 interface FreepikImageData {
   base64: string;
@@ -56,6 +61,33 @@ const querySchema = z.object({
     .pipe(z.nativeEnum(CategoryEnum)),
 });
 
+export const generateBackgroundFeatures = async (place: CategoryEnum): Promise<string> => {
+  const response = await client.chat.completions.create({
+    model: "gpt-4",
+    messages: [
+      {
+        role: "system",
+        content:
+          "You are an assistant that specializes in generating detailed background features for various places to be used in illustrations.",
+      },
+      {
+        role: "user",
+        content: `Provide a concise list of background features typical for a ${CategoryEnum[place]}. Include key elements that distinctly represent this place without unrelated details. Start with "The background includes" and write in a sentence`,
+      },
+    ],
+    temperature: 0.7,
+    max_tokens: 150,
+  });
+
+  const backgroundFeatures = response.choices[0]?.message?.content?.trim();
+
+  if (!backgroundFeatures) {
+    throw new Error("Failed to generate background features.");
+  }
+
+  return backgroundFeatures;
+};
+
 export const GET = apiHandler(async (request: NextRequest) => {
   if (!env.freepik.apiKey) {
     throw new Error("Freepik API key not configured");
@@ -67,17 +99,21 @@ export const GET = apiHandler(async (request: NextRequest) => {
 
     const { age_range, gender, stage_of_life, place_category } = validatedParams;
 
+    const backgroundFeatures = await generateBackgroundFeatures(place_category);
+
+    const prompt = `A full-body illustration of a  ${age_range} ${gender} who is ${stage_of_life} with a cheerful smile, wearing a casual T-shirt, denim shorts, and sneakers, holding a balloon at an amusement park. ${backgroundFeatures}. The vibrant cartoon mascot style emphasizes bold outlines, smooth shading, and a lively morning atmosphere.`;
+
     const requestConfig: FreepikRequestConfig = {
-      prompt: `A ${age_range.toLowerCase()} ${gender.toLowerCase()} enjoying a ${stage_of_life.toLowerCase()} experience at a ${CategoryEnum[place_category].toLowerCase()}`,
+      prompt: prompt,
       negative_prompt: "low quality, blurry, overly abstract",
       guidance_scale: 7,
       seed: Math.floor(Math.random() * 1000),
       num_images: 1,
       image: {
-        size: "square_1_1",
+        size: "widescreen_16_9",
       },
       styling: {
-        style: "surreal",
+        style: "anime",
         color: "vibrant",
         lightning: "cinematic",
         framing: "portrait",
