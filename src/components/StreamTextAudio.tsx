@@ -2,7 +2,7 @@
 import { ElevenLabsClient } from "elevenlabs";
 import React, { useCallback, useRef, useState } from "react";
 
-import env from "@/config/env.config";
+import env, { isDev } from "@/config/env.config";
 
 const client = new ElevenLabsClient({
   apiKey: env.elevenLabs.apiKey,
@@ -15,7 +15,7 @@ export interface TextAudioProps {
 }
 
 const StreamTextAudio = ({ text, onAudioEnd, onAudioStart }: TextAudioProps) => {
-  const [renderText, setRenderText] = useState("");
+  const [renderText, setRenderText] = useState(isDev ? text : "");
   const audioRef = useRef(new Audio());
   const timeoutsRef = useRef<NodeJS.Timeout[]>([]);
   const startTimeRef = useRef(0);
@@ -100,7 +100,11 @@ const StreamTextAudio = ({ text, onAudioEnd, onAudioStart }: TextAudioProps) => 
   }, [text, onAudioEnd, onAudioStart]);
 
   React.useEffect(() => {
-    startPlayback();
+    if (!isDev) {
+      startPlayback();
+    } else {
+      onAudioEnd?.();
+    }
 
     return () => {
       clearTimeouts();
@@ -108,7 +112,7 @@ const StreamTextAudio = ({ text, onAudioEnd, onAudioStart }: TextAudioProps) => 
         audioRef.current.pause();
       }
     };
-  }, [startPlayback]);
+  }, [startPlayback, onAudioEnd]);
 
   return <>{renderText}</>;
 };
