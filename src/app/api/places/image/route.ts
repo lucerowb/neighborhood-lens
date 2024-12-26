@@ -4,67 +4,30 @@ import { OpenAI } from "openai";
 import { z } from "zod";
 
 import env from "@/config/env.config";
-import { AgeRangeEnum, GenderEnum, StageOfLifeEnum } from "@/enums/app.enum";
+import { AgeRangeEnum, GenderEnum, TimeSlots } from "@/enums/app.enum";
 import { apiHandler } from "@/helpers/api-handler";
 import { CategoryEnum } from "@/schemas/activity-categorization-schema";
+import { FreepikRequestConfig, FreepikResponse } from "@/types/freepik.type";
 
 const client = new OpenAI({
   apiKey: env.openai.apiKey,
 });
 
-interface FreepikImageData {
-  base64: string;
-  has_nsfw: boolean;
-}
-
-interface FreepikMetadata {
-  image: {
-    size: string;
-    width: number;
-    height: number;
-  };
-  seed: number;
-  guidance_scale: number;
-  prompt: string;
-  num_inference_steps: number;
-}
-
-interface FreepikResponse {
-  data: FreepikImageData[];
-  meta: FreepikMetadata;
-}
-
-interface FreepikRequestConfig {
-  prompt: string;
-  negative_prompt: string;
-  guidance_scale: number;
-  seed: number;
-  num_images: number;
-  image: {
-    size: string;
-  };
-  styling: {
-    style: string;
-    color: string;
-    lightning: string;
-    framing: string;
-  };
-}
-
 const querySchema = z.object({
   age_range: z.nativeEnum(AgeRangeEnum),
   gender: z.nativeEnum(GenderEnum),
-  stage_of_life: z.nativeEnum(StageOfLifeEnum),
   place_category: z
     .string()
     .transform((val) => parseInt(val, 10))
     .pipe(z.nativeEnum(CategoryEnum)),
+  time_slot: z.nativeEnum(TimeSlots),
 });
 
 export const generateBackgroundFeaturesAndCharacterAppearance = async (
   place: CategoryEnum,
   ageGroup: AgeRangeEnum,
-  gender: GenderEnum
+  gender: GenderEnum,
+  timeslot: TimeSlots
 ): Promise<string> => {
   const response = await client.chat.completions.create({
     model: "gpt-4",
@@ -72,24 +35,31 @@ export const generateBackgroundFeaturesAndCharacterAppearance = async (
       {
         role: "system",
         content:
-          "You are an assistant that specializes in generating detailed background features for various places to be used in illustrations.",
+          "You generate concise scene descriptions for full-body illustrations, focusing on expression, basic outfit, and key background elements.",
       },
       {
         role: "user",
-        content: `Provide a concise list of background features typical for a ${CategoryEnum[place]} and the appearance of ${gender} in ${ageGroup} age. Include key elements that distinctly represent this place and his/her appearance without unrelated details. Write 2 sentences in form "He (or She) is wearing ... . The background includes ..."`,
+        content: `Create a full-body illustration description with:
+Age: ${ageGroup}
+Gender: ${gender}
+Location: ${CategoryEnum[place]}
+Time: ${timeslot}
+
+Format:
+"A full-body illustration of a [age]-year-old [gender] with [expression], wearing [simple outfit], [action] at/in [location]. The background includes [three key setting elements separated by commas]. The vibrant cartoon mascot style emphasizes [atmosphere/mood]."`,
       },
     ],
     temperature: 0.7,
     max_tokens: 150,
   });
 
-  const backgroundFeatures = response.choices[0]?.message?.content?.trim();
+  const prompt = response.choices[0]?.message?.content?.trim();
 
-  if (!backgroundFeatures) {
+  if (!prompt) {
     throw new Error("Failed to generate background features.");
   }
 
-  return backgroundFeatures;
+  return prompt;
 };
 
 export const GET = apiHandler(async (request: NextRequest) => {
@@ -101,15 +71,9 @@ export const GET = apiHandler(async (request: NextRequest) => {
     const searchParams = Object.fromEntries(request.nextUrl.searchParams);
     const validatedParams = querySchema.parse(searchParams);
 
-    const { age_range, gender, stage_of_life, place_category } = validatedParams;
+    const { age_range, gender, place_category, time_slot } = validatedParams;
 
-    const backgroundFeatures = await generateBackgroundFeaturesAndCharacterAppearance(
-      place_category,
-      age_range,
-      gender
-    );
-
-    const prompt = `A full-body illustration of a  ${age_range} ${gender} who is ${stage_of_life} with a cheerful smile, wearing a casual T-shirt, denim shorts, and sneakers, holding a balloon at an amusement park. ${backgroundFeatures}. The vibrant cartoon mascot style emphasizes bold outlines, smooth shading, and a lively morning atmosphere.`;
+    const prompt = await generateBackgroundFeaturesAndCharacterAppearance(place_category, age_range, gender, time_slot);
 
     const requestConfig: FreepikRequestConfig = {
       prompt: prompt,
@@ -122,8 +86,8 @@ export const GET = apiHandler(async (request: NextRequest) => {
       },
       styling: {
         style: "anime",
-        color: "vibrant",
-        lightning: "cinematic",
+        color: "pastel",
+        lightning: "warm",
         framing: "portrait",
       },
     };
