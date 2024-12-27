@@ -49,7 +49,7 @@ Location Name: ${placeName}
 Time: ${timeslot}
 
 Format:
-[placeholder: gender, e.g., "woman"] sitting at a table with [placeholder: people and scenario]. The scene is set in a cozy [placeholder: type of space, e.g., "café" or "home kitchen"] with [placeholder: amenities, e.g., "modern furniture, potted plants, and soft curtains", if you know about the place from the provided name, you can include the amenities commonly found in that specific place]. The characters are enjoying [placeholder: food/drink items, e.g., "breakfast parfaits and coffee"].
+A vibrant stylized illustration of [placeholder: gender, e.g., "woman"] sitting at a table with [placeholder: people and scenario]. The scene is set in a cozy [placeholder: type of space, e.g., "café" or "home kitchen"] with [placeholder: amenities, e.g., "modern furniture, potted plants, and soft curtains", if you know about the place from the provided name, you can include the amenities commonly found in that specific place]. The characters are enjoying [placeholder: food/drink items, e.g., "breakfast parfaits and coffee"].
 The [placeholder: time of day, e.g., "morning, day, evening, or night"] lighting creates a [placeholder: atmosphere, e.g., "golden, sunny glow" for morning or "soft, ambient light" for evening], highlighting the [placeholder: details, e.g., "expressions, clothing textures, and the glassware on the table"]. The background features a [placeholder: specific detail, e.g., "large window letting in natural light" or "cityscape view"].
 The characters' expressions reflect [placeholder: emotions, e.g., "happiness and warmth"], and the overall composition emphasizes [placeholder: themes, e.g., "family bonding, relaxation, or simple joys of life"].`,
       },
@@ -98,6 +98,9 @@ export const GET = apiHandler(async (request: NextRequest) => {
       num_images: 1,
       image: {
         size: "widescreen_16_9",
+      },
+      styling: {
+        style: "vector",
       },
     };
 
