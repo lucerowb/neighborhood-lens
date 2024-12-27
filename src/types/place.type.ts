@@ -54,3 +54,23 @@ export type Place = {
   photos?: PlacePhoto[];
   features?: PlaceFeatures;
 };
+
+export type PlaceImage = {
+  data: [
+    {
+      base64: string;
+      has_nsfw: boolean;
+    },
+  ];
+  meta: {
+    prompt: string;
+    seed: number;
+    image: {
+      size: "widescreen_16_9";
+      width: number;
+      height: number;
+    };
+    num_inference_steps: number;
+    guidance_scale: number;
+  };
+};

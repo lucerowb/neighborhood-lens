@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 
 import { getLifeSimulation } from "@/api/life.api";
+import { getPlacesImages } from "@/api/places.api";
 import LocalFeedback from "@/app/[propertyId]/tour/components/local-feedback";
 import { AnchorPosition } from "@/components/common/chat-bubble-card";
 import { ButtonProps } from "@/components/ui/button";
@@ -46,9 +47,16 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
   const propertyId = properties.id;
 
   const gotoLocation = useCallback(
-    (place: Place) => {
+    async (place: Place, timeSlot: TimeSlots) => {
       const { coordinates, distance, rating, name } = place;
       const { x: lat, y: lng } = coordinates;
+
+      const image = await getPlacesImages({
+        ageRange: ageRange as AgeRangeEnum,
+        gender: gender as GenderEnum,
+        placeCategory: place.category_id,
+        timeSlot: timeSlot,
+      });
 
       setCurrentLocationData({
         coordinates: [lng, lat],
@@ -56,7 +64,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
         distance,
         rating,
         //TODO: use ai generated image
-        image: undefined,
+        image: image?.data[0]?.base64,
       });
 
       if (mapInstance) {
@@ -79,7 +87,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
         }, 5000);
       }
     },
-    [mapInstance]
+    [mapInstance, ageRange, gender]
   );
 
   const messages: Message[] = useMemo(
@@ -216,7 +224,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
           catImageNumber: 1,
           options: tourIteinerary?.morning.map(({ place, label }) => ({
             text: label,
-            action: () => gotoLocation(place),
+            action: async () => await gotoLocation(place, TimeSlots.MORNING),
           })),
         },
         {
@@ -225,7 +233,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
           catImageNumber: 1,
           options: tourIteinerary?.late_morning.map(({ place, label }) => ({
             text: label,
-            action: () => gotoLocation(place),
+            action: async () => await gotoLocation(place, TimeSlots.LATE_MORNING),
           })),
         },
         {
@@ -234,7 +242,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
           catImageNumber: 1,
           options: tourIteinerary?.afternoon.map(({ place, label }) => ({
             text: label,
-            action: () => gotoLocation(place),
+            action: async () => await gotoLocation(place, TimeSlots.AFTERNOON),
           })),
         },
         {
@@ -243,7 +251,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
           catImageNumber: 1,
           options: tourIteinerary?.evening.map(({ place, label }) => ({
             text: label,
-            action: () => gotoLocation(place),
+            action: async () => await gotoLocation(place, TimeSlots.EVENING),
           })),
         },
         {

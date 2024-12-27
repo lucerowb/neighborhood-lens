@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState, useTransition } from "react";
 
 import useCatMessages, { Message, Option } from "@/hooks/useCatMessages";
 import { useOnClickOutside } from "@/hooks/useOnClickOutside";
@@ -25,6 +25,7 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
   const [isCatSpeaking, setIsCatSpeaking] = useState(true);
   const [catReply, setCatReply] = useState<NonNullable<Message["replies"]>[string] | null>(null);
   const { messages } = useCatMessages(propertyFeatures);
+  const [isActionPending, startAction] = useTransition();
 
   const currentMessage = messages[currentMessageIndex];
 
@@ -49,13 +50,16 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
   };
 
   const handleAnswer = async (option: Option) => {
-    const { action, value } = option;
-    if (replies && value && replies[value]) {
-      setCatReply(replies[value]);
-    } else {
-      incrementCurrentMessageIndex();
-    }
-    await action?.();
+    startAction(async () => {
+      const { action, value } = option;
+      if (replies && value && replies[value]) {
+        setCatReply(replies[value]);
+        await action?.();
+      } else {
+        await action?.();
+        incrementCurrentMessageIndex();
+      }
+    });
   };
 
   const handleAudioEnd = useCallback(() => {
@@ -144,7 +148,13 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
                                 }),
                               }}
                             >
-                              <Button className="w-full" variant="outline" onClick={() => handleAnswer(option)}>
+                              <Button
+                                // TODO: only load the clicked action
+                                loading={isActionPending}
+                                className="w-full"
+                                variant="outline"
+                                onClick={() => handleAnswer(option)}
+                              >
                                 {option.text}
                               </Button>
                             </motion.div>
