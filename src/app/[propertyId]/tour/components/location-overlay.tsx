@@ -13,6 +13,8 @@ export default function LocationOverlay() {
 
   const { distance, image, name, rating } = currentLocationData ?? {};
 
+  const imageToShow = image ? `data:image/jpeg;base64,${image}` : FallbackImage;
+
   return (
     <div className="space-y-4 ">
       <div className="rounded-xl bg-gradient-to-b from-[#E2EBF3] to-[#F8FAFC]">
@@ -31,7 +33,7 @@ export default function LocationOverlay() {
 
       <div className="rounded-xl bg-gradient-to-b from-[#E2EBF3] to-[#F8FAFC]">
         <Image
-          src={image ?? FallbackImage}
+          src={imageToShow}
           alt={name ?? "poi-image"}
           height={318}
           width={326}
