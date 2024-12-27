@@ -67,9 +67,18 @@ export default {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        float: {
+          "0%, 100%": {
+            transform: "translate(0, 0) scale(var(--scale, 1))",
+          },
+          "50%": {
+            transform: "translate(0, -15px) scale(var(--scale, 1))",
+          },
+        },
       },
       animation: {
         scroll: "scroll 10s linear infinite",
+        float: "float 10s ease-in-out infinite",
       },
     },
   },
