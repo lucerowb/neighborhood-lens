@@ -26,6 +26,7 @@ export type Message = {
   text: string;
   catImageNumber: number;
   catClassName?: string;
+  catCharacterClassName?: string;
   anchorPosition?: AnchorPosition;
   options?: Option[];
   replies?: Replies;
@@ -103,6 +104,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
           text: "Hi, I'm rePurrrr, your friendly neighborhood guide! I'll show you what this area has to offer—from morning coffee spots to parks for evening strolls. Let's dive in and explore your potential new neighborhood!",
           catImageNumber: 1,
           catClassName: "bottom-2 left-1/2 -translate-x-1/2 items-center",
+          catCharacterClassName: "mr-0",
           anchorPosition: "bottom-center",
           tapToContinue: true,
         },
@@ -205,6 +207,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
           catImageNumber: 1,
           catClassName: "bottom-2 left-1/2 -translate-x-1/2 items-center",
           anchorPosition: "bottom-center",
+          catCharacterClassName: "mr-0",
           tapToContinue: true,
         },
         {
@@ -264,6 +267,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
           text: "That's it! I hope you enjoyed the simulation. I hope you have a great day ahead!",
           catImageNumber: 1,
           catClassName: "bottom-2 left-1/2 -translate-x-1/2 items-center",
+          catCharacterClassName: "mr-0",
           anchorPosition: "bottom-center",
           tapToContinue: true,
         },

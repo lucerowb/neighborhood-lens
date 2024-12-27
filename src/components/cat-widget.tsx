@@ -1,14 +1,13 @@
 "use client";
 
+import { useRive, useStateMachineInput } from "@rive-app/react-canvas";
 import { AnimatePresence, motion } from "motion/react";
-import Image from "next/image";
 import { useCallback, useRef, useState } from "react";
 
 import useCatMessages, { Message, Option } from "@/hooks/useCatMessages";
 import { useOnClickOutside } from "@/hooks/useOnClickOutside";
 import { cn } from "@/lib/utils";
 import { PropertyFeatures } from "@/types/properties.type";
-import { getCatImage } from "@/utils/cat.util";
 
 import ChatBubbleCard from "./common/chat-bubble-card";
 import StreamTextAudio from "./StreamTextAudio";
@@ -26,6 +25,12 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
   const [catReply, setCatReply] = useState<NonNullable<Message["replies"]>[string] | null>(null);
   const { messages } = useCatMessages(propertyFeatures);
   const [loadingOption, setLoadingOption] = useState<string | null>(null);
+  const { rive, RiveComponent } = useRive({
+    src: "/cat-animation.riv",
+    stateMachines: "State Machine 3",
+    autoplay: true,
+  });
+  const silentStepMachine = useStateMachineInput(rive, "State Machine 3", "Silent", true);
 
   const currentMessage = messages[currentMessageIndex];
 
@@ -37,6 +42,7 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
     options,
     replies,
     catClassName,
+    catCharacterClassName,
     anchorPosition,
     tapToContinue,
     continueButtonText,
@@ -68,138 +74,141 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
 
   const handleAudioEnd = useCallback(() => {
     setIsCatSpeaking(false);
-  }, []);
+    console.info("audio end");
+    if (silentStepMachine) {
+      silentStepMachine.value = true;
+      silentStepMachine.fire();
+      console.info("silent step machine fired");
+    }
+  }, [silentStepMachine]);
 
   const handleAudioStart = useCallback(() => {
     setIsCatSpeaking(true);
-  }, []);
 
-  // const resetChat = () => {
-  //   setCurrentMessageIndex(0);
-  //   setCatReply(null);
-  // };
+    if (silentStepMachine) {
+      silentStepMachine.value = false;
+      silentStepMachine.fire();
+    }
+  }, [silentStepMachine]);
 
   return (
     <>
       <div className={cn("absolute bottom-2 right-2 flex flex-col items-end m-2 ", className, catClassName)}>
-        <AnimatePresence>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            className="mb-4"
-          >
-            <ChatBubbleCard anchorPosition={anchorPosition}>
-              <div className="space-y-4">
-                <AnimatePresence mode="wait">
-                  {catReply ? (
-                    <motion.div
-                      key="cat-reply"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Typography variant="pUiMedium">
-                        <StreamTextAudio
-                          text={catReply?.reply}
-                          onAudioEnd={() => {
-                            setCatReply(null);
-                            incrementCurrentMessageIndex();
-                            handleAudioEnd();
-                          }}
-                          onAudioStart={handleAudioStart}
-                        />
-                      </Typography>
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key={id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Typography variant="pUiMedium">
-                        <StreamTextAudio text={text} onAudioEnd={handleAudioEnd} onAudioStart={handleAudioStart} />
-                      </Typography>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-                <AnimatePresence>
-                  {!isCatSpeaking && !catReply && (
-                    <motion.div
-                      key={id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.2, duration: 0.3 }}
-                    >
-                      {options ? (
-                        <div className="grid grid-cols-2 gap-2">
-                          {options?.map((option) => {
-                            const loadingKey = option.value || option.text;
-                            return (
-                              <motion.div
-                                className="w-full"
-                                key={option.text}
-                                initial="hidden"
-                                animate="visible"
-                                variants={{
-                                  hidden: { opacity: 0, y: 20 },
-                                  visible: (index) => ({
-                                    opacity: 1,
-                                    y: 0,
-                                    transition: {
-                                      delay: index * 0.2,
-                                      duration: 0.5,
-                                    },
-                                  }),
-                                }}
-                              >
-                                <Button
-                                  key={loadingKey}
-                                  loading={loadingOption === loadingKey}
-                                  className="w-full text-wrap"
-                                  variant="outline"
-                                  disabled={!!loadingOption}
-                                  onClick={() => handleAnswer(option)}
+        {silentStepMachine && (
+          <AnimatePresence>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              className="mb-4"
+            >
+              <ChatBubbleCard anchorPosition={anchorPosition}>
+                <div className="space-y-4">
+                  <AnimatePresence mode="wait">
+                    {catReply ? (
+                      <motion.div
+                        key="cat-reply"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Typography variant="pUiMedium">
+                          <StreamTextAudio
+                            text={catReply?.reply}
+                            onAudioEnd={() => {
+                              setCatReply(null);
+                              incrementCurrentMessageIndex();
+                              handleAudioEnd();
+                            }}
+                            onAudioStart={handleAudioStart}
+                          />
+                        </Typography>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key={id}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Typography variant="pUiMedium">
+                          <StreamTextAudio text={text} onAudioEnd={handleAudioEnd} onAudioStart={handleAudioStart} />
+                        </Typography>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                  <AnimatePresence>
+                    {!isCatSpeaking && !catReply && (
+                      <motion.div
+                        key={id}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2, duration: 0.3 }}
+                      >
+                        {options ? (
+                          <div className="grid grid-cols-2 gap-2">
+                            {options?.map((option) => {
+                              const loadingKey = option.value || option.text;
+                              return (
+                                <motion.div
+                                  className="w-full"
+                                  key={option.text}
+                                  initial="hidden"
+                                  animate="visible"
+                                  variants={{
+                                    hidden: { opacity: 0, y: 20 },
+                                    visible: (index) => ({
+                                      opacity: 1,
+                                      y: 0,
+                                      transition: {
+                                        delay: index * 0.2,
+                                        duration: 0.5,
+                                      },
+                                    }),
+                                  }}
                                 >
-                                  {option.text}
-                                </Button>
-                              </motion.div>
-                            );
-                          })}
-                        </div>
-                      ) : (
-                        <div className="space-y-2">
-                          {content}
-                          {!tapToContinue && (
-                            <Button
-                              variant={continueButtonVariant}
-                              className="w-full"
-                              onClick={incrementCurrentMessageIndex}
-                            >
-                              {continueButtonText || "Continue"}
-                            </Button>
-                          )}
-                        </div>
-                      )}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            </ChatBubbleCard>
-          </motion.div>
-        </AnimatePresence>
+                                  <Button
+                                    key={loadingKey}
+                                    loading={loadingOption === loadingKey}
+                                    className="w-full text-wrap"
+                                    variant="outline"
+                                    disabled={!!loadingOption}
+                                    onClick={() => handleAnswer(option)}
+                                  >
+                                    {option.text}
+                                  </Button>
+                                </motion.div>
+                              );
+                            })}
+                          </div>
+                        ) : (
+                          <div className="space-y-2">
+                            {content}
+                            {!tapToContinue && (
+                              <Button
+                                variant={continueButtonVariant}
+                                className="w-full"
+                                onClick={incrementCurrentMessageIndex}
+                              >
+                                {continueButtonText || "Continue"}
+                              </Button>
+                            )}
+                          </div>
+                        )}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </ChatBubbleCard>
+            </motion.div>
+          </AnimatePresence>
+        )}
         <AnimatePresence mode="wait">
           <motion.div
             id={catReply ? String(catReply?.catImageNumber) : String(catImageNumber)}
             className="relative z-10"
           >
-            <Image
-              src={getCatImage((catReply ? catReply?.catImageNumber : catImageNumber) || 1)}
-              alt="Cat"
-              width={100}
-              height={100}
-            />
+            <RiveComponent className={cn("-my-12 h-[300px] w-[300px] -mr-20", catCharacterClassName)} />
           </motion.div>
         </AnimatePresence>
       </div>
