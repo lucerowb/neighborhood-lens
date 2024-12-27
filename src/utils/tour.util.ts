@@ -1,3 +1,7 @@
+import AfternoonIcon from "@/assets/icons/afternoon.svg";
+import EveningIcon from "@/assets/icons/evening.svg";
+import LateMorningIcon from "@/assets/icons/late-morning.svg";
+import MorningIcon from "@/assets/icons/morning.svg";
 import { AgeRangeEnum, GenderEnum, StageOfLifeEnum, TimeSlots } from "@/enums/app.enum";
 
 export const ageRangeLabelMap = {
@@ -11,7 +15,6 @@ export const ageRangeLabelMap = {
 export const genderLabelMap = {
   [GenderEnum.MALE]: "Male",
   [GenderEnum.FEMALE]: "Female",
-  [GenderEnum.OTHER]: "Other",
 };
 
 export const stageOfLifeLabelMap = {
@@ -21,9 +24,21 @@ export const stageOfLifeLabelMap = {
   [StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE]: "Retired and enjoying life",
 };
 
-export const timeSlotLightPresetMap = {
-  [TimeSlots.MORNING]: "dusk",
-  [TimeSlots.LATE_MORNING]: "day",
-  [TimeSlots.AFTERNOON]: "day",
-  [TimeSlots.EVENING]: "dawn",
+export const timeSlotConfigMap = {
+  [TimeSlots.MORNING]: {
+    lightPreset: "dusk",
+    icon: MorningIcon,
+  },
+  [TimeSlots.LATE_MORNING]: {
+    lightPreset: "day",
+    icon: LateMorningIcon,
+  },
+  [TimeSlots.AFTERNOON]: {
+    lightPreset: "day",
+    icon: AfternoonIcon,
+  },
+  [TimeSlots.EVENING]: {
+    lightPreset: "dawn",
+    icon: EveningIcon,
+  },
 };

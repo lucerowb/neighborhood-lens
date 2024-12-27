@@ -8,6 +8,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 import BgMap from "./components/bg-map";
+import Timeline from "./components/timeline";
 
 type PropertyTourProps = {
   params: Promise<{
@@ -34,6 +35,7 @@ const PropertyTour = async ({ params }: PropertyTourProps) => {
       </Link>
       <BgMap propertyFeatures={propertyResponse} places={[]} />
       <CatChatWidget propertyFeatures={propertyResponse} />
+      <Timeline />
     </main>
   );
 };
