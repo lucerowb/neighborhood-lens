@@ -71,6 +71,7 @@ const BgMap = ({ propertyFeatures, places }: BgMapProps) => {
           longitude={coordinates[0]}
           closeOnClick={false}
           className="location-overlay"
+          anchor="bottom"
           offset={20}
           closeButton={false}
         >

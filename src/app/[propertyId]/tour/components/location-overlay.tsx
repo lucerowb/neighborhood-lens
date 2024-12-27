@@ -47,29 +47,27 @@ export default function LocationOverlay() {
         damping: 24,
       }}
     >
-      <div className="space-y-4 ">
-        <div className="rounded-xl bg-gradient-to-b from-[#E2EBF3] to-[#F8FAFC]">
-          <div className="flex w-full items-center justify-between p-2">
-            <Typography variant="subtle">{name}</Typography>
-            {rating ? (
-              <div className="flex items-center gap-2">
-                <Star className="size-3" />
-                <Typography variant="body" className="text-slate-500">
-                  {rating}/10
-                </Typography>
-              </div>
-            ) : null}
-          </div>
+      <div className="space-y-3">
+        <div className="flex w-fit items-center gap-4 rounded-xl bg-gradient-to-b from-[#E2EBF3] to-[#F8FAFC] p-2 shadow-xl">
+          <Typography variant="subtle">{name}</Typography>
+          {rating ? (
+            <div className="flex items-center gap-2">
+              <Star className="size-3" />
+              <Typography variant="body" className="text-slate-500">
+                {rating}/10
+              </Typography>
+            </div>
+          ) : null}
         </div>
 
-        <div className="rounded-xl bg-gradient-to-b from-[#E2EBF3] to-[#F8FAFC]">
-          <div className="relative">
+        <div className="rounded-2xl bg-gradient-to-b from-[#E2EBF3] to-[#F8FAFC]">
+          <div className="relative rounded-2xl border-4 border-white">
             <MorphingDialogTrigger>
               <Button className="absolute right-2 top-2 rounded-xl" variant="secondary" size="icon">
                 <View />
               </Button>
             </MorphingDialogTrigger>
-            <div className="absolute bottom-1 right-2 flex flex-col gap-2">
+            <div className="absolute bottom-2 right-2 flex flex-col gap-2">
               <Button className="rounded-xl" variant="secondary" size="icon" onClick={handleShare}>
                 <Share2 />
               </Button>
@@ -81,16 +79,18 @@ export default function LocationOverlay() {
             <MorphingDialogImage
               src={imageToShow}
               alt={name ?? "poi-image"}
-              className="h-[318px] w-[326px] rounded-xl object-cover"
+              className="h-[318px] w-[326px] rounded-t-xl object-cover"
             />
           </div>
 
           {distance ? (
-            <div className="flex items-center gap-1 p-2">
+            <div className="flex items-center gap-2 p-2">
               <Image src={HomeIcon} alt="home-icon" className="size-6" />
               <div className="w-full border-t-2 border-slate-300"></div>
               <Image src={PinIcon} alt="home-icon" className="size-6" />
-              <Typography variant="body">{metersToMiles(parseInt(distance))} mi away</Typography>
+              <Typography variant="body" className="text-nowrap">
+                {metersToMiles(parseInt(distance))} mi away
+              </Typography>
             </div>
           ) : null}
         </div>
@@ -101,12 +101,12 @@ export default function LocationOverlay() {
           <MorphingDialogImage
             src={imageToShow}
             alt={name ?? "poi-image"}
-            className="h-full w-full rounded-xl object-cover object-center"
+            className="h-full w-full object-cover object-center"
           />
           <MorphingDialogClose
             className={buttonVariants({ variant: "secondary", size: "icon", className: "top-2 right-2" })}
           />
-          <div className="absolute bottom-1 right-2 flex flex-col gap-2">
+          <div className="absolute bottom-2 right-2 flex flex-col gap-2">
             <Button className="rounded-xl" variant="secondary" size="icon" onClick={handleShare}>
               <Share2 />
             </Button>
