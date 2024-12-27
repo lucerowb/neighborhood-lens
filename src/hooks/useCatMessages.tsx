@@ -33,18 +33,19 @@ export type Message = {
   continueButtonText?: string;
   continueButtonVariant?: ButtonProps["variant"];
   tapToContinue?: boolean;
+  skip?: boolean;
 };
 
 const { setGender, setStageOfLife, setAgeRange, setSelectedItinerary } = useTourStore.getState();
 const { setCurrentLocationData } = useMapStore.getState();
 
-export default function useCatMessages(propertyFeatures: PropertyFeatures) {
+export default function useCatMessages(propertyFeatures?: PropertyFeatures) {
   const [tourIteinerary, setTourIteinerary] = useState<TourItineraryOptions>();
   const { ageRange, gender, stageOfLife } = useTourStore((state) => state);
   const mapInstance = useMapStore((state) => state.mapInstance);
 
-  const { localStats, properties } = propertyFeatures;
-  const propertyId = properties.id;
+  const { localStats, properties } = propertyFeatures ?? {};
+  const propertyId = properties?.id;
 
   const handleSelectActivity = useCallback(
     async (activity: Activity, timeSlot: TimeSlots) => {
@@ -129,6 +130,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
         },
         {
           id: "gender",
+          skip: !!gender,
           text: "Before we get started, could you mention your gender?",
           options: Object.values(GenderEnum).map((gender) => ({
             text: genderLabelMap[gender],
@@ -150,6 +152,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
         {
           id: "age",
           catImageNumber: 1,
+          skip: !!ageRange,
           text: "Are you older than me?",
           options: Object.values(AgeRangeEnum).map((age) => ({
             text: ageRangeLabelMap[age],
@@ -181,6 +184,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
         },
         {
           id: "stage-of-life",
+          skip: !!stageOfLife,
           catImageNumber: 1,
           text: "Ok got it! I also need to know what stage you are at in life?",
           options: Object.values(StageOfLifeEnum).map((stage) => ({
@@ -223,7 +227,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
             {
               text: "Start simulation",
               action: async () => {
-                if (ageRange && gender && stageOfLife) {
+                if (propertyId && ageRange && gender && stageOfLife) {
                   const res = await getLifeSimulation(propertyId, ageRange, gender, stageOfLife);
                   setTourIteinerary(res);
                 }
@@ -232,7 +236,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
           ],
         },
         {
-          id: [TimeSlots.MORNING],
+          id: TimeSlots.MORNING,
           text: "My typical morning begins with a walk in the park and looking at the beautiful scenery there. What's your morning like?",
           catImageNumber: 1,
           options: tourIteinerary?.morning.map((activity) => ({
@@ -241,7 +245,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
           })),
         },
         {
-          id: [TimeSlots.LATE_MORNING],
+          id: TimeSlots.LATE_MORNING,
           text: "After my morning walk, I like to grab a cup of coffee. What do you do after your morning routine?",
           catImageNumber: 1,
           options: tourIteinerary?.late_morning.map((activity) => ({
@@ -250,7 +254,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
           })),
         },
         {
-          id: [TimeSlots.AFTERNOON],
+          id: TimeSlots.AFTERNOON,
           text: "After my coffee, I like to visit the local library and read a book. What do you do in the afternoon?",
           catImageNumber: 1,
           options: tourIteinerary?.afternoon.map((activity) => ({
@@ -259,7 +263,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
           })),
         },
         {
-          id: [TimeSlots.EVENING],
+          id: TimeSlots.EVENING,
           text: "In the evening, I like to go to the local park and play with my friends. What do you do in the evening?",
           catImageNumber: 1,
           options: tourIteinerary?.evening.map((activity) => ({
@@ -275,7 +279,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
           anchorPosition: "bottom-center",
           tapToContinue: true,
         },
-      ] as Message[],
+      ].filter(Boolean) as Message[],
     [localStats, ageRange, gender, stageOfLife, propertyId, tourIteinerary, handleSelectActivity]
   );
 

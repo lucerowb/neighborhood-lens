@@ -1,19 +1,24 @@
 "use client";
 
 import Image from "next/image";
+import { useRef } from "react";
 
 import PlayIcon from "@/assets/icons/play.svg";
 import FallbackImage from "@/assets/img/location-image-fallback.png";
 import { TimeSlots } from "@/enums/app.enum";
+import useCatMessages from "@/hooks/useCatMessages";
 import useMapStore from "@/stores/useMapStore";
 import { useTourStore } from "@/stores/useTourStore";
 import { timeSlotConfigMap } from "@/utils/tour.util";
 
 const { setCurrentLocationData } = useMapStore.getState();
+const { setCurrentMessageIndex } = useTourStore.getState();
 
 export default function Timeline() {
   const selectedItinerary = useTourStore((state) => state.selectedItinerary);
   const mapInstance = useMapStore((state) => state.mapInstance);
+  const { messages } = useCatMessages();
+  const timeoutRef = useRef<NodeJS.Timeout>(null);
 
   return (
     <div className="absolute -top-2 left-1/3 flex items-center justify-between gap-10">
@@ -31,6 +36,16 @@ export default function Timeline() {
         const { x: lat, y: lng } = coordinates;
 
         const replayItem = () => {
+          if (timeoutRef.current !== null) {
+            clearTimeout(timeoutRef.current);
+          }
+
+          const itemMessageIndex = messages.findIndex((message) => {
+            return message.id === timeSlot;
+          });
+
+          setCurrentMessageIndex(itemMessageIndex);
+
           mapInstance?.setConfigProperty(
             "basemap",
             "lightPreset",
@@ -54,7 +69,7 @@ export default function Timeline() {
               duration: 5000,
             });
 
-            setTimeout(() => {
+            timeoutRef.current = setTimeout(() => {
               mapInstance.easeTo({
                 center: [lng, lat],
                 zoom: 18,
