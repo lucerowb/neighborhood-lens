@@ -8,6 +8,7 @@ import { Marker, Popup, PopupProps } from "react-map-gl";
 import MapBox from "@/components/core/map-box";
 import { Typography } from "@/components/ui/typography";
 import { useOnClickOutside } from "@/hooks/useOnClickOutside";
+import useResponsive from "@/hooks/useResponsive";
 import useMapStore from "@/stores/useMapStore";
 import { Place } from "@/types/place.type";
 import { PropertyFeatures } from "@/types/properties.type";
@@ -26,6 +27,10 @@ const BgMap = ({ propertyFeatures, places }: BgMapProps) => {
   const currentLocationData = useMapStore((state) => state.currentLocationData);
   const { coordinates } = currentLocationData ?? {};
 
+  const device = useResponsive();
+
+  const isMobile = device === "mobile";
+
   const initialViewState = {
     longitude: properties?.longitude,
     latitude: properties?.latitude,
@@ -40,7 +45,19 @@ const BgMap = ({ propertyFeatures, places }: BgMapProps) => {
   };
 
   return (
-    <MapBox initialViewState={initialViewState} onLoad={handleMapLoad} interactive>
+    <MapBox
+      initialViewState={initialViewState}
+      onLoad={handleMapLoad}
+      interactive
+      style={
+        !isMobile
+          ? {
+              height: "80vh",
+              width: "80vw",
+            }
+          : undefined
+      }
+    >
       <MarkerWithPopup
         latitude={geometry.coordinates[1]}
         longitude={geometry.coordinates[0]}

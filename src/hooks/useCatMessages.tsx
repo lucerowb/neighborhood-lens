@@ -8,7 +8,7 @@ import { ButtonProps } from "@/components/ui/button";
 import { AgeRangeEnum, GenderEnum, StageOfLifeEnum, TimeSlots } from "@/enums/app.enum";
 import useMapStore from "@/stores/useMapStore";
 import { useTourStore } from "@/stores/useTourStore";
-import { Place } from "@/types/place.type";
+import { Place, PlaceImage } from "@/types/place.type";
 import { PropertyFeatures } from "@/types/properties.type";
 import { TourItineraryOptions } from "@/types/tour.type";
 import { ageRangeLabelMap, genderLabelMap, stageOfLifeLabelMap } from "@/utils/tour.util";
@@ -50,13 +50,18 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
     async (place: Place, timeSlot: TimeSlots) => {
       const { coordinates, distance, rating, name } = place;
       const { x: lat, y: lng } = coordinates;
-
-      const image = await getPlacesImages({
-        ageRange: ageRange as AgeRangeEnum,
-        gender: gender as GenderEnum,
-        placeCategory: place.category_id,
-        timeSlot: timeSlot,
-      });
+      let image: PlaceImage | undefined;
+      try {
+        image = await getPlacesImages({
+          ageRange: ageRange as AgeRangeEnum,
+          gender: gender as GenderEnum,
+          placeCategory: place.category_id,
+          timeSlot: timeSlot,
+        });
+      } catch (error) {
+        console.error(error);
+        image = undefined;
+      }
 
       setCurrentLocationData({
         coordinates: [lng, lat],
@@ -64,7 +69,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
         distance,
         rating,
         //TODO: use ai generated image
-        image: image?.data[0]?.base64,
+        image: image?.data?.[0]?.base64,
       });
 
       if (mapInstance) {

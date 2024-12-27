@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
-import { useCallback, useRef, useState, useTransition } from "react";
+import { useCallback, useRef, useState } from "react";
 
 import useCatMessages, { Message, Option } from "@/hooks/useCatMessages";
 import { useOnClickOutside } from "@/hooks/useOnClickOutside";
@@ -25,7 +25,7 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
   const [isCatSpeaking, setIsCatSpeaking] = useState(true);
   const [catReply, setCatReply] = useState<NonNullable<Message["replies"]>[string] | null>(null);
   const { messages } = useCatMessages(propertyFeatures);
-  const [isActionPending, startAction] = useTransition();
+  const [loadingOption, setLoadingOption] = useState<string | null>(null);
 
   const currentMessage = messages[currentMessageIndex];
 
@@ -50,7 +50,9 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
   };
 
   const handleAnswer = async (option: Option) => {
-    startAction(async () => {
+    const loadingKey = option.value || option.text; // Fallback to text if value is absent
+    setLoadingOption(loadingKey); // Mark this option as loading
+    try {
       const { action, value } = option;
       if (replies && value && replies[value]) {
         setCatReply(replies[value]);
@@ -59,7 +61,9 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
         await action?.();
         incrementCurrentMessageIndex();
       }
-    });
+    } finally {
+      setLoadingOption(null); // Reset loading state after completion
+    }
   };
 
   const handleAudioEnd = useCallback(() => {
@@ -130,35 +134,39 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
                     >
                       {options ? (
                         <div className="grid grid-cols-2 gap-2">
-                          {options?.map((option) => (
-                            <motion.div
-                              className="w-full"
-                              key={option.text}
-                              initial="hidden"
-                              animate="visible"
-                              variants={{
-                                hidden: { opacity: 0, y: 20 },
-                                visible: (index) => ({
-                                  opacity: 1,
-                                  y: 0,
-                                  transition: {
-                                    delay: index * 0.2,
-                                    duration: 0.5,
-                                  },
-                                }),
-                              }}
-                            >
-                              <Button
-                                // TODO: only load the clicked action
-                                loading={isActionPending}
+                          {options?.map((option) => {
+                            const loadingKey = option.value || option.text;
+                            return (
+                              <motion.div
                                 className="w-full"
-                                variant="outline"
-                                onClick={() => handleAnswer(option)}
+                                key={option.text}
+                                initial="hidden"
+                                animate="visible"
+                                variants={{
+                                  hidden: { opacity: 0, y: 20 },
+                                  visible: (index) => ({
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: {
+                                      delay: index * 0.2,
+                                      duration: 0.5,
+                                    },
+                                  }),
+                                }}
                               >
-                                {option.text}
-                              </Button>
-                            </motion.div>
-                          ))}
+                                <Button
+                                  key={loadingKey}
+                                  loading={loadingOption === loadingKey}
+                                  className="w-full"
+                                  variant="outline"
+                                  disabled={!!loadingOption}
+                                  onClick={() => handleAnswer(option)}
+                                >
+                                  {option.text}
+                                </Button>
+                              </motion.div>
+                            );
+                          })}
                         </div>
                       ) : (
                         <div className="space-y-2">
