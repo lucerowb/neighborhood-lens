@@ -5,9 +5,10 @@ import env from "@/config/env.config";
 import { apiHandler } from "@/helpers/api-handler";
 import { parseJSONIfPossible } from "@/utils/json.util";
 
+console.info(env.upstash);
 const redis = new Redis({
-  url: "https://light-woodcock-24856.upstash.io",
-  token: "AWEYAAIjcDFkYWEyOWFkZjdlZTQ0NTgyOWE4NTEyMWQ3NTBjNGY5YnAxMA",
+  url: env.upstash.url,
+  token: env.upstash.token,
 });
 
 const client = new ElevenLabsClient({
@@ -26,7 +27,11 @@ export const POST = apiHandler(async (req: Request) => {
   const value = (await redis.get(key)) as string;
 
   if (value) {
-    return Response.json(parseJSONIfPossible(value));
+    return Response.json(parseJSONIfPossible(value), {
+      headers: {
+        "Cache-Hit": "true",
+      },
+    });
   }
 
   const response = await client.textToSpeech.convertWithTimestamps("pbufn2IIcaA9SVLS6d0k", {
@@ -37,5 +42,9 @@ export const POST = apiHandler(async (req: Request) => {
 
   await redis.set(key, JSON.stringify(response));
 
-  return Response.json(response);
+  return Response.json(response, {
+    headers: {
+      "Cache-Hit": "false",
+    },
+  });
 });

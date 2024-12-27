@@ -29,6 +29,11 @@ const openai = {
   apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
 };
 
+const upstash = {
+  url: process.env.UPSTASH_URL,
+  token: process.env.UPSTASH_TOKEN,
+};
+
 const env = {
   nodeEnvironment: process.env.NEXT_PUBLIC_NODE_ENVIRONMENT,
   mapbox,
@@ -39,6 +44,7 @@ const env = {
   appUrl: process.env.NEXT_PUBLIC_BASE_URL,
   freepik,
   openai,
+  upstash,
 };
 
 export const isProd = env.nodeEnvironment === NodeEnvEnum.PROD;
