@@ -2,7 +2,6 @@
 import React, { useCallback, useRef, useState } from "react";
 
 import { transformTextToSpeech } from "@/api/tts.api";
-import { isDev } from "@/config/env.config";
 
 export interface TextAudioProps {
   text: string;
@@ -11,7 +10,7 @@ export interface TextAudioProps {
 }
 
 const StreamTextAudio = ({ text, onAudioEnd, onAudioStart }: TextAudioProps) => {
-  const [renderText, setRenderText] = useState(isDev ? text : "");
+  const [renderText, setRenderText] = useState("");
   const audioRef = useRef(new Audio());
   const timeoutsRef = useRef<NodeJS.Timeout[]>([]);
   const startTimeRef = useRef(0);
@@ -27,6 +26,7 @@ const StreamTextAudio = ({ text, onAudioEnd, onAudioStart }: TextAudioProps) => 
     if (isPlaybackActive.current) {
       return;
     }
+
     try {
       onAudioStart?.();
 
@@ -34,7 +34,7 @@ const StreamTextAudio = ({ text, onAudioEnd, onAudioStart }: TextAudioProps) => 
 
       isPlaybackActive.current = true;
 
-      const response = await transformTextToSpeech(text);
+      const { data } = await transformTextToSpeech(text);
 
       const processItem = async (item: any) => {
         if (item.audio_base64) {
@@ -84,7 +84,7 @@ const StreamTextAudio = ({ text, onAudioEnd, onAudioStart }: TextAudioProps) => 
         }
       };
 
-      await processItem(response);
+      await processItem(data);
     } catch (error) {
       console.error("Error starting playback:", error);
       setIsFailed(true);
@@ -95,11 +95,7 @@ const StreamTextAudio = ({ text, onAudioEnd, onAudioStart }: TextAudioProps) => 
   }, [text, onAudioEnd, onAudioStart]);
 
   React.useEffect(() => {
-    if (!isDev) {
-      startPlayback();
-    } else {
-      onAudioEnd?.();
-    }
+    startPlayback();
 
     return () => {
       clearTimeouts();
