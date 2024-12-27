@@ -70,3 +70,14 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.location-overlay {
+  .mapboxgl-popup-content {
+    padding: 0px !important;
+    background-color: transparent !important;
+  }
+
+  .mapboxgl-popup-tip {
+    display: none;
+  }
+}
