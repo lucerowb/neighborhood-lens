@@ -11,7 +11,7 @@ import { useTourStore } from "@/stores/useTourStore";
 import { Place, PlaceImage } from "@/types/place.type";
 import { PropertyFeatures } from "@/types/properties.type";
 import { TourItineraryOptions } from "@/types/tour.type";
-import { ageRangeLabelMap, genderLabelMap, stageOfLifeLabelMap } from "@/utils/tour.util";
+import { ageRangeLabelMap, genderLabelMap, stageOfLifeLabelMap, timeSlotLightPresetMap } from "@/utils/tour.util";
 
 export type Option = {
   text: string;
@@ -63,6 +63,8 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
         console.error(error);
         image = undefined;
       }
+
+      mapInstance?.setConfigProperty("basemap", "lightPreset", timeSlotLightPresetMap[timeSlot]);
 
       setCurrentLocationData({
         coordinates: [lng, lat],

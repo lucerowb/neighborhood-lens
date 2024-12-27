@@ -1,4 +1,4 @@
-import { AgeRangeEnum, GenderEnum, StageOfLifeEnum } from "@/enums/app.enum";
+import { AgeRangeEnum, GenderEnum, StageOfLifeEnum, TimeSlots } from "@/enums/app.enum";
 
 export const ageRangeLabelMap = {
   [AgeRangeEnum.EIGHTEEN_TO_THIRTY]: "18-30 yo",
@@ -19,4 +19,11 @@ export const stageOfLifeLabelMap = {
   [StageOfLifeEnum.MARRIED_OR_PARTNERED]: "Married or partnered",
   [StageOfLifeEnum.MARRIED_WITH_KIDS]: "Married with kids",
   [StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE]: "Retired and enjoying life",
+};
+
+export const timeSlotLightPresetMap = {
+  [TimeSlots.MORNING]: "dusk",
+  [TimeSlots.LATE_MORNING]: "day",
+  [TimeSlots.AFTERNOON]: "day",
+  [TimeSlots.EVENING]: "dawn",
 };
