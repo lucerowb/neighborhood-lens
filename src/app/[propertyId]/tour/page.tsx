@@ -24,7 +24,7 @@ const PropertyTour = async ({ params }: PropertyTourProps) => {
   if (!propertyResponse) return notFound();
 
   return (
-    <main className="relative z-50 h-screen w-full overflow-hidden md:h-[80vh] md:w-[80vw] md:rounded-2xl">
+    <main className="relative z-50 h-screen w-full overflow-hidden md:h-[90vh] md:w-[90vw] md:rounded-2xl md:shadow-2xl">
       <Link
         href={`/${propertyId}`}
         data-ignore-outside-click
