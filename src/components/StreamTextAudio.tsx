@@ -1,12 +1,8 @@
 "use client";
-import { ElevenLabsClient } from "elevenlabs";
 import React, { useCallback, useRef, useState } from "react";
 
-import env, { isDev } from "@/config/env.config";
-
-const client = new ElevenLabsClient({
-  apiKey: env.elevenLabs.apiKey,
-});
+import { transformTextToSpeech } from "@/api/tts.api";
+import { isDev } from "@/config/env.config";
 
 export interface TextAudioProps {
   text: string;
@@ -38,11 +34,7 @@ const StreamTextAudio = ({ text, onAudioEnd, onAudioStart }: TextAudioProps) => 
 
       isPlaybackActive.current = true;
 
-      const response = await client.textToSpeech.convertWithTimestamps("pbufn2IIcaA9SVLS6d0k", {
-        output_format: "mp3_44100_128",
-        text: text,
-        model_id: "eleven_multilingual_v2",
-      });
+      const response = await transformTextToSpeech(text);
 
       const processItem = async (item: any) => {
         if (item.audio_base64) {
