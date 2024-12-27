@@ -52,8 +52,8 @@ const BgMap = ({ propertyFeatures, places }: BgMapProps) => {
       style={
         !isMobile
           ? {
-              height: "80vh",
-              width: "80vw",
+              height: "90vh",
+              width: "90vw",
             }
           : undefined
       }
@@ -70,7 +70,6 @@ const BgMap = ({ propertyFeatures, places }: BgMapProps) => {
           latitude={coordinates[1]}
           longitude={coordinates[0]}
           closeOnClick={false}
-          anchor="right"
           className="location-overlay"
           offset={20}
           closeButton={false}

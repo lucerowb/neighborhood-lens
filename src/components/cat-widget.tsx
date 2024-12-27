@@ -81,7 +81,7 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
 
   return (
     <>
-      <div className={cn("absolute bottom-4 right-4 flex flex-col items-end", className, catClassName)}>
+      <div className={cn("absolute bottom-2 right-2 flex flex-col items-end m-2 ", className, catClassName)}>
         <AnimatePresence>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -157,7 +157,7 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
                                 <Button
                                   key={loadingKey}
                                   loading={loadingOption === loadingKey}
-                                  className="w-full"
+                                  className="w-full text-wrap"
                                   variant="outline"
                                   disabled={!!loadingOption}
                                   onClick={() => handleAnswer(option)}

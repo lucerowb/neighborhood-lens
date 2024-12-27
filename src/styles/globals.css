@@ -77,7 +77,7 @@ body {
     background-color: transparent !important;
   }
 
-  .mapboxgl-popup-tip {
+  /* .mapboxgl-popup-tip {
     display: none;
-  }
+  } */
 }
