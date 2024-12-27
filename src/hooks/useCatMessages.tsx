@@ -57,6 +57,7 @@ export default function useCatMessages(propertyFeatures: PropertyFeatures) {
           gender: gender as GenderEnum,
           placeCategory: place.category_id,
           timeSlot: timeSlot,
+          placeName: name,
         });
       } catch (error) {
         console.error(error);

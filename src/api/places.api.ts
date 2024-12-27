@@ -16,16 +16,19 @@ export const getPlacesImages = async ({
   gender,
   placeCategory,
   timeSlot,
+  placeName,
 }: {
   ageRange: AgeRangeEnum;
   gender: GenderEnum;
   placeCategory: CategoryEnum;
   timeSlot: TimeSlots;
+  placeName: string;
 }) => {
   return await fetcher<PlaceImage>("/api/places/image", {
     age_range: ageRange,
     gender,
     place_category: placeCategory,
     time_slot: timeSlot,
+    place_name: placeName,
   });
 };
