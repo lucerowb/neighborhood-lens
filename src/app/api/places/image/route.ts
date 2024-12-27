@@ -40,13 +40,15 @@ const generateBackgroundFeaturesAndCharacterAppearance = async (
       {
         role: "user",
         content: `Create a full-body illustration description with:
-Age: ${ageGroup}
+Age Group: ${ageGroup}
 Gender: ${gender}
 Location: ${CategoryEnum[place]}
 Time: ${timeslot}
 
 Format:
-"A full-body illustration of a [age]-year-old [gender] with [expression], wearing [simple outfit], [action] at/in [location]. The background includes [three key setting elements separated by commas]. The vibrant cartoon mascot style emphasizes [atmosphere/mood]."`,
+[placeholder: gender, e.g., "woman"] sitting at a table with [placeholder: people and scenario]. The scene is set in a cozy [placeholder: type of space, e.g., "café" or "home kitchen"] with [placeholder: amenities, e.g., "modern furniture, potted plants, and soft curtains"]. The characters are enjoying [placeholder: food/drink items, e.g., "breakfast parfaits and coffee"].
+The [placeholder: time of day, e.g., "morning, day, evening, or night"] lighting creates a [placeholder: atmosphere, e.g., "golden, sunny glow" for morning or "soft, ambient light" for evening], highlighting the [placeholder: details, e.g., "expressions, clothing textures, and the glassware on the table"]. The background features a [placeholder: specific detail, e.g., "large window letting in natural light" or "cityscape view"].
+The characters' expressions reflect [placeholder: emotions, e.g., "happiness and warmth"], and the overall composition emphasizes [placeholder: themes, e.g., "family bonding, relaxation, or simple joys of life"].`,
       },
     ],
     temperature: 0.7,
@@ -77,18 +79,16 @@ export const GET = apiHandler(async (request: NextRequest) => {
 
     const requestConfig: FreepikRequestConfig = {
       prompt: prompt,
-      negative_prompt: "low quality, blurry, overly abstract",
-      guidance_scale: 7,
+      negative_prompt:
+        "Avoid overly exaggerated or distorted anatomy (e.g., unnatural proportions, elongated limbs, or deformed facial features). Exclude flat or overly simplistic shading, harsh or unrealistic lighting, and overly saturated or clashing color palettes. Omit any cluttered or chaotic background elements that distract from the main subjects.\n" +
+        "Exclude the inclusion of unnecessary or out-of-context props, such as modern gadgets (e.g., phones or laptops) if not specified, or overly detailed, hyperrealistic textures that break the stylized aesthetic. Avoid low-quality rendering, blurry edges, pixelation, or inconsistent brushwork.\n" +
+        "Do not include expressions or poses that feel stiff, unnatural, or exaggerated beyond realism. Exclude styles outside of the intended warm, inviting, slightly stylized look (e.g., hyperrealism, abstract, or cartoonish over-simplification). Avoid dull or overly muted color schemes, poor lighting balance (e.g., shadows too harsh or no dynamic lighting), and disjointed composition.\n" +
+        "Focus on maintaining smooth, soft gradients, balanced colors, and well-defined, cohesive characters in harmony with the background.",
+      guidance_scale: 2,
       seed: Math.floor(Math.random() * 1000),
       num_images: 1,
       image: {
         size: "widescreen_16_9",
-      },
-      styling: {
-        style: "anime",
-        color: "pastel",
-        lightning: "warm",
-        framing: "portrait",
       },
     };
 
