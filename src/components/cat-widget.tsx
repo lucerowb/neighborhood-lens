@@ -74,11 +74,9 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
 
   const handleAudioEnd = useCallback(() => {
     setIsCatSpeaking(false);
-    console.info("audio end");
     if (silentStepMachine) {
       silentStepMachine.value = true;
       silentStepMachine.fire();
-      console.info("silent step machine fired");
     }
   }, [silentStepMachine]);
 
