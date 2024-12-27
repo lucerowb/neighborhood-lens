@@ -5,7 +5,6 @@ import env from "@/config/env.config";
 import { apiHandler } from "@/helpers/api-handler";
 import { parseJSONIfPossible } from "@/utils/json.util";
 
-console.info(env.upstash);
 const redis = new Redis({
   url: env.upstash.url,
   token: env.upstash.token,
