@@ -42,7 +42,7 @@ const TourTemplate = ({ children }: PropsWithChildren) => {
         {clouds.map((cloud) => (
           <div
             key={cloud.id}
-            className="animate-float absolute"
+            className="absolute animate-float"
             style={{
               left: cloud.left,
               top: cloud.top,
