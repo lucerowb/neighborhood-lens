@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { Geist, Geist_Mono } from "next/font/google";
+import { DynaPuff, Geist, Geist_Mono } from "next/font/google";
 
 import { cn } from "@/lib/utils";
 
@@ -13,6 +13,11 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const dynaPuff = DynaPuff({
+  variable: "--font-dyna-puff",
   subsets: ["latin"],
 });
 
@@ -32,7 +37,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={cn(`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen w-full`)}
+        className={cn(
+          `${geistSans.variable} ${geistMono.variable} ${dynaPuff.variable} antialiased relative min-h-screen w-full`
+        )}
         suppressHydrationWarning
       >
         <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
