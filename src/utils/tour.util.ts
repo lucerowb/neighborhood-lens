@@ -26,7 +26,7 @@ export const stageOfLifeLabelMap = {
 
 export const timeSlotConfigMap = {
   [TimeSlots.MORNING]: {
-    lightPreset: "dusk",
+    lightPreset: "dawn",
     icon: MorningIcon,
   },
   [TimeSlots.LATE_MORNING]: {
@@ -38,7 +38,7 @@ export const timeSlotConfigMap = {
     icon: AfternoonIcon,
   },
   [TimeSlots.EVENING]: {
-    lightPreset: "dawn",
+    lightPreset: "dusk",
     icon: EveningIcon,
   },
 };
