@@ -13,9 +13,6 @@ Neighborhood Lens is a modern web application that helps users explore and under
 
 - Interactive neighborhood maps with property locations
 - Community insights and detailed statistics
-- Real-time data visualization and analytics
-- User-generated content and reviews
-- Virtual property tours and 360° views
 - Comprehensive property listings
 - Mobile-responsive design
 
@@ -93,8 +90,7 @@ Visit [http://localhost:3000](http://localhost:3000) to see the application.
 - Follow the [Next.js Style Guide](https://nextjs.org/docs/basic-features/pages)
 - Use TypeScript for type safety
 - Implement responsive design principles
-- Write unit tests for new features
-- Use PostCSS for styling optimizations
+- Use tailwindCss for styling optimizations
 - Follow component-based architecture
 
 ## Key Components
