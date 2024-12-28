@@ -69,8 +69,8 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
     try {
       const { action, value } = option;
       if (replies && value && replies[value]) {
-        setCatReply(replies[value]);
         await action?.();
+        setCatReply(replies[value]);
       } else {
         await action?.();
         incrementCurrentMessageIndex();

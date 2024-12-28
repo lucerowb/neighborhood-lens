@@ -11,7 +11,13 @@ import { useTourStore } from "@/stores/useTourStore";
 import { PlaceImage } from "@/types/place.type";
 import { PropertyFeatures } from "@/types/properties.type";
 import { Activity, TourItineraryOptions } from "@/types/tour.type";
-import { ageRangeLabelMap, genderLabelMap, stageOfLifeLabelMap, timeSlotConfigMap } from "@/utils/tour.util";
+import {
+  ageRangeLabelMap,
+  categoryReplyMap,
+  genderLabelMap,
+  stageOfLifeLabelMap,
+  timeSlotConfigMap,
+} from "@/utils/tour.util";
 
 export type Option = {
   text: string;
@@ -244,8 +250,10 @@ export default function useCatMessages(propertyFeatures?: PropertyFeatures) {
           catImageNumber: 1,
           options: tourIteinerary?.morning.map((activity) => ({
             text: activity.label,
+            value: activity.id,
             action: async () => await handleSelectActivity(activity, TimeSlots.MORNING),
           })),
+          replies: categoryReplyMap,
         },
         {
           id: TimeSlots.LATE_MORNING,
@@ -253,8 +261,10 @@ export default function useCatMessages(propertyFeatures?: PropertyFeatures) {
           catImageNumber: 1,
           options: tourIteinerary?.late_morning.map((activity) => ({
             text: activity.label,
+            value: activity.id,
             action: async () => await handleSelectActivity(activity, TimeSlots.LATE_MORNING),
           })),
+          replies: categoryReplyMap,
         },
         {
           id: TimeSlots.AFTERNOON,
@@ -262,8 +272,10 @@ export default function useCatMessages(propertyFeatures?: PropertyFeatures) {
           catImageNumber: 1,
           options: tourIteinerary?.afternoon.map((activity) => ({
             text: activity.label,
+            value: activity.id,
             action: async () => await handleSelectActivity(activity, TimeSlots.AFTERNOON),
           })),
+          replies: categoryReplyMap,
         },
         {
           id: TimeSlots.EVENING,
@@ -271,8 +283,10 @@ export default function useCatMessages(propertyFeatures?: PropertyFeatures) {
           catImageNumber: 1,
           options: tourIteinerary?.evening.map((activity) => ({
             text: activity.label,
+            value: activity.id,
             action: async () => await handleSelectActivity(activity, TimeSlots.EVENING),
           })),
+          replies: categoryReplyMap,
         },
         {
           id: "end",
