@@ -17,7 +17,7 @@ const { setCurrentMessageIndex } = useTourStore.getState();
 export default function Timeline() {
   const selectedItinerary = useTourStore((state) => state.selectedItinerary);
   const mapInstance = useMapStore((state) => state.mapInstance);
-  const { messages } = useCatMessages();
+  const { messages, audioRef } = useCatMessages();
   const timeoutRef = useRef<NodeJS.Timeout>(null);
 
   return (
@@ -51,6 +51,29 @@ export default function Timeline() {
             "lightPreset",
             timeSlotConfigMap[timeSlot as TimeSlots].lightPreset
           );
+
+          if (audioRef.current) {
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0;
+          }
+          try {
+            audioRef.current = new Audio(timeSlotConfigMap[timeSlot as TimeSlots].audio);
+            audioRef.current.volume = 0.5;
+
+            audioRef.current.addEventListener("canplaythrough", () => {
+              audioRef.current?.play().catch((error) => {
+                console.error("Audio playback failed:", error);
+              });
+            });
+
+            audioRef.current.loop = true;
+
+            audioRef.current.addEventListener("error", (e) => {
+              console.error("Audio loading error:", e);
+            });
+          } catch (error) {
+            console.error("Error setting up audio:", error);
+          }
 
           setCurrentLocationData({
             coordinates: [lng, lat],

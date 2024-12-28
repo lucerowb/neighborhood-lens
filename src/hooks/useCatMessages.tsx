@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { getLifeSimulation } from "@/api/life.api";
 import { getPlacesImages } from "@/api/places.api";
@@ -50,12 +50,38 @@ export default function useCatMessages(propertyFeatures?: PropertyFeatures) {
   const [tourIteinerary, setTourIteinerary] = useState<TourItineraryOptions>();
   const { ageRange, gender, stageOfLife } = useTourStore((state) => state);
   const mapInstance = useMapStore((state) => state.mapInstance);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const { localStats, properties } = propertyFeatures ?? {};
   const propertyId = properties?.id;
 
   const handleSelectActivity = useCallback(
     async (activity: Activity, timeSlot: TimeSlots) => {
+      mapInstance?.setConfigProperty("basemap", "lightPreset", timeSlotConfigMap[timeSlot].lightPreset);
+
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+      try {
+        audioRef.current = new Audio(timeSlotConfigMap[timeSlot].audio);
+        audioRef.current.volume = 0.5;
+
+        audioRef.current.addEventListener("canplaythrough", () => {
+          audioRef.current?.play().catch((error) => {
+            console.error("Audio playback failed:", error);
+          });
+        });
+
+        audioRef.current.loop = true;
+
+        audioRef.current.addEventListener("error", (e) => {
+          console.error("Audio loading error:", e);
+        });
+      } catch (error) {
+        console.error("Error setting up audio:", error);
+      }
+
       const { coordinates, distance, rating, name, category_id } = activity.place;
       const { x: lat, y: lng } = coordinates;
 
@@ -72,8 +98,6 @@ export default function useCatMessages(propertyFeatures?: PropertyFeatures) {
         console.error(error);
         image = undefined;
       }
-
-      mapInstance?.setConfigProperty("basemap", "lightPreset", timeSlotConfigMap[timeSlot].lightPreset);
 
       setCurrentLocationData({
         coordinates: [lng, lat],
@@ -110,6 +134,15 @@ export default function useCatMessages(propertyFeatures?: PropertyFeatures) {
     },
     [mapInstance, ageRange, gender]
   );
+
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+    };
+  }, []);
 
   const messages: Message[] = useMemo(
     () =>
@@ -301,5 +334,5 @@ export default function useCatMessages(propertyFeatures?: PropertyFeatures) {
     [localStats, ageRange, gender, stageOfLife, propertyId, tourIteinerary, handleSelectActivity]
   );
 
-  return { messages };
+  return { messages, audioRef };
 }
