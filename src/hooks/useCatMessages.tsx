@@ -116,7 +116,7 @@ export default function useCatMessages(propertyFeatures?: PropertyFeatures) {
       [
         {
           id: "intro",
-          text: "Hi, I'm rePurrrr, your friendly neighborhood guide! I'll show you what this area has to offer—from morning coffee spots to parks for evening strolls. Let's dive in and explore your potential new neighborhood!",
+          text: "Hi, I’m rePurrrr, your friendly neighborhood guide! Let me show you the best this area has to offer—from cozy coffee spots to scenic parks for evening strolls. Ready to explore your potential new neighborhood? Let’s go!",
           catImageNumber: 1,
           catClassName: "bottom-2 left-1/2 -translate-x-1/2 items-center",
           catCharacterClassName: "mr-0",
@@ -125,7 +125,7 @@ export default function useCatMessages(propertyFeatures?: PropertyFeatures) {
         },
         {
           id: "features",
-          text: "Here's what the locals have to say about my neighborhood. Looks promising, right?",
+          text: "Curious about the neighborhood? Here’s what the locals are saying—it’s looking great, don’t you think?",
           catImageNumber: 2,
           content: localStats ? <LocalFeedback localStats={localStats} /> : null,
         },
@@ -139,7 +139,7 @@ export default function useCatMessages(propertyFeatures?: PropertyFeatures) {
         {
           id: "gender",
           skip: !!gender,
-          text: "Before we get started, could you mention your gender?",
+          text: "Before we dive into exploring, can you share your gender to personalize the experience?",
           options: Object.values(GenderEnum).map((gender) => ({
             text: genderLabelMap[gender],
             value: gender,
@@ -194,7 +194,7 @@ export default function useCatMessages(propertyFeatures?: PropertyFeatures) {
           id: "stage-of-life",
           skip: !!stageOfLife,
           catImageNumber: 1,
-          text: "Ok got it! I also need to know what stage you are at in life?",
+          text: "Great! Could you tell me which life stage best describes you right now?",
           options: Object.values(StageOfLifeEnum).map((stage) => ({
             text: stageOfLifeLabelMap[stage],
             value: stage,
@@ -246,7 +246,7 @@ export default function useCatMessages(propertyFeatures?: PropertyFeatures) {
         },
         {
           id: TimeSlots.MORNING,
-          text: "My typical morning begins with a walk in the park and looking at the beautiful scenery there. What's your morning like?",
+          text: "I love starting my mornings with a peaceful park walk. What’s your ideal way to start the day?",
           catImageNumber: 1,
           options: tourIteinerary?.morning.map((activity) => ({
             text: activity.label,
