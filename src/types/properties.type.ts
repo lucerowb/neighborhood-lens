@@ -194,6 +194,7 @@ export type PropertyFeatures = {
   geometry: PropertyFeatureGeometry;
   properties: Property;
   localStats?: LocalStats;
+  appreciationRate: number;
 };
 
 export type PropertiesResponse = {
