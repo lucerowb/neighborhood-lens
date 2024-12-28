@@ -10,6 +10,7 @@ export type Activity = {
   stageOfLife: StageOfLifeEnum[];
   genderPreferences: GenderEnum[];
   place: Place;
+  generatedImage?: string;
 };
 
 export type TourItineraryOptions = Record<TimeSlots, Activity[]>;

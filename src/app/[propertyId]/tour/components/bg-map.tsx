@@ -2,7 +2,7 @@
 "use client";
 
 import { MapPin } from "lucide-react";
-import { ReactNode, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import { Marker, Popup, PopupProps } from "react-map-gl";
 
 import MapBox from "@/components/core/map-box";
@@ -10,6 +10,7 @@ import { Typography } from "@/components/ui/typography";
 import { useOnClickOutside } from "@/hooks/useOnClickOutside";
 import useResponsive from "@/hooks/useResponsive";
 import useMapStore from "@/stores/useMapStore";
+import { useTourStore } from "@/stores/useTourStore";
 import { Place } from "@/types/place.type";
 import { PropertyFeatures } from "@/types/properties.type";
 
@@ -21,11 +22,19 @@ type BgMapProps = {
 };
 
 const setMapInstance = useMapStore.getState().setMapInstance;
+const { setCurrentMessageIndex, clearSelectedItinerary } = useTourStore.getState();
 
 const BgMap = ({ propertyFeatures, places }: BgMapProps) => {
   const { properties, geometry } = propertyFeatures;
   const currentLocationData = useMapStore((state) => state.currentLocationData);
   const { coordinates } = currentLocationData ?? {};
+
+  useEffect(() => {
+    return () => {
+      clearSelectedItinerary();
+      setCurrentMessageIndex(0);
+    };
+  }, []);
 
   const device = useResponsive();
 

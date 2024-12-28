@@ -7,6 +7,7 @@ import { useCallback, useRef, useState } from "react";
 import useCatMessages, { Message, Option } from "@/hooks/useCatMessages";
 import { useOnClickOutside } from "@/hooks/useOnClickOutside";
 import { cn } from "@/lib/utils";
+import { useTourStore } from "@/stores/useTourStore";
 import { PropertyFeatures } from "@/types/properties.type";
 
 import ChatBubbleCard from "./common/chat-bubble-card";
@@ -20,7 +21,6 @@ type CatChatWidgetProps = {
 };
 
 export default function CatChatWidget({ propertyFeatures, className }: CatChatWidgetProps) {
-  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const [isCatSpeaking, setIsCatSpeaking] = useState(true);
   const [catReply, setCatReply] = useState<NonNullable<Message["replies"]>[string] | null>(null);
   const { messages } = useCatMessages(propertyFeatures);
@@ -31,6 +31,8 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
     autoplay: true,
   });
   const silentStepMachine = useStateMachineInput(rive, "State Machine 3", "Silent", true);
+
+  const { currentMessageIndex, setCurrentMessageIndex } = useTourStore((state) => state);
 
   const currentMessage = messages[currentMessageIndex];
 
@@ -50,8 +52,14 @@ export default function CatChatWidget({ propertyFeatures, className }: CatChatWi
   } = currentMessage;
 
   const incrementCurrentMessageIndex = () => {
-    if (currentMessageIndex < messages.length - 1) {
-      setCurrentMessageIndex(currentMessageIndex + 1);
+    let nextIndex = currentMessageIndex + 1;
+
+    while (nextIndex < messages.length && messages[nextIndex].skip) {
+      nextIndex++;
+    }
+
+    if (nextIndex < messages.length) {
+      setCurrentMessageIndex(nextIndex);
     }
   };
 

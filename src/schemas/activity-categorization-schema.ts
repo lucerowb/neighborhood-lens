@@ -37,7 +37,7 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_OR_PARTNERED,
         StageOfLifeEnum.MARRIED_WITH_KIDS,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
       label: "Go for a hike",
@@ -48,7 +48,7 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_OR_PARTNERED,
         StageOfLifeEnum.MARRIED_WITH_KIDS,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
       label: "Yoga",
@@ -58,6 +58,7 @@ const activityCategorizationSchema = {
         AgeRangeEnum.THIRTY_ONE_TO_FORTY,
         AgeRangeEnum.FORTY_ONE_TO_FIFTY,
         AgeRangeEnum.FIFTY_ONE_TO_SIXTY,
+        AgeRangeEnum.SIXTY_PLUS,
       ],
       stageOfLife: [
         StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
@@ -65,7 +66,7 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_WITH_KIDS,
         StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
   ],
   [TimeSlots.LATE_MORNING]: [
@@ -85,7 +86,7 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_WITH_KIDS,
         StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
       label: "Get some breakfast",
@@ -103,7 +104,7 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_WITH_KIDS,
         StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
       label: "Explore a nearby park",
@@ -120,7 +121,7 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_OR_PARTNERED,
         StageOfLifeEnum.MARRIED_WITH_KIDS,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
       label: "Explore nearby meuseum",
@@ -137,7 +138,7 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_OR_PARTNERED,
         StageOfLifeEnum.MARRIED_WITH_KIDS,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
   ],
   [TimeSlots.AFTERNOON]: [
@@ -157,7 +158,7 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_WITH_KIDS,
         StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
       label: "Visit a Zoo",
@@ -175,7 +176,7 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_WITH_KIDS,
         StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
       label: "Have some fun at a amusement park",
@@ -186,7 +187,7 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_OR_PARTNERED,
         StageOfLifeEnum.MARRIED_WITH_KIDS,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
       label: "Go to water park",
@@ -197,7 +198,7 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_OR_PARTNERED,
         StageOfLifeEnum.MARRIED_WITH_KIDS,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
       label: "Visit Shopping Mall",
@@ -215,7 +216,7 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_WITH_KIDS,
         StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
       label: "Restaurant",
@@ -233,14 +234,14 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_WITH_KIDS,
         StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
       label: "School and Colleges",
       id: CategoryEnum.SCHOOL_COLLEGES,
       ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY],
       stageOfLife: [StageOfLifeEnum.MARRIED_WITH_KIDS],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
       label: "Go to a Saloon",
@@ -251,7 +252,7 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_OR_PARTNERED,
         StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE],
     },
     {
       label: "Go to a Saloon",
@@ -280,7 +281,7 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_WITH_KIDS,
         StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
       label: "Visit nearby landmarks",
@@ -298,7 +299,7 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_WITH_KIDS,
         StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
   ],
   [TimeSlots.EVENING]: [
@@ -318,7 +319,7 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_WITH_KIDS,
         StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
       label: "Night Market",
@@ -336,21 +337,21 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_WITH_KIDS,
         StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
       label: "Bar",
       id: CategoryEnum.BAR,
       ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY, AgeRangeEnum.FORTY_ONE_TO_FIFTY],
       stageOfLife: [StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS, StageOfLifeEnum.MARRIED_OR_PARTNERED],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
       label: "Night Club",
       id: CategoryEnum.CLUBS,
       ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY, AgeRangeEnum.FORTY_ONE_TO_FIFTY],
       stageOfLife: [StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS, StageOfLifeEnum.MARRIED_OR_PARTNERED],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
       label: "Movie Theater",
@@ -368,7 +369,7 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_WITH_KIDS,
         StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
       label: "Go for a evening walks",
@@ -386,7 +387,7 @@ const activityCategorizationSchema = {
         StageOfLifeEnum.MARRIED_WITH_KIDS,
         StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
       ],
-      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE, GenderEnum.OTHER],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
   ],
 };
