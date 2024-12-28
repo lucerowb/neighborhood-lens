@@ -29,18 +29,22 @@ export const timeSlotConfigMap = {
   [TimeSlots.MORNING]: {
     lightPreset: "dawn",
     icon: MorningIcon,
+    audio: "/audio/morning-bg.mp3",
   },
   [TimeSlots.LATE_MORNING]: {
     lightPreset: "day",
     icon: LateMorningIcon,
+    audio: "/audio/late-morning-bg.mp3",
   },
   [TimeSlots.AFTERNOON]: {
     lightPreset: "day",
     icon: AfternoonIcon,
+    audio: "/audio/afternoon-bg.mp3",
   },
   [TimeSlots.EVENING]: {
     lightPreset: "dusk",
     icon: EveningIcon,
+    audio: "/audio/evening-bg.mp3",
   },
 };
 
