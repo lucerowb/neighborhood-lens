@@ -77,7 +77,7 @@ export const GET = apiHandler(async (request: NextRequest, { params }: { params:
 
   for (const [timeSlot, activities] of Object.entries(availableActivities)) {
     for (const activity of activities) {
-      const atttractions = get(groupedNearbyAttractions, `${activity.id}`, []);
+      const atttractions = get(groupedNearbyAttractions, `${activity.id}`, []).slice(0, 5);
       const attractionCount = atttractions.length;
       if (attractionCount === 0) {
         continue;
