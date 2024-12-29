@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { getLifeSimulation } from "@/api/life.api";
@@ -54,6 +55,8 @@ export default function useCatMessages(propertyFeatures?: PropertyFeatures) {
 
   const { localStats, properties } = propertyFeatures ?? {};
   const propertyId = properties?.id;
+
+  const router = useRouter();
 
   const handleSelectActivity = useCallback(
     async (activity: Activity, timeSlot: TimeSlots) => {
@@ -328,10 +331,17 @@ export default function useCatMessages(propertyFeatures?: PropertyFeatures) {
           catClassName: "bottom-2 left-1/2 -translate-x-1/2 items-center",
           catCharacterClassName: "mr-0",
           anchorPosition: "bottom-center",
-          tapToContinue: true,
+          options: [
+            {
+              text: "Continue",
+              action: async () => {
+                router.push(`/${propertyId}/more`);
+              },
+            },
+          ],
         },
       ].filter(Boolean) as Message[],
-    [localStats, ageRange, gender, stageOfLife, propertyId, tourIteinerary, handleSelectActivity]
+    [localStats, ageRange, gender, stageOfLife, propertyId, tourIteinerary, handleSelectActivity, router]
   );
 
   return { messages, audioRef };
