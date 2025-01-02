@@ -79,7 +79,7 @@ export default function LocationOverlay() {
             <MorphingDialogImage
               src={imageToShow}
               alt={name ?? "poi-image"}
-              className="h-[318px] w-[326px] rounded-t-xl object-cover"
+              className="h-[200px] w-[326px] rounded-t-xl object-cover"
             />
           </div>
 
