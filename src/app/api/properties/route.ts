@@ -24,5 +24,7 @@ export const GET = apiHandler(async () => {
   }
 
   const properties = await dr_hook.getPropertiesById(PROPERTIES_IDS);
+
+  await redis.set("properties", JSON.stringify(properties));
   return Response.json(properties);
 });
