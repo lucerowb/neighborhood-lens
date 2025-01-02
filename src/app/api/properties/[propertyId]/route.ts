@@ -4,6 +4,9 @@ import { apiHandler } from "@/helpers/api-handler";
 import { dr_hook } from "@/helpers/data_repo";
 import { db } from "@/server/db";
 import { localReviews } from "@/server/db/schema";
+import { parseJSONIfPossible } from "@/utils/json.util";
+
+import { redis } from "../../tts/route";
 
 const appreciationRate: Record<string, number> = {
   "7f9487edad7d0f3f1d1b0d6e65f5375e": 0.5,
@@ -20,7 +23,16 @@ const appreciationRate: Record<string, number> = {
 
 export const GET = apiHandler(async (request: Request, { params }: { params: Promise<{ propertyId: string }> }) => {
   const propertyId = (await params).propertyId;
-  const propertyDetails = await dr_hook.getPropertyDetails(propertyId);
+
+  let propertyDetails = null;
+
+  const cachedPropertyDetails = (await redis.get(`property_details:${propertyId}`)) as string;
+  if (cachedPropertyDetails) {
+    propertyDetails = parseJSONIfPossible(cachedPropertyDetails);
+  } else {
+    propertyDetails = await dr_hook.getPropertyDetails(propertyId);
+    await redis.set(`property_details:${propertyId}`, JSON.stringify(propertyDetails));
+  }
 
   const propertyLocalStats = await db
     .select()

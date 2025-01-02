@@ -1,5 +1,8 @@
 import { apiHandler } from "@/helpers/api-handler";
 import { dr_hook } from "@/helpers/data_repo";
+import { parseJSONIfPossible } from "@/utils/json.util";
+
+import { redis } from "../tts/route";
 
 const PROPERTIES_IDS = [
   "7f9487edad7d0f3f1d1b0d6e65f5375e",
@@ -15,6 +18,12 @@ const PROPERTIES_IDS = [
 ];
 
 export const GET = apiHandler(async () => {
+  const cachedProperties = (await redis.get("properties")) as string;
+
+  if (cachedProperties) {
+    return Response.json(parseJSONIfPossible(cachedProperties));
+  }
+
   const properties = await dr_hook.getPropertiesById(PROPERTIES_IDS);
   return Response.json(properties);
 });
