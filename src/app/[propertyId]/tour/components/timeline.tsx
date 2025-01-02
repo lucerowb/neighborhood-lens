@@ -1,27 +1,44 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 
 import PlayIcon from "@/assets/icons/play.svg";
 import FallbackImage from "@/assets/img/location-image-fallback.png";
 import { TimeSlots } from "@/enums/app.enum";
 import useCatMessages from "@/hooks/useCatMessages";
+import { cn } from "@/lib/utils";
 import useMapStore from "@/stores/useMapStore";
 import { useTourStore } from "@/stores/useTourStore";
 import { timeSlotConfigMap } from "@/utils/tour.util";
 
 const { setCurrentLocationData } = useMapStore.getState();
-const { setCurrentMessageIndex } = useTourStore.getState();
+const { setCurrentMessageIndex, setIsTourCompleted } = useTourStore.getState();
 
-export default function Timeline() {
+type TimelineProps = {
+  isReplay?: boolean;
+};
+
+export default function Timeline({ isReplay }: TimelineProps) {
   const selectedItinerary = useTourStore((state) => state.selectedItinerary);
   const mapInstance = useMapStore((state) => state.mapInstance);
   const { messages, audioRef } = useCatMessages();
   const timeoutRef = useRef<NodeJS.Timeout>(null);
 
+  const imageSize = useMemo(
+    () => ({
+      height: isReplay ? 140 : 100,
+      width: isReplay ? 120 : 80,
+    }),
+    [isReplay]
+  );
+
   return (
-    <div className="absolute -top-2 left-1/3 flex items-center justify-between gap-10">
+    <div
+      className={cn("flex items-center justify-between gap-10", {
+        "absolute -top-2 left-1/3": !isReplay,
+      })}
+    >
       {Object.entries(selectedItinerary).map(([timeSlot, activity]) => {
         const timeSlotImage = timeSlotConfigMap[timeSlot as TimeSlots].icon;
 
@@ -36,6 +53,8 @@ export default function Timeline() {
         const { x: lat, y: lng } = coordinates;
 
         const replayItem = () => {
+          setIsTourCompleted(false);
+
           if (timeoutRef.current !== null) {
             clearTimeout(timeoutRef.current);
           }
@@ -109,7 +128,7 @@ export default function Timeline() {
         return (
           <div key={timeSlot} className="flex cursor-pointer flex-col items-center justify-center" onClick={replayItem}>
             <Image src={timeSlotImage} alt={timeSlot} className="translate-y-3" />
-            <Image src={imageToShow} alt="poi-image" height={100} width={80} className="rounded-xl object-cover" />
+            <Image src={imageToShow} alt="poi-image" {...imageSize} className="rounded-xl object-cover" />
             <Image src={PlayIcon} alt="play-icon" className="size-6 -translate-y-3" />
           </div>
         );

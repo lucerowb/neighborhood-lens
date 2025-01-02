@@ -1,4 +1,3 @@
-import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { getLifeSimulation } from "@/api/life.api";
@@ -44,7 +43,7 @@ export type Message = {
   skip?: boolean;
 };
 
-const { setGender, setStageOfLife, setAgeRange, setSelectedItinerary } = useTourStore.getState();
+const { setGender, setStageOfLife, setAgeRange, setSelectedItinerary, setIsTourCompleted } = useTourStore.getState();
 const { setCurrentLocationData } = useMapStore.getState();
 
 export default function useCatMessages(propertyFeatures?: PropertyFeatures) {
@@ -55,8 +54,6 @@ export default function useCatMessages(propertyFeatures?: PropertyFeatures) {
 
   const { localStats, properties } = propertyFeatures ?? {};
   const propertyId = properties?.id;
-
-  const router = useRouter();
 
   const handleSelectActivity = useCallback(
     async (activity: Activity, timeSlot: TimeSlots) => {
@@ -334,14 +331,12 @@ export default function useCatMessages(propertyFeatures?: PropertyFeatures) {
           options: [
             {
               text: "Continue",
-              action: async () => {
-                router.push(`/${propertyId}/more`);
-              },
+              action: async () => setIsTourCompleted(true),
             },
           ],
         },
       ].filter(Boolean) as Message[],
-    [localStats, ageRange, gender, stageOfLife, propertyId, tourIteinerary, handleSelectActivity, router]
+    [localStats, ageRange, gender, stageOfLife, propertyId, tourIteinerary, handleSelectActivity]
   );
 
   return { messages, audioRef };
