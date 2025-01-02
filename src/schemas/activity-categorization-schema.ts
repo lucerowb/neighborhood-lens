@@ -51,6 +51,24 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
+      label: "Meditate at the park",
+      id: CategoryEnum.PARK,
+      ageGroup: [
+        AgeRangeEnum.EIGHTEEN_TO_THIRTY,
+        AgeRangeEnum.THIRTY_ONE_TO_FORTY,
+        AgeRangeEnum.FORTY_ONE_TO_FIFTY,
+        AgeRangeEnum.FIFTY_ONE_TO_SIXTY,
+        AgeRangeEnum.SIXTY_PLUS,
+      ],
+      stageOfLife: [
+        StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS,
+        StageOfLifeEnum.MARRIED_OR_PARTNERED,
+        StageOfLifeEnum.MARRIED_WITH_KIDS,
+        StageOfLifeEnum.RETIRED_AND_ENJOYING_LIFE,
+      ],
+      genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
+    },
+    {
       label: "Yoga",
       id: CategoryEnum.YOGA,
       ageGroup: [
