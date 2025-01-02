@@ -2,11 +2,10 @@ import { eq } from "drizzle-orm";
 
 import { apiHandler } from "@/helpers/api-handler";
 import { dr_hook } from "@/helpers/data_repo";
+import { redis } from "@/helpers/redis";
 import { db } from "@/server/db";
 import { localReviews } from "@/server/db/schema";
 import { parseJSONIfPossible } from "@/utils/json.util";
-
-import { redis } from "../../tts/route";
 
 const appreciationRate: Record<string, number> = {
   "7f9487edad7d0f3f1d1b0d6e65f5375e": 0.5,

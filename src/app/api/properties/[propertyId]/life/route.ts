@@ -5,9 +5,11 @@ import { NextRequest } from "next/server";
 import { AgeRangeEnum, GenderEnum, StageOfLifeEnum, TimeSlots } from "@/enums/app.enum";
 import { apiHandler } from "@/helpers/api-handler";
 import { dr_hook } from "@/helpers/data_repo";
+import { redis } from "@/helpers/redis";
 import activityCategorizationSchema from "@/schemas/activity-categorization-schema";
 import { db } from "@/server/db";
 import { nearbyAttractions } from "@/server/db/schema";
+import { parseJSONIfPossible } from "@/utils/json.util";
 
 interface QueryParams {
   ageRange: AgeRangeEnum;
@@ -30,7 +32,15 @@ export const GET = apiHandler(async (request: NextRequest, { params }: { params:
       { status: 400 }
     );
   }
-  const propertyDetails = await dr_hook.getPropertyDetails(propertyId);
+  let propertyDetails = null;
+
+  const cachedPropertyDetails = (await redis.get(`property_details:${propertyId}`)) as string;
+  if (cachedPropertyDetails) {
+    propertyDetails = parseJSONIfPossible(cachedPropertyDetails);
+  } else {
+    propertyDetails = await dr_hook.getPropertyDetails(propertyId);
+    await redis.set(`property_details:${propertyId}`, JSON.stringify(propertyDetails));
+  }
 
   if (!propertyDetails) {
     return Response.json({ error: "Property not found" }, { status: 404 });
