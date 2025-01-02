@@ -22,7 +22,7 @@ type BgMapProps = {
 };
 
 const setMapInstance = useMapStore.getState().setMapInstance;
-const { setCurrentMessageIndex, clearSelectedItinerary } = useTourStore.getState();
+const { setCurrentMessageIndex, clearSelectedItinerary, setIsTourCompleted } = useTourStore.getState();
 
 const BgMap = ({ propertyFeatures, places }: BgMapProps) => {
   const { properties, geometry } = propertyFeatures;
@@ -31,6 +31,7 @@ const BgMap = ({ propertyFeatures, places }: BgMapProps) => {
 
   useEffect(() => {
     return () => {
+      setIsTourCompleted(false);
       clearSelectedItinerary();
       setCurrentMessageIndex(0);
     };
