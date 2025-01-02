@@ -1,14 +1,9 @@
-import { Redis } from "@upstash/redis";
 import { ElevenLabsClient } from "elevenlabs";
 
 import env from "@/config/env.config";
 import { apiHandler } from "@/helpers/api-handler";
+import { redis } from "@/helpers/redis";
 import { parseJSONIfPossible } from "@/utils/json.util";
-
-const redis = new Redis({
-  url: env.upstash.url,
-  token: env.upstash.token,
-});
 
 const client = new ElevenLabsClient({
   apiKey: env.elevenLabs.apiKey,
