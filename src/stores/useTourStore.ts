@@ -15,6 +15,8 @@ const defaultSelectedItinerary: TourItinerarySelection = {
 export type TourStore = {
   currentMessageIndex: number;
   setCurrentMessageIndex: (index: number) => void;
+  isTourCompleted: boolean;
+  setIsTourCompleted: (isCompleted: boolean) => void;
   gender: Maybe<GenderEnum>;
   setGender: (gender: GenderEnum) => void;
   ageRange: Maybe<AgeRangeEnum>;
@@ -33,6 +35,8 @@ export const useTourStore = create<TourStore>()(
       gender: null,
       stageOfLife: null,
       ageRange: null,
+      isTourCompleted: false,
+      setIsTourCompleted: (isCompleted: boolean) => set({ isTourCompleted: isCompleted }),
       setCurrentMessageIndex: (index: number) => set({ currentMessageIndex: index }),
       selectedItinerary: defaultSelectedItinerary,
       setGender: (gender: GenderEnum) =>

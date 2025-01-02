@@ -77,7 +77,7 @@ const MorePage = async ({ params }: MorePageProps) => {
             ))}
           </div>
         </div>
-        <Link href={`/${propertyId}/replay`}>
+        <Link href={`/${propertyId}`}>
           <Button variant="default" size="xl">
             Complete Visualization
           </Button>
