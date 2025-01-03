@@ -29,7 +29,7 @@ export enum CategoryEnum {
 const activityCategorizationSchema = {
   [TimeSlots.MORNING]: [
     {
-      label: "Gym and Studio",
+      label: "Hit the Gym or Studio",
       id: CategoryEnum.GYM_STUDIO,
       ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY, AgeRangeEnum.FORTY_ONE_TO_FIFTY],
       stageOfLife: [
@@ -40,7 +40,7 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "Go for a hike",
+      label: "Enjoy a Morning Hike",
       id: CategoryEnum.HIKING_TRAIL,
       ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY],
       stageOfLife: [
@@ -51,7 +51,7 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "Meditate at the park",
+      label: "Relax with Morning Meditation",
       id: CategoryEnum.PARK,
       ageGroup: [
         AgeRangeEnum.EIGHTEEN_TO_THIRTY,
@@ -69,7 +69,7 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "Yoga",
+      label: "Join a Yoga Session",
       id: CategoryEnum.YOGA,
       ageGroup: [
         AgeRangeEnum.EIGHTEEN_TO_THIRTY,
@@ -89,7 +89,7 @@ const activityCategorizationSchema = {
   ],
   [TimeSlots.LATE_MORNING]: [
     {
-      label: "Go get some coffee",
+      label: "Grab a Coffee",
       id: CategoryEnum.CAFE,
       ageGroup: [
         AgeRangeEnum.EIGHTEEN_TO_THIRTY,
@@ -107,7 +107,7 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "Get some breakfast",
+      label: "Treat Yourself to Breakfast",
       id: CategoryEnum.BREAKFAST_SPOT,
       ageGroup: [
         AgeRangeEnum.EIGHTEEN_TO_THIRTY,
@@ -125,7 +125,7 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "Explore a nearby park",
+      label: "Discover a Nearby Park",
       id: CategoryEnum.PARK,
       ageGroup: [
         AgeRangeEnum.EIGHTEEN_TO_THIRTY,
@@ -142,7 +142,7 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "Explore nearby meuseum",
+      label: "Explore a Museum",
       id: CategoryEnum.MUSEUM,
       ageGroup: [
         AgeRangeEnum.EIGHTEEN_TO_THIRTY,
@@ -161,7 +161,7 @@ const activityCategorizationSchema = {
   ],
   [TimeSlots.AFTERNOON]: [
     {
-      label: "Visit an Art Gallery",
+      label: "Check Out an Art Gallery",
       id: CategoryEnum.ART_GALLERY,
       ageGroup: [
         AgeRangeEnum.EIGHTEEN_TO_THIRTY,
@@ -179,7 +179,7 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "Visit a Zoo",
+      label: "Visit the Zoo",
       id: CategoryEnum.ZOO,
       ageGroup: [
         AgeRangeEnum.EIGHTEEN_TO_THIRTY,
@@ -197,7 +197,7 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "Have some fun at a amusement park",
+      label: "Have Fun at an Amusement Park",
       id: CategoryEnum.AMUSEMENT_PARK,
       ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY, AgeRangeEnum.FORTY_ONE_TO_FIFTY],
       stageOfLife: [
@@ -208,7 +208,7 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "Go to water park",
+      label: "Cool Off at a Water Park",
       id: CategoryEnum.WATER_PARK,
       ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY, AgeRangeEnum.FORTY_ONE_TO_FIFTY],
       stageOfLife: [
@@ -219,7 +219,7 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "Visit Shopping Mall",
+      label: "Go Shopping at a Mall",
       id: CategoryEnum.SHOPPING_MALL,
       ageGroup: [
         AgeRangeEnum.EIGHTEEN_TO_THIRTY,
@@ -237,7 +237,7 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "Restaurant",
+      label: "Dine at a Restaurant",
       id: CategoryEnum.RESTAURANTS,
       ageGroup: [
         AgeRangeEnum.EIGHTEEN_TO_THIRTY,
@@ -255,14 +255,14 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "School and Colleges",
+      label: "Visit a School or College",
       id: CategoryEnum.SCHOOL_COLLEGES,
       ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY],
       stageOfLife: [StageOfLifeEnum.MARRIED_WITH_KIDS],
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "Go to a Saloon",
+      label: "Pamper Yourself at a Salon (Female)",
       id: CategoryEnum.HEALTH_AND_BEAUTY_SERVICE_FEMALE,
       ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY],
       stageOfLife: [
@@ -273,7 +273,7 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE],
     },
     {
-      label: "Go to a Saloon",
+      label: "Get Groomed at a Salon (Male)",
       id: CategoryEnum.HEALTH_AND_BEAUTY_SERVICE_MALE,
       ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY],
       stageOfLife: [
@@ -284,7 +284,7 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.MALE],
     },
     {
-      label: "Go get some groceries",
+      label: "Stock Up at the Grocery Store",
       id: CategoryEnum.GROCERY_STORE,
       ageGroup: [
         AgeRangeEnum.EIGHTEEN_TO_THIRTY,
@@ -302,7 +302,7 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "Visit nearby landmarks",
+      label: "Check Out Local Landmarks",
       id: CategoryEnum.LANDMARK_AND_OUTDOORS,
       ageGroup: [
         AgeRangeEnum.EIGHTEEN_TO_THIRTY,
@@ -322,7 +322,7 @@ const activityCategorizationSchema = {
   ],
   [TimeSlots.EVENING]: [
     {
-      label: "Restaurant",
+      label: "Dine at a Restaurant",
       id: CategoryEnum.RESTAURANTS,
       ageGroup: [
         AgeRangeEnum.EIGHTEEN_TO_THIRTY,
@@ -340,7 +340,7 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "Night Market",
+      label: "Stroll Through a Night Market",
       id: CategoryEnum.NIGHT_MARKET,
       ageGroup: [
         AgeRangeEnum.EIGHTEEN_TO_THIRTY,
@@ -358,21 +358,21 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "Bar",
+      label: "Unwind at a Bar",
       id: CategoryEnum.BAR,
       ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY, AgeRangeEnum.FORTY_ONE_TO_FIFTY],
       stageOfLife: [StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS, StageOfLifeEnum.MARRIED_OR_PARTNERED],
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "Night Club",
+      label: "Dance the Night Away at a Club",
       id: CategoryEnum.CLUBS,
       ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY, AgeRangeEnum.FORTY_ONE_TO_FIFTY],
       stageOfLife: [StageOfLifeEnum.SINGLE_AND_EXPLORING_OPTIONS, StageOfLifeEnum.MARRIED_OR_PARTNERED],
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "Movie Theater",
+      label: "Watch a Movie",
       id: CategoryEnum.MOVIE_THEATER,
       ageGroup: [
         AgeRangeEnum.EIGHTEEN_TO_THIRTY,
@@ -390,7 +390,7 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "Go for a evening walks",
+      label: "Take a Relaxing Evening Walk",
       id: CategoryEnum.PARK,
       ageGroup: [
         AgeRangeEnum.EIGHTEEN_TO_THIRTY,
