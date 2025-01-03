@@ -262,7 +262,7 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE, GenderEnum.MALE],
     },
     {
-      label: "Pamper Yourself at a Salon (Female)",
+      label: "Pamper Yourself at a Salon",
       id: CategoryEnum.HEALTH_AND_BEAUTY_SERVICE_FEMALE,
       ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY],
       stageOfLife: [
@@ -273,7 +273,7 @@ const activityCategorizationSchema = {
       genderPreferences: [GenderEnum.FEMALE],
     },
     {
-      label: "Get Groomed at a Salon (Male)",
+      label: "Get Groomed at a Salon",
       id: CategoryEnum.HEALTH_AND_BEAUTY_SERVICE_MALE,
       ageGroup: [AgeRangeEnum.EIGHTEEN_TO_THIRTY, AgeRangeEnum.THIRTY_ONE_TO_FORTY],
       stageOfLife: [
